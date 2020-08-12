@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="Este é o meu blog pessoal, onde você encontra os meus estudos escritos durante a minha jornada como desenvolvedor de software."><meta name="author" content="João Lucas Campos Gonçalves"><meta name="keywords" content="Web, Development, Javascript, Software"><title> SOA - Service Oriented Architecture | JoaoLucasGtr </title><link rel="stylesheet" href="/css/vs2015.css"><link rel="dns-prefetch" href="https://fonts.googleapis.com/"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css" type="text/css" media="all"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"> </script><meta name="generator" content="Hexo 4.2.1"></head><body class="bg-light-gray"><nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow"><div class="container"><a class="navbar-brand" href="/">@joaolucasgtr</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNavAltMarkup"><div class="navbar-nav ml-auto">     <a class="nav-item nav-link" href="/">Home</a><a class="nav-item nav-link" href="/archives">Archives</a><a class="nav-item nav-link" href="/about">About</a><button class="btn btn-outline-primary" data-toggle="modal" data-target="#search-modal"><i class="fa fa-search" id="search-enabled"></i></button></div></div></div></nav><div class="container mt-5"><div class="row"><div class="col-md-8 mb-4"><article><div class="card-body bg-white shadow-sm"><header><h2>SOA - Service Oriented Architecture</h2><div class="mb-3"><span class="text-muted">Mar 20, 2017 / 4 min. read</span><span class="text-muted float-right"><i>Updated at: 11/08/2020</i></span></div></header><div class="blog-post-body"><p>O termo <strong>SOA</strong> representa as iniciais de <strong>Service Oriented Architecture</strong> (<em>arquitetura orientada a serviços</em>), e representa um estilo arquitetural onde recursos da aplicação são disponibilizados por meio de serviços, através de um protocolo de comunicação pela rede.</p>
+<h2 id="Servicos"><a href="#Servicos" class="headerlink" title="Serviços"></a>Serviços</h2><p><strong>Serviço</strong> é uma unidade de funcionalidade que pode ser acessado de forma remota ou local, e de forma independente. Um serviço possui quatro propriedades:</p>
+<ol>
+<li>Representa uma atividade de negócio com uma resposta definida</li>
+<li>É <em>self-contained</em> (independente)</li>
+<li>É uma caixa preta para seus consumidores, já que não possuem conhecimento de como o serviço funciona por dentro</li>
+<li>Pode consistir de outros serviços de camadas inferiores</li>
+</ol>
+<p>Arquitetura orientada a serviços permite a integração entre sistemas distribuídos, mantidos e publicados de forma completamente separada. Está relacionada à ideia de API (<em>application programming interface</em>), um contrato de comunicação bem definido, que visa simplificar a integração entre <em>softwares</em>.</p>
+<h2 id="Conceitos"><a href="#Conceitos" class="headerlink" title="Conceitos"></a>Conceitos</h2><p>Um manifesto foi publicado em outubro de 2009, onde são descritos seis valores listados a seguir:</p>
+<ul>
+<li><strong>Valor de negócio</strong> tem mais importância do que à estratégia técnica;</li>
+<li><strong>Metas estratégicas</strong> têm mais importância que benefícios específicos do projeto;</li>
+<li><strong>Interoperabilidade intrínseca</strong> tem mais importância do que a integração personalizada;</li>
+<li><strong>Serviços compartilhados</strong> têm mais importância que as implementações específicas;</li>
+<li><strong>Flexibilidade</strong> tem mais importância que otimização;</li>
+<li><strong>Refinamento evolutivo</strong> tem mais importância do que a busca pela perfeição inicial.</li>
+</ul>
+<h2 id="Principios"><a href="#Principios" class="headerlink" title="Princípios"></a>Princípios</h2><p>Apesar de não existirem padrões industriais que definem exatamente a composição de arquitetura orientada a  serviços, alguns princípios foram criados. </p>
+<p>Os mais comuns são:</p>
+<p><strong>Autonomia de referência de serviços</strong></p>
+<p>O relacionamento entre serviços é minimizado até o nível de que só conhecem a existência uns dos outros.</p>
+<p><strong>Transparẽncia de localização de serviços</strong></p>
+<p>Serviços podem ser chamados de qualquer local dentro da rede que estão contidos.</p>
+<p><strong>Abstração de serviços</strong></p>
+<p>Serviços agem como uma caixa preta, ou seja, a lógica interna fica escondida dos consumidores.</p>
+<p><strong>Autonomia de serviços</strong></p>
+<p>Serviços são independentes e controlam toda a funcionalidade que encapsulam.</p>
+<p><strong>Falta de estado de serviços (Stateless)</strong></p>
+<p>Serviços não armazenam estado, somente retornam o valor requisitado ou lançam alguma exceção, minimizando o consumo de recursos.</p>
+<p><strong>Granularidade de serviços</strong></p>
+<p>Este princípio diz que serviços devem possuir um tamanho adequado. Sua funcionalidade deve ser relevante.</p>
+<p><strong>Normalidade de serviços</strong></p>
+<p>Serviços são normalizados (como tabelas em banco de dados) para minimizar a possibilidade de redundância.</p>
+<p><strong>Reusabilidade de serviços</strong></p>
+<p>A lógica é dividida em vários serviços, para promover o reuso do código.</p>
+<p>…entre outros.</p>
+<h2 id="Implementacoes"><a href="#Implementacoes" class="headerlink" title="Implementações"></a>Implementações</h2><p>A arquitetura em questão é implementada através de web services ou microserviços. Estes representam os blocos de funcionalidades acessíveis através de protocolos de comunicação de rede, que são independentes de plataforma ou linguagem de programação. </p>
+<p>Sendo assim, sistemas podem operar de forma independente e dinâmica, utilizando diversas tecnologias como:</p>
+<ul>
+<li>Web services baseados em WSDL e SOAP</li>
+<li>Messaging, com ActiveMQ, JMS, RabbitMQ</li>
+<li>REST over HTTP</li>
+<li>WCF (Windows Communication Foundation)</li>
+<li>gRPC</li>
+</ul>
+<h2 id="Conclusao"><a href="#Conclusao" class="headerlink" title="Conclusão"></a>Conclusão</h2><p>Como vimos, a arquitetura orientada a serviços reforça vários conceitos de boas práticas, como reuso, modularidade, separação de responsabilidade, entre outros. Além disso, fatores como escalabilidade, flexibilidade e alta disponibilidade a transformam numa opção muito atrativa para o ambiente corporativo, devido à simplicidade na adoção e manutenção por parte das equipes de desenvolvimento. </p>
+<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referências"></a>Referências</h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Service-oriented_architecture" target="_blank" rel="noopener"><em>Service-oriented architecture on Wikipedia</em></a></li>
+<li><a href="http://soa-manifesto.org/" target="_blank" rel="noopener"><em>SOA Manifesto</em></a></li>
+</ul>
+</div><hr><h4>Other posts<span class="mr-2">:</span></h4><div class="row mb-5"><div class="col-6"><p>Previous</p><a href="/2017/06/15/Introducao-ao-Git/"><i class="fa fa-chevron-left mr-2"></i><span>Introdução ao Git</span></a></div><div class="col-6 text-right"><p>Next</p><a href="/2017/03/20/O-padrao-DAO/"><span>O padrão DAO</span><i class="fa fa-chevron-right ml-2"></i></a></div></div><hr><h4>Leave a comment<span class="mr-2">:</span></h4><div id="disqus_thread"></div><script>var disqus_config = function () {
+  this.page.url = 'https://joaolucasgtr.github.io/2017/03/20/Arquitetura-SOA/';
+  this.page.identifier = '2017/03/20/Arquitetura-SOA/';
+  this.page.title = 'SOA - Service Oriented Architecture';
+};
+
+</script><script>(function() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://joaolucasgtr.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript></div></article></div><div class="col-md-4"><aside><section class="text-center p-4 shadow mb-4 bg-white social-card"><a href="/about"><img class="social-avatar mt-5 mb-3 rounded-circle" src="https://www.gravatar.com/avatar/9acc26af4be808453f27f200036c6315?s=160"></a><h4>@joaolucasgtr</h4><p class="text-justify mt-3">Hi, my name is João Lucas and I'm a passionate fullstack developer.</p><hr><p>Find me:</p><div class="row"><div class="col-12"><a class="btn btn-light rounded-circle" href="mailto:joaolucasgtr@gmail.com" target="_blank" title="email"><i class="fa fa-lg fa-envelope text-primary"></i></a><a class="btn btn-light rounded-circle ml-2" href="https://github.com/joaolucasgtr" target="_blank" title="github"><i class="fa fa-lg fa-github text-primary"></i></a><a class="btn btn-light rounded-circle ml-2" href="https://gitlab.com/joaolucasgtr" target="_blank" title="gitlab"><i class="fa fa-lg fa-gitlab text-primary"></i></a><a class="btn btn-light rounded-circle ml-2" href="https://br.linkedin.com/in/joaolucasgtr" target="_blank" title="linkedin"><i class="fa fa-lg fa-linkedin text-primary"></i></a><a class="btn btn-light rounded-circle ml-2" href="https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ" target="_blank" title="youtube"><i class="fa fa-lg fa-youtube text-primary"></i></a></div></div></section><div class="bg-white shadow mb-4 p-4"><h4>Recent posts</h4><ul class="circle-list -list"><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2018/01/26/Checklist-Ambiente/">Checklist Ambiente</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/09/03/Por-que-utilizar-Linux-na-sua-empresa/">Por que utilizar Linux na sua empresa?</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/06/15/Introducao-ao-Git/">Introdução ao Git</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/03/20/Arquitetura-SOA/">SOA - Service Oriented Architecture</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/03/20/O-padrao-DAO/">O padrão DAO</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/02/20/SOLID/">SOLID (com exemplos)</a></li></ul></div><div class="bg-white shadow mb-4 p-4 text-center"><h4>Categories</h4><a class="circle-list -link" href="/categories/architecture/">architecture</a></div><div class="bg-white shadow mb-4 p-4 text-center"><h4>Tags</h4><a class="circle-list -link" href="/tags/web/" rel="tag">web</a></div></aside></div></div></div><br><footer class="mt-4 py-4 text-white bg-dark"><div class="container"><div class="col-12 text-center"><a href="https://hexo.io/" target="_blank" rel="noopener">Powered by Hexo</a><span class="ml-2">| Copyright ©<span class="ml-1">joaolucasgtr</span><span class="ml-1">2020</span></span></div></div></footer><div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Search</h5><button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button></div><div class="modal-body"><div class="row"><div class="col-md-12"><input class="form-control" onkeyup="search(this)"></div></div><div class="row mt-3"><div class="col-md-12" id="search-results"></div></div></div></div></div></div><script id="dsq-count-scr" src="https://undefined.disqus.com/count.js"></script><script src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script><script src="/javascripts/app.js"></script></body></html>

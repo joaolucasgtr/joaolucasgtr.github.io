@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="Este é o meu blog pessoal, onde você encontra os meus estudos escritos durante a minha jornada como desenvolvedor de software."><meta name="author" content="João Lucas Campos Gonçalves"><meta name="keywords" content="Web, Development, Javascript, Software"><title> Introdução ao Git | JoaoLucasGtr </title><link rel="stylesheet" href="/css/vs2015.css"><link rel="dns-prefetch" href="https://fonts.googleapis.com/"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css" type="text/css" media="all"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"> </script><meta name="generator" content="Hexo 4.2.1"></head><body class="bg-light-gray"><nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow"><div class="container"><a class="navbar-brand" href="/">@joaolucasgtr</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNavAltMarkup"><div class="navbar-nav ml-auto">     <a class="nav-item nav-link" href="/">Home</a><a class="nav-item nav-link" href="/archives">Archives</a><a class="nav-item nav-link" href="/about">About</a><button class="btn btn-outline-primary" data-toggle="modal" data-target="#search-modal"><i class="fa fa-search" id="search-enabled"></i></button></div></div></div></nav><div class="container mt-5"><div class="row"><div class="col-md-8 mb-4"><article><div class="card-body bg-white shadow-sm"><header><h2>Introdução ao Git</h2><div class="mb-3"><span class="text-muted">Jun 15, 2017 / 4 min. read</span><span class="text-muted float-right"><i>Updated at: 11/08/2020</i></span></div></header><div class="blog-post-body"><p>Como a grande maioria das IDEs e Editores de código já possuem ferramentas gráficas<br>para gerenciar o versionamento de código, você pode acabar se acomodando à esses<br>recursos simplificados e não se preocupar em aprender outras maneiras de fazê-lo.</p>
+<p>Pode ser que você se veja numa situação onde a sua ferramenta favorita não<br>esteja disponível (<em>como numa prova, por exemplo</em>) ou em outra onde a única ferramenta<br>disponível para manipulação do sistema operacional seja o tão temido <strong>Terminal</strong>.</p>
+<p>Com o domínio absoluto de sistemas operacionais baseados em <strong>Linux</strong> no mercado de<br>servidores*, é bem provável que você  passe por algo parecido um dia, caso não tenha ainda.</p>
+<p>Sendo assim, separei alguns comandos essenciais para o fluxo de trabalho do<br>dia a dia, agrupados por estágio de utilização para facilitar o entendimento.</p>
+<p><em><a href="https://hostingtribunal.com/blog/linux-statistics" target="_blank" rel="noopener">* fonte</a></em></p>
+<h2 id="Configuracao"><a href="#Configuracao" class="headerlink" title="Configuração"></a>Configuração</h2><p>Configurações iniciais:</p>
+<ul>
+<li><code>git config --global user.name &quot;John Doe&quot;</code> - denifir nome global do usuário.</li>
+<li><code>git config --global user.email &quot;john_doe@gitlab.com&quot;</code> - definir email global do usuário.</li>
+</ul>
+<h2 id="Inicio"><a href="#Inicio" class="headerlink" title="Início"></a>Início</h2><p>Duas maneiras simples para iniciar um repositório <strong>git</strong> local em seu HD:</p>
+<ol>
+<li><p><code>git clone [url do repositório]</code> - caso o repositório já exista no servidor<br>remoto e você quer criar um repositório local exatamente igual ao remoto</p>
+</li>
+<li><p><code>git init</code> - caso você queira transformar a pasta atual em um repositório <strong>git</strong>.<br>Após a criação, é necessário adicionar o endereço do servidor remoto para que possa<br>enviar ao servidor as alterações realizadas localmente: <code>git remote add origin [url do repositório]</code>.</p>
+</li>
+</ol>
+<p>Feito isso, você já está pronto para utilizar o versionamento de forma local.</p>
+<h2 id="Branches"><a href="#Branches" class="headerlink" title="Branches"></a>Branches</h2><p>Após o passo anterior, você automaticamente estará trabalhando na <em>branch</em> <strong><em>master</em></strong>,<br>o que pode não ser considerado uma boa prática por parte da equipe. Geralmente você<br>vai querer criar uma <em>branch</em> para desenvolvimento e, depois das implementações concluídas,<br>aplicá-las à <em>branch</em> <strong><em>master</em></strong> como conclusão de suas tarefas.</p>
+<ol>
+<li><p><code>git checkout -b [nome da branch]</code> - cria a <em>branch</em> localmente e já altera<br>a cópia de trabalho atual.</p>
+</li>
+<li><p><code>git push -u</code> - envia as alterações locais para o servidor remoto, já criando<br>uma <em>branch</em> com o mesmo nome da local.</p>
+</li>
+</ol>
+<h2 id="Gerenciamento"><a href="#Gerenciamento" class="headerlink" title="Gerenciamento"></a>Gerenciamento</h2><p>Comandos utilizados com maior frequência, após as fases de configuração anteriores:</p>
+<ol>
+<li><p><code>git pull</code> - sincroniza a versão local com as alterações persistidas no servidor<br>remoto, enviadas desde a última vez que este comando foi executado. O servidor irá<br>bloquear suas alterações caso a sua versão local esteja desatualizada.</p>
+</li>
+<li><p><code>git add [arquivo ou caminho]</code> - coloca o arquivo, ou arquivos no caminho, na fila para<br>o próximo envio de dados ao servidor.</p>
+</li>
+<li><p><code>git status</code> - exibe um relatório de alterações realizadas localmente para conferência.</p>
+</li>
+<li><p><code>git reset HEAD [arquivo]</code> - caso mude de ideia sobre alguma alteração na fila<br>de envios, utilize este comando para descartar as alterações, removendo assim o<br>arquivo da fila de envio.</p>
+</li>
+<li><p><code>git commit -m &quot;[mensagem]&quot;</code> - aplica as alterações que estavam na fila até então<br>no seu servidor local.</p>
+</li>
+<li><p><code>git push</code> - envia para o servidor remoto o pacote de atualizações produzido<br>localmente na sua máquina, desde a última sincronização.</p>
+</li>
+</ol>
+<h2 id="Analisando-alteracoes"><a href="#Analisando-alteracoes" class="headerlink" title="Analisando alterações"></a>Analisando alterações</h2><p>Para consultar o histórico de alterações, utilize o comando:</p>
+<ul>
+<li><p><code>git log</code> - abre uma lista descritiva sobre os <em>commits</em> realizados até então.<br>É possível aplicar diversas opções de filtro, como por exemplo:</p>
+</li>
+<li><p><code>git log --max-count=5</code> - para exibir os últimos cinco</p>
+</li>
+<li><p><code>git log --author=John Doe</code> - para exibir somente <em>commits</em> enviados pelo usuário “John Doe”</p>
+</li>
+<li><p><code>git log --stat</code> - para ver estatísticas de alteração em cada <em>commit</em></p>
+</li>
+<li><p><code>git log --since=2.weeks</code> - <em>commits</em> das últimas duas semanas</p>
+</li>
+</ul>
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p>Para ignorar alterações em arquivos e pastas de maneira automática no repositório,<br>é preciso criar o arquivo <code>.gitignore</code>, que nada mais é que um arquivo de texto,<br>sem extensão, onde você irá definir em cada linha o que deverá ser ignorado pelo versionamento.</p>
+<p>As definições escritas podem ser arquivos, pastas, subpastas, arquivos de uma determinada<br>extensão, etc…</p>
+<h2 id="Referencia-completa"><a href="#Referencia-completa" class="headerlink" title="Referência completa:"></a>Referência completa:</h2><ul>
+<li><a href="https://git-scm.com/docs" target="_blank" rel="noopener"><strong>git</strong></a></li>
+<li><a href="https://git-scm.com/docs/gitignore" target="_blank" rel="noopener"><strong>.gitignore</strong></a></li>
+</ul>
+</div><hr><h4>Other posts<span class="mr-2">:</span></h4><div class="row mb-5"><div class="col-6"><p>Previous</p><a href="/2017/09/03/Por-que-utilizar-Linux-na-sua-empresa/"><i class="fa fa-chevron-left mr-2"></i><span>Por que utilizar Linux na sua empresa?</span></a></div><div class="col-6 text-right"><p>Next</p><a href="/2017/03/20/Arquitetura-SOA/"><span>SOA - Service Oriented Architecture</span><i class="fa fa-chevron-right ml-2"></i></a></div></div><hr><h4>Leave a comment<span class="mr-2">:</span></h4><div id="disqus_thread"></div><script>var disqus_config = function () {
+  this.page.url = 'https://joaolucasgtr.github.io/2017/06/15/Introducao-ao-Git/';
+  this.page.identifier = '2017/06/15/Introducao-ao-Git/';
+  this.page.title = 'Introdução ao Git';
+};
+
+</script><script>(function() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://joaolucasgtr.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript></div></article></div><div class="col-md-4"><aside><section class="text-center p-4 shadow mb-4 bg-white social-card"><a href="/about"><img class="social-avatar mt-5 mb-3 rounded-circle" src="https://www.gravatar.com/avatar/9acc26af4be808453f27f200036c6315?s=160"></a><h4>@joaolucasgtr</h4><p class="text-justify mt-3">Hi, my name is João Lucas and I'm a passionate fullstack developer.</p><hr><p>Find me:</p><div class="row"><div class="col-12"><a class="btn btn-light rounded-circle" href="mailto:joaolucasgtr@gmail.com" target="_blank" title="email"><i class="fa fa-lg fa-envelope text-primary"></i></a><a class="btn btn-light rounded-circle ml-2" href="https://github.com/joaolucasgtr" target="_blank" title="github"><i class="fa fa-lg fa-github text-primary"></i></a><a class="btn btn-light rounded-circle ml-2" href="https://gitlab.com/joaolucasgtr" target="_blank" title="gitlab"><i class="fa fa-lg fa-gitlab text-primary"></i></a><a class="btn btn-light rounded-circle ml-2" href="https://br.linkedin.com/in/joaolucasgtr" target="_blank" title="linkedin"><i class="fa fa-lg fa-linkedin text-primary"></i></a><a class="btn btn-light rounded-circle ml-2" href="https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ" target="_blank" title="youtube"><i class="fa fa-lg fa-youtube text-primary"></i></a></div></div></section><div class="bg-white shadow mb-4 p-4"><h4>Recent posts</h4><ul class="circle-list -list"><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2018/01/26/Checklist-Ambiente/">Checklist Ambiente</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/09/03/Por-que-utilizar-Linux-na-sua-empresa/">Por que utilizar Linux na sua empresa?</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/06/15/Introducao-ao-Git/">Introdução ao Git</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/03/20/Arquitetura-SOA/">SOA - Service Oriented Architecture</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/03/20/O-padrao-DAO/">O padrão DAO</a></li><li class="circle-list -list-item"><a class="circle-list -list-link" href="/2017/02/20/SOLID/">SOLID (com exemplos)</a></li></ul></div><div class="bg-white shadow mb-4 p-4 text-center"><h4>Categories</h4><a class="circle-list -link" href="/categories/fundamentals/">fundamentals</a></div><div class="bg-white shadow mb-4 p-4 text-center"><h4>Tags</h4><a class="circle-list -link" href="/tags/git/" rel="tag">git</a></div></aside></div></div></div><br><footer class="mt-4 py-4 text-white bg-dark"><div class="container"><div class="col-12 text-center"><a href="https://hexo.io/" target="_blank" rel="noopener">Powered by Hexo</a><span class="ml-2">| Copyright ©<span class="ml-1">joaolucasgtr</span><span class="ml-1">2020</span></span></div></div></footer><div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Search</h5><button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button></div><div class="modal-body"><div class="row"><div class="col-md-12"><input class="form-control" onkeyup="search(this)"></div></div><div class="row mt-3"><div class="col-md-12" id="search-results"></div></div></div></div></div></div><script id="dsq-count-scr" src="https://undefined.disqus.com/count.js"></script><script src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script><script src="/javascripts/app.js"></script></body></html>

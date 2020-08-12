@@ -1,0 +1,34 @@
+# Metas
+name: '@joaolucasgtr'
+description: Hi, my name is João Lucas and I'm a passionate fullstack developer.  
+
+# Main menu navigation
+menu:
+  home: /
+  archives: /archives
+  about: /about  
+
+Gravatar: joaolucasgtr@gmail.com
+RSS: /atom.xml
+
+# Social
+email: joaolucasgtr@gmail.com
+github: https://github.com/joaolucasgtr
+gitlab: https://gitlab.com/joaolucasgtr
+linkedin: https://br.linkedin.com/in/joaolucasgtr
+youtube: https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ
+twitter:
+facebook:  
+
+# Comment
+disqus_enabled: true
+disqus_shortname: joaolucasgtr
+
+# Analytics
+google_analytics:
+google_adsense: 
+
+# Copyright Infomation
+copyright:
+  since: 2019
+  name: joaolucasgtr
