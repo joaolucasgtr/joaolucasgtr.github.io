@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>semver on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/semver/</link>
+        <description>Recent content in semver on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Wed, 04 May 2016 13:49:11 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/semver/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Introdução ao versionamento semântico</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/05/04/introdu%C3%A7%C3%A3o-ao-versionamento-sem%C3%A2ntico/</link>
+        <pubDate>Wed, 04 May 2016 13:49:11 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/05/04/introdu%C3%A7%C3%A3o-ao-versionamento-sem%C3%A2ntico/</guid>
+        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://semver.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;SemVer.org 2.0.0&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;sumário&#34;&gt;Sumário&lt;/h3&gt;
+&lt;p&gt;Dado um número de versão &lt;strong&gt;[MAJOR].[MINOR].[PATCH]&lt;/strong&gt;, incremente a:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;versão Maior (&lt;strong&gt;MAJOR&lt;/strong&gt;): quando fizer mudanças incompatíveis na &lt;strong&gt;API&lt;/strong&gt;,&lt;/li&gt;
+&lt;li&gt;versão Menor (&lt;strong&gt;MINOR&lt;/strong&gt;): quando adicionar funcionalidades mantendo compatibilidade, e&lt;/li&gt;
+&lt;li&gt;versão de Correção (&lt;strong&gt;PATCH&lt;/strong&gt;): quando corrigir falhas mantendo compatibilidade.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;especificação-semver&#34;&gt;Especificação (SemVer)&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;palavras-chave definidas &lt;a class=&#34;link&#34; href=&#34;#Palavras-chave-para-utilizacao-em-RFC%e2%80%99s-para-indicar-niveis-de-requisitos&#34; &gt;aqui&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(&amp;hellip;)&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Um número de versão normal &lt;strong&gt;DEVE&lt;/strong&gt; ter o formato de X.Y.Z, onde X, Y, e Z são inteiros não negativos, e &lt;strong&gt;NÃO DEVE&lt;/strong&gt; conter zeros à esquerda. X é a versão Maior, Y é a versão Menor, e Z é a versão de Correção. Cada elemento &lt;strong&gt;DEVE&lt;/strong&gt; aumentar numericamente. Por exemplo: 1.9.0 -&amp;gt; 1.10.0 -&amp;gt; 1.11.0.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uma vez que um pacote versionado foi lançado (&lt;em&gt;released&lt;/em&gt;), o conteúdo desta versão &lt;strong&gt;NÃO DEVE&lt;/strong&gt; ser modificado. Qualquer modificação &lt;strong&gt;DEVE&lt;/strong&gt; ser lançado como uma nova versão.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Versão de Correção Z (x.y.&lt;strong&gt;Z&lt;/strong&gt; | x &amp;gt; 0) &lt;strong&gt;DEVE&lt;/strong&gt; ser incrementado apenas se mantiver compatibilidade e introduzir correção de &lt;em&gt;bugs&lt;/em&gt;. Uma correção de &lt;em&gt;bug&lt;/em&gt; é definida como uma mudança interna que corrige um comportamento incorreto.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Versão Menor Y (x.&lt;strong&gt;Y&lt;/strong&gt;.z | x &amp;gt; 0) &lt;strong&gt;DEVE&lt;/strong&gt; ser incrementada se uma funcionalidade nova e compatível for introduzida na API pública. &lt;strong&gt;DEVE&lt;/strong&gt; ser incrementada se qualquer funcionalidade da API pública for definida como descontinuada. &lt;strong&gt;PODE&lt;/strong&gt; ser incrementada se uma nova funcionalidade ou melhoria substancial for introduzida dentro do código privado. &lt;strong&gt;PODE&lt;/strong&gt; incluir mudanças a nível de correção. A versão de Correção deve ser redefinida para 0(zero) quando a versão Menor for incrementada.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Versão Maior X (&lt;strong&gt;X&lt;/strong&gt;.y.z | X &amp;gt; 0) &lt;strong&gt;DEVE&lt;/strong&gt; ser incrementada se forem introduzidas mudanças incompatíveis na API pública. &lt;strong&gt;PODE&lt;/strong&gt; incluir alterações a nível de versão Menor e de versão de Correção. Versão de Correção e Versão Menor devem ser redefinidas para 0(zero) quando a versão Maior for incrementada.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;por-que-usar-versionamento-semântico&#34;&gt;Por que usar Versionamento Semântico?&lt;/h3&gt;
+&lt;p&gt;Sem a aderência a algum tipo de especificação formal, os números de versão são essencialmente inúteis para gerenciamento de dependências.&lt;/p&gt;
+&lt;p&gt;Dando um nome e definições claras às ideias acima, fica fácil comunicar suas intenções aos usuários de seu software.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Considere uma biblioteca chamada &lt;strong&gt;CaminhaoBombeiros&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;Ela requer um pacote versionado dinamicamente chamado &lt;strong&gt;Escada&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;Quando &lt;strong&gt;CaminhaoBombeiros&lt;/strong&gt; foi criado, &lt;strong&gt;Escada&lt;/strong&gt; estava na versão 3.1.0;&lt;/li&gt;
+&lt;li&gt;Como &lt;strong&gt;CaminhaoBombeiros&lt;/strong&gt; utiliza algumas funcionalidades que foram inicialmente introduzidas na versão 3.1.0, você pode especificar, com segurança, a dependência da &lt;strong&gt;Escada&lt;/strong&gt; como maior ou igual a 3.1.0 porém menor que 4.0.0;&lt;/li&gt;
+&lt;li&gt;Agora, quando &lt;strong&gt;Escada&lt;/strong&gt; versão 3.1.1 e 3.2.0 estiverem disponíveis, você poderá lançá-los ao seu sistema de gerenciamento de pacote e saberá que eles serão compatíveis com os softwares dependentes existentes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Como um desenvolvedor responsável você irá querer certificar-se que qualquer atualização no pacote funcionará como anunciado. O que você pode fazer é deixar o
+&lt;em&gt;Versionamento Semântico&lt;/em&gt; lhe fornecer uma maneira sensata de lançar e atualizar pacotes sem precisar atualizar para novas versões de pacotes dependentes, salvando-lhe tempo e aborrecimento.&lt;/p&gt;
+&lt;h3 id=&#34;faq&#34;&gt;FAQ&lt;/h3&gt;
+&lt;p&gt;Consultas, perguntas e respostas sobre o Versionamento Semântico.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://semver.org/#faq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;FAQ&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;sobre&#34;&gt;Sobre&lt;/h3&gt;
+&lt;p&gt;A Especificação da Semântica de Versionamento é autoria de &lt;a class=&#34;link&#34; href=&#34;http://tom.preston-werner.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Tom Preston-Werner&lt;/strong&gt;&lt;/a&gt;, criador do &lt;strong&gt;Gravatars&lt;/strong&gt; e co-fundador do &lt;strong&gt;GitHub&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;palavras-chave-para-utilização-em-rfcs-para-indicar-níveis-de-requisitos&#34;&gt;Palavras chave para utilização em RFC&amp;rsquo;s para indicar níveis de requisitos&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Request_for_Comments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;RFCs - Request For Comments&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DEVE:&lt;/strong&gt; Esta palavra, ou os termos &lt;strong&gt;OBRIGATÓRIO&lt;/strong&gt; e &lt;strong&gt;DEVERÁ&lt;/strong&gt;, significam que a definição é um requisito absoluto da especificação;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;NÃO DEVE:&lt;/strong&gt; Esta frase, ou os termos &lt;strong&gt;NÃO DEVERÁ&lt;/strong&gt;, significam que a definição é um proibição absoluta da especificação;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PODEM:&lt;/strong&gt; Esta palavra, ou o adjetivo &lt;strong&gt;RECOMENDADO&lt;/strong&gt;, significam que podem existir motivos válidos para ignorar um item em particular, mas as implicações completas devem ser entendidas e cuidadosamente pesadas antes de escolher seguir um curso diferente;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;NÃO PODEM:&lt;/strong&gt; Esta frase, ou a frase &lt;strong&gt;NÃO RECOMENDADO&lt;/strong&gt;, significam que podem existir motivos válidos onde o comportamento particular é aceitável ou até útil, mas as implicações completas devem ser entendidas e cuidadosamente pesadas antes de implementar um comportamento descrito com este rótulo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

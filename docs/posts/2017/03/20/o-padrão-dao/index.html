@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='O padrão DAO (Data access object) fornece uma interface abstrata de comunicação com o banco de dados, ou qualquer outro mecanismo de persistẽncia de dados. Mapeando todas as chamadas da aplicação para a camada de persistência, classes DAO proverão operações de dados específicas sem expor o banco de dados em si. Este isolamento, respeita o princípio de responsabilidade única.
+Vantagens A principal vantagem na utilização do padrão é a clara separação entre partes do código que não deveriam conhecer uma a outra.'><title>O padrão DAO</title>
+
+<link rel='canonical' href='https://joaolucasgtr.github.io/posts/2017/03/20/o-padr%C3%A3o-dao/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='O padrão DAO'>
+<meta property='og:description' content='O padrão DAO (Data access object) fornece uma interface abstrata de comunicação com o banco de dados, ou qualquer outro mecanismo de persistẽncia de dados. Mapeando todas as chamadas da aplicação para a camada de persistência, classes DAO proverão operações de dados específicas sem expor o banco de dados em si. Este isolamento, respeita o princípio de responsabilidade única.
+Vantagens A principal vantagem na utilização do padrão é a clara separação entre partes do código que não deveriam conhecer uma a outra.'>
+<meta property='og:url' content='https://joaolucasgtr.github.io/posts/2017/03/20/o-padr%C3%A3o-dao/'>
+<meta property='og:site_name' content='@joaolucasgtr'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='dao' /><meta property='article:tag' content='design patterns' /><meta property='article:published_time' content='2017-03-20T20:18:07&#43;00:00'/><meta property='article:modified_time' content='2017-03-20T20:18:07&#43;00:00'/>
+<meta name="twitter:site" content="@_joaolucasgtr">
+    <meta name="twitter:creator" content="@_joaolucasgtr"><meta name="twitter:title" content="O padrão DAO">
+<meta name="twitter:description" content="O padrão DAO (Data access object) fornece uma interface abstrata de comunicação com o banco de dados, ou qualquer outro mecanismo de persistẽncia de dados. Mapeando todas as chamadas da aplicação para a camada de persistência, classes DAO proverão operações de dados específicas sem expor o banco de dados em si. Este isolamento, respeita o princípio de responsabilidade única.
+Vantagens A principal vantagem na utilização do padrão é a clara separação entre partes do código que não deveriam conhecer uma a outra.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Alternar Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://avatars.githubusercontent.com/u/13789716?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">@joaolucasgtr</a></h1>
+            <h2 class="site-description">Hi, my name is João Lucas and I&#39;m a passionate fullstack developer.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:joaolucasgtr@gmail.com'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://gitlab.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitLab"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://br.linkedin.com/in/joaolucasgtr'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/_joaolucasgtr'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ'
+                        target="_blank"
+                        title="Youtube"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="4" />
+  <path d="M10 9l5 3l-5 3z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/sobre/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Sobre</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Arquivo</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Busca</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo Escuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/engineering/" >
+                engineering
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2017/03/20/o-padr%C3%A3o-dao/">O padrão DAO</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 20, 2017</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minutos de leitura
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>O padrão <strong>DAO</strong> (<em>Data access object</em>) fornece uma interface abstrata de comunicação com o banco de dados, ou qualquer outro mecanismo de persistẽncia de dados. Mapeando todas as chamadas da aplicação para a camada de persistência, classes <strong>DAO</strong> proverão operações de dados específicas sem expor o banco de dados em si. Este isolamento, respeita o princípio de responsabilidade única.</p>
+<h2 id="vantagens">Vantagens</h2>
+<p>A principal vantagem na utilização do padrão é a clara separação entre partes do código que não deveriam conhecer uma a outra. Todos os detalhes de implementação da comunicação entre a aplicação e o banco de dados ficam encapsuladas de forma que as demais partes do código não possuam acesso.</p>
+<p>Sendo assim, alterações na persistẽncia de uma entidade pode ser aplicadas em apenas um lugar do código.</p>
+<p>Ao implementar o DAO como um intermediário entre a aplicação e o mecanismo de armazenamento, ganhamos a possibilidade de alterar completamente a tecnologia de persistência sem requerer muito esforço na camada de código da aplicação.</p>
+<h2 id="desvantagens">Desvantagens</h2>
+<p>Possíveis desvantagens ao implementar o padrão são:</p>
+<ul>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Leaky_abstraction"  target="_blank" rel="noopener"
+    >Leaky Abstractions</a> - Abstrações imperfeitas geradas devido ao aumento na complexidade das regras de negócio;</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Duplicate_code"  target="_blank" rel="noopener"
+    >Código duplicado</a> - Ao duplicar operações de CRUD em classes distintas</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Abstraction_inversion"  target="_blank" rel="noopener"
+    >Inversão de abstração</a> - Ao precisar reescrever funções já implementadas porém não expostas pelas interfaces para utilização em alto nível.</li>
+</ul>
+<h2 id="como-funciona">Como funciona</h2>
+<p>A implementação “clássica” do padrão DAO, exige que tenhamos uma interface com as operações de banco de dados, a classe implementadora da interface e uma classe de domínio que represente o modelo (ou entidade do banco de dados).</p>
+<p>No exemplo, vamos usar o padrão para demonstrar operações com a entidade <strong>Customer</strong>.</p>
+<p><strong>Modelo:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="kd">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">CustomerNumber</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">String</span> <span class="n">streetAddress</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">String</span> <span class="n">city</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="cm">/* getters e setters... */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Interface de operações:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CustomerDAO</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">insertCustomer</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">deleteCustomer</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">Customer</span> <span class="nf">findCustomer</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">updateCustomer</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">Collection</span> <span class="nf">selectCustomersTO</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Classe implementadora:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/* Classe que se comunica com o banco de dados Postgres: */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomerPgDAO</span> <span class="kd">implements</span> <span class="n">CustomerDAO</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">CloudscapeCustomerDAO</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* inicialização... */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">insertCustomer</span><span class="o">(...)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* lógica de inserção... */</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* retorna o novo id criado ou -1 em caso de erro. */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">deleteCustomer</span><span class="o">(...)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* lógica de deleção... */</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* retorna um boolean dizendo se a operação foi bem sucedida. */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">Customer</span> <span class="nf">findCustomer</span><span class="o">(...)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* lógica para consulta de um registro da entidade Customer... */</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* retorna uma instância da classe Customer ou nulo. */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">updateCustomer</span><span class="o">(...)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* lógica para atualizar um registro... */</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* retorna um boolean dizendo se a operação foi bem sucedida. */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">Collection</span> <span class="nf">selectCustomersTO</span><span class="o">(...)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* lógica para listar os registros de Customer... */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Código para consumir este DAO</strong></p>
+<p>Em outras partes da aplicação, onde você irá precisar interagir com as classes do padrão, você irá precisar de algo como:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* criando instância da classe: */</span>
+</span></span><span class="line"><span class="cl"><span class="n">CustomerDAO</span> <span class="n">dao</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">CustomerPgDAO</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* criando um novo Customer: */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">newCustomer</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">insertCustomer</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* procurando algum Customer específico: */</span>
+</span></span><span class="line"><span class="cl"><span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">findCustomer</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* modificando os valores do Customer obtido: */</span>
+</span></span><span class="line"><span class="cl"><span class="n">customer</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl"><span class="n">customer</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* aplicando a persistência através do DAO: */</span>
+</span></span><span class="line"><span class="cl"><span class="n">dao</span><span class="o">.</span><span class="na">updateCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="cm">/* excluir um Customer da persistência: */</span>
+</span></span><span class="line"><span class="cl"><span class="n">dao</span><span class="o">.</span><span class="na">deleteCustomer</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Neste exemplo estamos lidando com persistência no banco de dados <strong>Postgresql</strong>, mas caso seja necessário adicionar suporte a outro banco de dados, basta criar uma nova classe implementadora da interface <strong>CustomerDAO</strong>, como foi feito em <strong>CustomerPgDAO</strong>, porém com a lógica de comunicação compatível com o novo banco de dados, como <strong>MongoDB</strong> por exemplo.</p>
+<p>Do ponto de vista da camada de negócio, não será necessária nenhuma alteração!</p>
+<p>Vale ressaltar também que pode ser utilizado o padrão de projeto <strong>Factory Method</strong> para encapsular a definição e criação de instâncias implementadoras da interface <strong>CustomerDAO</strong>, diminuindo ainda mais o nível de acoplamento no código.</p>
+<h2 id="conclusão">Conclusão</h2>
+<p>Apesar de existirem diversas ferramentas que já fazem o trabalho pesado para o desenvolvedor, é muito válido conhecer o padrão e os problemas que ele se propõe a resolver. Compreender os conceitos por trás das abstrações já existentes pode ser uma forma de aprimorar suas habilidades de programação, fornecendo maior compreensão sobre um problema e sua solução.</p>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Data_access_object"  target="_blank" rel="noopener"
+    >Data Access Object on Wikipedia</a></li>
+<li><a class="link" href="https://www.oracle.com/java/technologies/dataaccessobject.html"  target="_blank" rel="noopener"
+    >Oracle&rsquo;s Core J2EE Patterns</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/dao/">dao</a>
+        
+            <a href="/tags/design-patterns/">design patterns</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Conteúdo relacionado</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2016/12/06/o-padr%C3%A3o-mvc/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O padrão MVC</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2016/12/01/sobre-padr%C3%B5es-de-projeto/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Sobre padrões de projeto</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/02/20/solid-com-exemplos/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SOLID (com exemplos)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/02/15/refatora%C3%A7%C3%A3o/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Refatoração</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/01/08/o-princ%C3%ADpio-kiss/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O princípio KISS</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "joaolucasgtr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2022 @joaolucasgtr
+    </section>
+    
+    <section class="powerby">
+        Criado com <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> desenvolvido por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Índice</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#vantagens">Vantagens</a></li>
+    <li><a href="#desvantagens">Desvantagens</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#conclusão">Conclusão</a></li>
+    <li><a href="#referências">Referências</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>web on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/web/</link>
+        <description>Recent content in web on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Mon, 20 Mar 2017 20:18:07 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>SOA - Service Oriented Architecture</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/03/20/soa-service-oriented-architecture/</link>
+        <pubDate>Mon, 20 Mar 2017 20:18:07 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/03/20/soa-service-oriented-architecture/</guid>
+        <description>&lt;p&gt;O termo &lt;strong&gt;SOA&lt;/strong&gt; representa as iniciais de &lt;strong&gt;Service Oriented Architecture&lt;/strong&gt; (&lt;em&gt;arquitetura orientada a serviços&lt;/em&gt;), e representa um estilo arquitetural onde recursos da aplicação são disponibilizados por meio de serviços, através de um protocolo de comunicação pela rede.&lt;/p&gt;
+&lt;h2 id=&#34;serviços&#34;&gt;Serviços&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Serviço&lt;/strong&gt; é uma unidade de funcionalidade que pode ser acessado de forma remota ou local, e de forma independente. Um serviço possui quatro propriedades:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Representa uma atividade de negócio com uma resposta definida&lt;/li&gt;
+&lt;li&gt;É &lt;em&gt;self-contained&lt;/em&gt; (independente)&lt;/li&gt;
+&lt;li&gt;É uma caixa preta para seus consumidores, já que não possuem conhecimento de como o serviço funciona por dentro&lt;/li&gt;
+&lt;li&gt;Pode consistir de outros serviços de camadas inferiores&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Arquitetura orientada a serviços permite a integração entre sistemas distribuídos, mantidos e publicados de forma completamente separada. Está relacionada à ideia de API (&lt;em&gt;application programming interface&lt;/em&gt;), um contrato de comunicação bem definido, que visa simplificar a integração entre &lt;em&gt;softwares&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;conceitos&#34;&gt;Conceitos&lt;/h2&gt;
+&lt;p&gt;Um manifesto foi publicado em outubro de 2009, onde são descritos seis valores listados a seguir:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Valor de negócio&lt;/strong&gt; tem mais importância do que à estratégia técnica;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Metas estratégicas&lt;/strong&gt; têm mais importância que benefícios específicos do projeto;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interoperabilidade intrínseca&lt;/strong&gt; tem mais importância do que a integração personalizada;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Serviços compartilhados&lt;/strong&gt; têm mais importância que as implementações específicas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibilidade&lt;/strong&gt; tem mais importância que otimização;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Refinamento evolutivo&lt;/strong&gt; tem mais importância do que a busca pela perfeição inicial.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;princípios&#34;&gt;Princípios&lt;/h2&gt;
+&lt;p&gt;Apesar de não existirem padrões industriais que definem exatamente a composição de arquitetura orientada a  serviços, alguns princípios foram criados.&lt;/p&gt;
+&lt;p&gt;Os mais comuns são:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Autonomia de referência de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;O relacionamento entre serviços é minimizado até o nível de que só conhecem a existência uns dos outros.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Transparẽncia de localização de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços podem ser chamados de qualquer local dentro da rede que estão contidos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Abstração de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços agem como uma caixa preta, ou seja, a lógica interna fica escondida dos consumidores.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Autonomia de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços são independentes e controlam toda a funcionalidade que encapsulam.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Falta de estado de serviços (Stateless)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços não armazenam estado, somente retornam o valor requisitado ou lançam alguma exceção, minimizando o consumo de recursos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Granularidade de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Este princípio diz que serviços devem possuir um tamanho adequado. Sua funcionalidade deve ser relevante.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Normalidade de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços são normalizados (como tabelas em banco de dados) para minimizar a possibilidade de redundância.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reusabilidade de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A lógica é dividida em vários serviços, para promover o reuso do código.&lt;/p&gt;
+&lt;p&gt;&amp;hellip;entre outros.&lt;/p&gt;
+&lt;h2 id=&#34;implementações&#34;&gt;Implementações&lt;/h2&gt;
+&lt;p&gt;A arquitetura em questão é implementada através de web services ou microserviços. Estes representam os blocos de funcionalidades acessíveis através de protocolos de comunicação de rede, que são independentes de plataforma ou linguagem de programação.&lt;/p&gt;
+&lt;p&gt;Sendo assim, sistemas podem operar de forma independente e dinâmica, utilizando diversas tecnologias como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Web services baseados em WSDL e SOAP&lt;/li&gt;
+&lt;li&gt;Messaging, com ActiveMQ, JMS, RabbitMQ&lt;/li&gt;
+&lt;li&gt;REST over HTTP&lt;/li&gt;
+&lt;li&gt;WCF (Windows Communication Foundation)&lt;/li&gt;
+&lt;li&gt;gRPC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Como vimos, a arquitetura orientada a serviços reforça vários conceitos de boas práticas, como reuso, modularidade, separação de responsabilidade, entre outros. Além disso, fatores como escalabilidade, flexibilidade e alta disponibilidade a transformam numa opção muito atrativa para o ambiente corporativo, devido à simplicidade na adoção e manutenção por parte das equipes de desenvolvimento.&lt;/p&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Service-oriented_architecture&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;Service-oriented architecture on Wikipedia&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://soa-manifesto.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;SOA Manifesto&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Features essenciais para sites úteis</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/06/21/features-essenciais-para-sites-%C3%BAteis/</link>
+        <pubDate>Tue, 21 Jun 2016 20:35:12 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/06/21/features-essenciais-para-sites-%C3%BAteis/</guid>
+        <description>&lt;p&gt;Este artigo possui um compilado de dicas importantes para você que quer criar um site para seu negócio, ou refazê-lo, de forma a modernizar a imagem da sua empresa.&lt;/p&gt;
+&lt;h2 id=&#34;componentes-vitais&#34;&gt;Componentes vitais&lt;/h2&gt;
+&lt;p&gt;A página inicial é responsável pela primeira impressão, ela deve explicar quem você é, o que faz e o que os visitantes podem fazer no site. Design simples vencerá sobre páginas repletas de componentes.&lt;/p&gt;
+&lt;h2 id=&#34;pontos-de-comunicação&#34;&gt;Pontos de comunicação&lt;/h2&gt;
+&lt;p&gt;Para alguns modelos de negócio, apenas a visita do cliente não significa nada. Então, o negócio deveria conter ao menos um ponto de conversão da visita em valor.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Campo para cadastro de e-mail.&lt;/p&gt;
+&lt;p&gt;E-mails cadastrados indicam clientes em alto potencial, porém seria necessário também um sistema de envio de informações, oportunidades e ofertas.&lt;/p&gt;
+&lt;h2 id=&#34;ações-de-conversão-claras&#34;&gt;Ações de conversão claras&lt;/h2&gt;
+&lt;p&gt;Converter visitantes em clientes é o objetivo. Logo, é necessário oferecer ações limpas e específicas que guiarão o visitante através do site até o local de vendas. Para isso, é importante manter o visitante certo do que está fazendo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplos:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Assinar&lt;/li&gt;
+&lt;li&gt;Ver mais&lt;/li&gt;
+&lt;li&gt;Comprar&lt;/li&gt;
+&lt;li&gt;Compartilhe com seus amigos&lt;/li&gt;
+&lt;li&gt;Download, etc&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;página-sobre&#34;&gt;Página &amp;ldquo;Sobre&amp;rdquo;&lt;/h2&gt;
+&lt;p&gt;A página &amp;ldquo;Sobre&amp;rdquo; é geralmente a página mais visitada do site. Fazê-la mais pessoal e contar alguma história são sugestões. Um jeito efetivo de contar uma história seria explicar como e por quê decidiu iniciar esse tipo de negócio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplos:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Apresentação pessoal: (Olá, meu nome é &amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Apresentar um problema pelo qual já passou: (Quando quis desenvolver meu primeiro site, não tinha ideia de onde começar&amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Identificação com cliente: (Todos nós já passamos por esse problema antes e é extremamente frustrante&amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Descrição da volta por cima: (Então percebi que não precisava ser difícil. Descobri que poderia desenvolver meu site com&amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Explicação do valor ímpar da sua proposta: (&amp;hellip;utilizando métodos que tornam a criação de sites em um processo mais acessível e prazeroso.)&lt;/li&gt;
+&lt;li&gt;Introdução da situação atual do negócio: (Agora, temos uma equipe de 25 colaboradores trabalhando com dúzias de empreendedores, ajudando-os a criar lindos websites)&lt;/li&gt;
+&lt;li&gt;Missão: (Ajudar o máximo de pessoas a tirarem seus sonhos do papel)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;depoimentos&#34;&gt;Depoimentos&lt;/h2&gt;
+&lt;p&gt;De acordo com uma pesquisa da BrightLocal, 88% dos clientes dizem que confiam em depoimentos online tanto quanto em recomendações pessoais. A mesma pesquisa afirma que:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;aproximadamente 9 em cada 10 clientes olharam análises online para tomar decisões de compras nos últimos 12 meses&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;google-analytics&#34;&gt;Google Analytics&lt;/h2&gt;
+&lt;p&gt;A utilização deste serviço ajudará a responder às seguintes perguntas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quantas pessoas visitaram meu site?&lt;/li&gt;
+&lt;li&gt;Quanto tempo gastaram visualizando meu site?&lt;/li&gt;
+&lt;li&gt;Quantos visitantes eram novos?&lt;/li&gt;
+&lt;li&gt;Onde encontraram meu site?&lt;/li&gt;
+&lt;li&gt;Quais páginas são mais visitadas no meu site?&lt;/li&gt;
+&lt;li&gt;Qual a última página visualizada antes de saírem?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;definições-antes-de-iniciar-o-projeto&#34;&gt;Definições antes de iniciar o projeto&lt;/h2&gt;
+&lt;p&gt;Antes de iniciar o projeto, considere os seguintes tópicos.&lt;/p&gt;
+&lt;h3 id=&#34;juntar-informações-vitais-do-seu-business&#34;&gt;Juntar informações vitais do seu Business&lt;/h3&gt;
+&lt;p&gt;Seu webdesigner será muito mais efetivo e eficiente se puder prover as informações vitais sobre o seu negócio no começo do projeto, economizando tempo (&lt;em&gt;dinheiro&lt;/em&gt;) sem a necessidade de revisitar tarefas anteriores para adicionar informações esquecidas.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Definir:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lista de páginas necessárias;&lt;/li&gt;
+&lt;li&gt;Lista de explicações dos serviços e benefícios de cada um, ilustradas com fotos, descrições, preços, missão&amp;hellip;&lt;/li&gt;
+&lt;li&gt;Lista de formas de contato bem localizadas na página;&lt;/li&gt;
+&lt;li&gt;Ordem de prioridade sobre informações no site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;criação-de-logo-de-alta-resolução&#34;&gt;Criação de logo de alta resolução&lt;/h3&gt;
+&lt;p&gt;Definir um logo que realmente representa a marca para utilização de mesmo padrão de estilo no site.&lt;/p&gt;
+&lt;h3 id=&#34;utilização-de-fotos-profissionais&#34;&gt;Utilização de fotos profissionais&lt;/h3&gt;
+&lt;p&gt;Conteúdo visual é processado 60.000 vezes mais rápido do que texto. Por isso é extremamente recomendado a utilização de boas imagens condizentes com o tom da marca. O ideal seriam fotos reais da localização da empresa, construindo assim conexões mais fortes entre o negócio e o cliente.&lt;/p&gt;
+&lt;h3 id=&#34;compilação-de-ideias-de-acordo-com-o-seu-gosto&#34;&gt;Compilação de ideias de acordo com o seu gosto&lt;/h3&gt;
+&lt;p&gt;Se deseja um produto que te agrade, deixe o desenvolvedor saber o que você gosta antes do começo do desenvolvimento. Levante outros sites e anote detalhes que contenham elementos que atraiam o seu gosto, como por exemplo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fonte;&lt;/li&gt;
+&lt;li&gt;Esquema de cores;&lt;/li&gt;
+&lt;li&gt;Layout;&lt;/li&gt;
+&lt;li&gt;Imagens, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referência&#34;&gt;Referência&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.brightlocal.com/learn/local-consumer-review-survey-2014&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bright Local, Pesquisa de 2014&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Sobre REST e RESTful</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/02/26/sobre-rest-e-restful/</link>
+        <pubDate>Thu, 26 Feb 2015 16:53:33 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/02/26/sobre-rest-e-restful/</guid>
+        <description>&lt;p&gt;Primeiramente introduzido por Roy Fielding em sua dissertação de mestrado de 2000, o termo &lt;em&gt;REST&lt;/em&gt; representa um estilo arquitetural focado na troca de dados entre clientes e servidores pela &lt;em&gt;web&lt;/em&gt;. Note que o termo correto para definição de &lt;em&gt;REST&lt;/em&gt; é estilo arquitetural, não é um protocolo e nem um padrão de projeto.&lt;/p&gt;
+&lt;p&gt;O ponto chave é que o servidor não precisa saber nada sobre a aplicação em si, deixando-o altamente desacoplado e facilmente integrável por clientes diversos.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;O termo REST é um acrônimo para &lt;strong&gt;Re&lt;/strong&gt;presentational &lt;strong&gt;S&lt;/strong&gt;tate &lt;strong&gt;T&lt;/strong&gt;ransfer (Transferência de Estado Representacional), porém o legal é que a palavra REST significa descansar, que é exatamente o comportamento de uma api REST.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;princípios&#34;&gt;Princípios&lt;/h2&gt;
+&lt;p&gt;No capítulo cinco, Roy descreve os princípios básicos de sua tese, que são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Client-Server&lt;/strong&gt; (Cliente-Servidor) - Aplicações REST possuem arquitetura Cliente-Servidor, obedecendo o conceito de &lt;em&gt;Separação de responsabilidades&lt;/em&gt;. Isto facilita o processo de evolução, portabilidade e escalabilidade de software.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stateless&lt;/strong&gt; (Sem estado) - O servidor não deve manter nenhum estado a respeito dos clientes. Cada requisição deve conter toda informação necessária para entendimento e processamento da mesma.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cache&lt;/strong&gt; - Para aprimorar a eficiência da rede, servidores podem marcar respostas como &lt;em&gt;cacheable&lt;/em&gt; (cacheáveis), para que os clientes possam reutilizá-las posteriormente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Uniform Interface&lt;/strong&gt; (Interface uniforme) - A característica central que difere o REST de outras arquiteturas &lt;em&gt;web&lt;/em&gt; é sua ênfase em uma interface uniforme de comunicação.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Layered System&lt;/strong&gt; (Sistema em camadas) - Compor a aplicação em camadas, onde cada componente não consegue acessar código presente fora de sua camada, facilita a adição de balanceadores de carga e &lt;em&gt;proxies&lt;/em&gt;, para aprimorar a performance e segurança.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Um serviço é dito &lt;strong&gt;RESTful&lt;/strong&gt; quando atende aos princípios descritos acima, definidos por Roy. A combinação destes princípios criam um tipo de aplicação bem específico, focado em escalabilidade, performance e segurança.&lt;/p&gt;
+&lt;h2 id=&#34;protocolo&#34;&gt;Protocolo&lt;/h2&gt;
+&lt;p&gt;O protocolo utilizado para comunicação é o &lt;strong&gt;HTTP&lt;/strong&gt;. Apesar de existir há mais de vinte anos, o protocolo recebeu diversas atualizações para modernização e aprimoramento semântico. Sugestões de criação de novos verbos, pelo próprio Roy, foram adotadas e implementadas, permitindo que a leitura ficasse bem mais próxima da nossa realidade. Requisições como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GET&lt;/strong&gt; - &lt;code&gt;http://server:8080/users&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DELETE&lt;/strong&gt; - &lt;code&gt;http://server:8080/users/john&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;POST&lt;/strong&gt; - &lt;code&gt;http://server:8080/users&lt;/code&gt; - &lt;code&gt;data={ name: stevie }&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;são extremamente explícitas no que se propõem a fazer.&lt;/p&gt;
+&lt;h2 id=&#34;rest-vs-restful&#34;&gt;REST vs RESTful&lt;/h2&gt;
+&lt;p&gt;Após a definição do que é &lt;strong&gt;REST&lt;/strong&gt; e &lt;strong&gt;RESTful&lt;/strong&gt;, pode ser que ainda exista dúvida sobre as diferenças entre os termos. Sabemos que &lt;strong&gt;REST&lt;/strong&gt; é um estilo arquitetural e &lt;strong&gt;RESTful&lt;/strong&gt; é o serviço que implementa &lt;strong&gt;REST&lt;/strong&gt;. Porém, somente pode-se dizer que uma api é &lt;strong&gt;RESTful&lt;/strong&gt; se a mesma obedecer a todos os princípios definidos por Roy.&lt;/p&gt;
+&lt;p&gt;Muitos desenvolvedores podem não sentir nenhum tipo de incômodo ao se deparar com &lt;em&gt;endpoints&lt;/em&gt; como estes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GET&lt;/strong&gt; - &lt;code&gt;http://server:8080/users/123/delete&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PUT&lt;/strong&gt; - &lt;code&gt;http://server:8080/users&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tudo bem se você consegue viver com isso, rs. Estes &lt;em&gt;endpoints&lt;/em&gt; não estão errados, a nível de código, e irão funcionar normalmente sem lançamento de exceções ou algo do tipo. Porém, eles não respeitam a questão semântica do estilo arquitetural, visto que, no primeiro caso, um verbo &lt;strong&gt;GET&lt;/strong&gt; está sendo usado para deleção, e no segundo, &lt;strong&gt;PUT&lt;/strong&gt; usado para criação.&lt;/p&gt;
+&lt;h2 id=&#34;dica&#34;&gt;Dica&lt;/h2&gt;
+&lt;p&gt;Para aprimorar a habilidade de criação de &lt;em&gt;endpoints&lt;/em&gt; semânticos, basta imaginar sua &lt;em&gt;api&lt;/em&gt; como uma estrutura de diretórios.&lt;/p&gt;
+&lt;p&gt;Considerando a entidade &lt;strong&gt;Usuario&lt;/strong&gt;, imagine que você possui uma pasta chamada &lt;code&gt;Usuarios&lt;/code&gt;, criada dentro do diretório &lt;code&gt;Sistema&lt;/code&gt;. Dentro desta pasta, existem várias pastas, uma para cada usuário do sistema, onde cada nome de pasta seja equivalente ao &lt;em&gt;Id&lt;/em&gt; do respectivo usuário. Em cada pasta de usuário, estaria um arquivo de texto com os dados do mesmo.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; _ Usuarios
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ usuario_1.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ usuario_2.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ usuario_3.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Navegando pelo gerenciador de arquivos do seu sistema operacional, abrir a pasta de &lt;code&gt;Usuarios&lt;/code&gt; lhe exibirá a lista de &lt;em&gt;Id&lt;/em&gt;s de usuários do sistema. Consequentemente, abrir a pasta de um usuário mostrará suas informações. O &amp;ldquo;endereço&amp;rdquo; de navegação entre arquivos seria:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/Sistema&lt;/code&gt;, para mostrar a pasta de usuários;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/Usuarios&lt;/code&gt;, para exibir os Ids;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/Usuarios/1&lt;/code&gt;, para ler informações de um usuário.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Caso queira excluir um usuário, basta excluir a pasta do seu &lt;em&gt;Id&lt;/em&gt;; Para atualizar, incluir um novo arquivo na sua pasta de &lt;em&gt;Id&lt;/em&gt;; e para criar, basta adicionar uma nova pasta dentro do diretório &lt;code&gt;Usuarios&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Agora, basta utilizar a mesma ideia para criar &lt;em&gt;endpoints&lt;/em&gt; para todos os verbos &lt;strong&gt;HTTP&lt;/strong&gt;. Exemplo:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Verbo&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Recurso&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Descricao&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Retorna a lista de usuários do sistema&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios/:id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Retorna dados do usuário pelo seu Id informado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Envia um novo usuário para ser inserido no sistema, no corpo da requisição&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios/:id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Envia dados para atualização do usuário, de acordo com seu &lt;em&gt;Id&lt;/em&gt; informado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DELETE&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios/:id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Exclui do sistema o usuário pelo seu Id informado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;A discussão sobre &lt;strong&gt;REST&lt;/strong&gt; vs &lt;strong&gt;RESTful&lt;/strong&gt; na realidade é uma discussão desnecessária. Cabe ao time decidir se haverá regras tão formais sobre a criação de &lt;em&gt;apis&lt;/em&gt; ou mais maleáveis. O importante é manter a consistência através do código para evitar falhas de interpretação e divergências entre os membros.&lt;/p&gt;
+&lt;h2 id=&#34;referência&#34;&gt;Referência&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Roy Fielding Paper - Chapter 5&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

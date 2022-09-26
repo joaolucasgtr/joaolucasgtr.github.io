@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>engineering on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/engineering/</link>
+        <description>Recent content in engineering on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Thu, 06 Oct 2016 14:39:31 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/engineering/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Princípios Importantes</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/10/06/princ%C3%ADpios-importantes/</link>
+        <pubDate>Thu, 06 Oct 2016 14:39:31 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/10/06/princ%C3%ADpios-importantes/</guid>
+        <description>&lt;p&gt;Se você é um desenvolvedor de software que almeja aperfeiçoar sua técnica de escrita de código (&lt;em&gt;sim, existem técnicas para escrever código&lt;/em&gt;), então você provavelmente irá se deparar com diversos princípios de programação criados pela &lt;em&gt;Engenharia de Software&lt;/em&gt;. Estes princípios foram criados com o intuito de aprimorar alguns atributos de qualidade de sistemas, que apesar de não funcionais influenciam diretamente no resultado final de um produto de software.&lt;/p&gt;
+&lt;h2 id=&#34;benefícios&#34;&gt;Benefícios&lt;/h2&gt;
+&lt;p&gt;Ao aplicar os princípios você estará automaticamente sendo beneficiado nos atributos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Readability (Leitura)&lt;/strong&gt; - O código será mais facilmente entendido por outros membros do time de desenvolvimento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modularity (Modularidade)&lt;/strong&gt; - A divisão de funcionalidades em peças independentes (módulos) facilitará o processo de reuso e reduzirá a quantidade final de código escrito para a aplicação.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maintainability (Manutenabilidade)&lt;/strong&gt; - O processo de manutenção será beneficiado com a melhoria da qualidade do código, além disso será diminuída a barreira de entrada de novos desenvolvedores nos projetos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Extensibility (Extensibilidade)&lt;/strong&gt; - A inclusão de novas funcionalidades no sistema reduzirá consideravelmente a chance de efeitos colaterais devido ao código desacoplado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agility (Agilidade)&lt;/strong&gt; - Em decorrência da otimização dos processos de desenvolvimento, manutenção e extensão, os clientes poderão receber software de maneira mais ágil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;sobre-os-princípios&#34;&gt;Sobre os princípios&lt;/h2&gt;
+&lt;p&gt;A lista a seguir contém apenas alguns princípios chave, que serão o suficiente para começar e observar o aprimoramento na qualidade de código produzido instantaneamente. A lista completa de artigos no Wikipedia você encontra aqui:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Category:Programming_principles&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Wikipedia&amp;rsquo;s programming principles articles list&lt;/a&gt;&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;kiss&#34;&gt;KISS&lt;/h3&gt;
+&lt;p&gt;A sigla &lt;strong&gt;KISS&lt;/strong&gt; é o acrônimo para &amp;ldquo;&lt;strong&gt;keep it simple, stupid&lt;/strong&gt;&amp;rdquo; ou &amp;ldquo;&lt;strong&gt;keep it stupid simple&lt;/strong&gt;&amp;rdquo;. Este princípio visa reduzir casos de &lt;strong&gt;Overengineering&lt;/strong&gt;, ou excesso de engenharia, que é muito comum entre desenvolvedores do nível júnior e pleno.&lt;/p&gt;
+&lt;p&gt;O foco principal é a simplicidade, evitando ao máximo toda complexidade desnecessária. Uma tática para aplicação do princípio é sempre quebrar grandes problemas em problemas menores, mais simples e mais compreensíveis.&lt;/p&gt;
+&lt;h3 id=&#34;yagni&#34;&gt;YAGNI&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;You aren&amp;rsquo;t gonna need it&lt;/strong&gt; (&lt;em&gt;você não vai precisar disso&lt;/em&gt;) sugere aos desenvolvedores que não seja adicionado qualquer recurso ao &lt;em&gt;software&lt;/em&gt; antes que ele seja realmente necessário. Segundo o princípio, o código deve se restringir aos requisitos já existentes e não em tentar prever solicitações futuras.&lt;/p&gt;
+&lt;p&gt;Este conceito foi proposto pela metodologia &lt;a class=&#34;link&#34; href=&#34;http://www.extremeprogramming.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Extreme Programming&lt;/a&gt; de desenvolvimento ágil, que visa atacar a satisfação do cliente, pois em vez de entregar tudo que o cliente poderia desejar no futuro, será entregue somente o que ele precisa para hoje.&lt;/p&gt;
+&lt;h3 id=&#34;separation-of-concerns&#34;&gt;Separation of concerns&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Separation of concerns&lt;/strong&gt; (&lt;em&gt;separação de responsabilidades&lt;/em&gt;) é um princípio que visa separar o código em partes distintas, organizadas de forma lógica de acordo com sua responsabilidade. A aplicação correta deste princípio irá resultar em um grau maior de desacoplamento, tornando o &lt;em&gt;software&lt;/em&gt; modular, onde cada módulo encapsula todo código relacionado à sua responsabilidade de forma lógica e coesa.&lt;/p&gt;
+&lt;p&gt;O princípio se aplica também à &lt;strong&gt;Arquitetura de Software&lt;/strong&gt;, e foi utilizado como base para as definições de arquiteturas em camadas, por exemplo.&lt;/p&gt;
+&lt;h3 id=&#34;solid&#34;&gt;SOLID&lt;/h3&gt;
+&lt;p&gt;A sigla &lt;strong&gt;SOLID&lt;/strong&gt;, em desenvolvimento de &lt;em&gt;software&lt;/em&gt;, representa cinco princípios de &lt;em&gt;design&lt;/em&gt; que visam facilitar a compreensão, desenvolvimento e manutenção de sistemas orientados a objetos. Aplicar o &lt;strong&gt;SOLID&lt;/strong&gt; na prática significa aprimorar drasticamente a qualidade do código, tornando-o mais: legível, coeso, testável e reutilizável.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conceitos:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Sigla&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Nome&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;S&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Single-responsibility_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Single-responsibility principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Uma classe deveria possuir somente uma responsabilidade e razão para mudar.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;O&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Open–closed principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Entidades do &lt;em&gt;software&lt;/em&gt; devem estar abertas à extensão mas fechadas para modificação&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;L&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Liskov_substitution_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liskov substitution principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Objetos em um programa devem poder ser substituídos por instâncias dos seus subtipos sem alterar seu funcionamento.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;I&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Interface_segregation_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Interface segregation principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Muitas interfaces específicas são melhores que uma interface generalista.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;D&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Dependency_inversion_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dependency inversion principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;É melhor depender de abstrações e não de implementações.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Claramente, aplicar o &lt;strong&gt;SOLID&lt;/strong&gt; em 100% do código que você escreve é uma tarefa extremamente difícil, e será ainda mais caso você fique adiando o dia de botar a mão na massa e aplicar os conceitos.&lt;/p&gt;
+&lt;h3 id=&#34;boy-scout-rule&#34;&gt;Boy-Scout Rule&lt;/h3&gt;
+&lt;p&gt;Os escoteiros possuem uma regra bem simples e clara:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Leave Things BETTER than you found them.” - Robert Baden Powell&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ao acampar, se o local de acampamento estiver uma bagunça, você deve limpá-lo independentemente de quem bagunçou, sempre deixando-o mais limpo do que estava quando você chegou.&lt;/p&gt;
+&lt;p&gt;Então Robert C. Martin adaptou essa regra para a programação, dizendo:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Leave the code cleaner than you found it&amp;rdquo; - Robert C. Martin&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;ldquo;Deixe o código mais limpo do que estava quando você o encontrou&amp;rdquo;, significa sempre que possível aplicar refatorações de melhoria nos códigos, isso irá contribuir para a qualidade do projeto em geral e evitar a deterioração natural que os sistemas tendem a seguir durante seu período de vida.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;O artigo de &lt;a class=&#34;link&#34; href=&#34;https://martinfowler.com/bliki/OpportunisticRefactoring.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;refatoração oportunista&lt;/a&gt;, de Martin Fowler, segue a mesma linha de raciocínio.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dry&#34;&gt;DRY&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Don&amp;rsquo;t repeat yourself&lt;/strong&gt; (&lt;em&gt;Não se repita&lt;/em&gt;) é o último, mas não menos importante, princípio desta lista. O princípio define que &amp;ldquo;cada porção de conhecimento em um sistema deve possuir uma representação &lt;strong&gt;ÚNICA&lt;/strong&gt; em todo o sistema&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Utilizar o &lt;strong&gt;DRY&lt;/strong&gt; significa trabalhar de forma mais inteligente, escrevendo menos código e produzindo valor no software de forma mais rápida ao reutilizar fragmentos genéricos.&lt;/p&gt;
+&lt;p&gt;Existe uma técnica bem simples para identificar possíveis violações do &lt;strong&gt;DRY&lt;/strong&gt;: se você usou &lt;code&gt;crtl+c&lt;/code&gt; + &lt;code&gt;crtl+v&lt;/code&gt; em algum momento no seu código, é bem provável que você o esteja violando.&lt;/p&gt;
+&lt;p&gt;Violações do princípio são chamadas de soluções &lt;strong&gt;WET&lt;/strong&gt; (&lt;em&gt;lol&lt;/em&gt;), que podem significar: &lt;code&gt;write every time&lt;/code&gt;, &lt;code&gt;write everything twice&lt;/code&gt;, &lt;code&gt;we enjoy typing&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Existem diversos outros princípios para desenvolvimento de &lt;em&gt;software&lt;/em&gt; importantes, meu objetivo aqui foi somente trazer alguns para discussão e servir de guia para futuras pesquisas sobre o assunto.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

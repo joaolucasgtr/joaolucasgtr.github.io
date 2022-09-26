@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>linux on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/linux/</link>
+        <description>Recent content in linux on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Fri, 26 Jan 2018 13:13:13 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Checklist Ambiente</title>
+        <link>https://joaolucasgtr.github.io/posts/2018/01/26/checklist-ambiente/</link>
+        <pubDate>Fri, 26 Jan 2018 13:13:13 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2018/01/26/checklist-ambiente/</guid>
+        <description>&lt;p&gt;Se você é como eu e utiliza vários ambientes de trabalho, como máquinas virtuais, servidores, mais de um sistema operacional, etc&amp;hellip;, é sempre útil manter uma lista de aplicações para te ajudar a agilizar o processo de preparação do ambiente.&lt;/p&gt;
+&lt;p&gt;Este é o meu &lt;em&gt;setup&lt;/em&gt;, separado por categorias, com as minhas opções padrão e observações.&lt;/p&gt;
+&lt;h2 id=&#34;sdks&#34;&gt;SDKs&lt;/h2&gt;
+&lt;p&gt;São os kits de desenvolvimento, providos pelos próprios proprietários:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dotnet.microsoft.com/download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;.NET core&lt;/strong&gt;&lt;/a&gt; - A versão multiplataforma pra desenvolvimento em &lt;strong&gt;C#&lt;/strong&gt;, livre e de código aberto da &lt;strong&gt;Microsoft&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://nodejs.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Node.js&lt;/strong&gt;&lt;/a&gt; - O runtime de javascript mais popular do mundo, construído com o motor V8 do Chrome.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.java.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Java&lt;/strong&gt;&lt;/a&gt; - O &lt;strong&gt;JDK&lt;/strong&gt; é kit de desenvolvimento, utilizado para apicações &lt;em&gt;Web&lt;/em&gt;, &lt;em&gt;Mobile&lt;/em&gt; e &lt;em&gt;Desktop&lt;/em&gt; em java.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;editores-de-texto&#34;&gt;Editores de texto&lt;/h2&gt;
+&lt;p&gt;Aplicações utilitárias e leves para edição avançada de arquivos de texto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://code.visualstudio.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Visual Studio Code&lt;/strong&gt;&lt;/a&gt; - Editor gratuito e de código aberto da &lt;strong&gt;Microsoft&lt;/strong&gt;, que vêm se tornando o editor padrão para a maioria das linguagens.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://notepad-plus-plus.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Notepad++&lt;/strong&gt;&lt;/a&gt; - Como o editor de texto padrão do &lt;strong&gt;Windows&lt;/strong&gt; (&lt;em&gt;Bloco de Notas&lt;/em&gt;) é extremamente simplista e limitado, para mim, o Notepad++ se torna uma opção indispensável para o sistema operacional.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ides&#34;&gt;IDEs&lt;/h2&gt;
+&lt;p&gt;Os ambientes de desenvolvimento integrado (&lt;em&gt;integrated development environment&lt;/em&gt;), são as aplicações mais robustas para desenvolvimento de software, contendo vários facilitadores para escrita, análise de código, correção de falhas, testes, entre outros.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://visualstudio.microsoft.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Visual Studio&lt;/strong&gt;&lt;/a&gt; - A ferramenta principal da &lt;strong&gt;Microsoft&lt;/strong&gt; oferece uma excelente experiência para os desenvolvedores.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.monodevelop.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;MonoDevelop&lt;/strong&gt;&lt;/a&gt; - Grande experiência no sistema operacional &lt;strong&gt;Linux&lt;/strong&gt; e alta compatibilidade com soluções produzidas no &lt;em&gt;Visual Studio&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jetbrains.com/rider/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;JetBrains Rider&lt;/strong&gt;&lt;/a&gt; - &lt;strong&gt;IDE&lt;/strong&gt; multiplataforma, combinando a base do &lt;em&gt;IntelliJ&lt;/em&gt; com o poder do &lt;em&gt;ReSharper&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jetbrains.com/idea/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;JetBrains IntelliJ&lt;/strong&gt;&lt;/a&gt; - Ferramenta &lt;del&gt;mais&lt;/del&gt; inteligente e produtiva para desenvolvimento em &lt;em&gt;Java&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developer.android.com/studio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Android Studio&lt;/strong&gt;&lt;/a&gt; - A escolha padrão para desenvolvimento nativo de aplicativos para &lt;em&gt;Android&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;sgbds&#34;&gt;SGBDs&lt;/h2&gt;
+&lt;p&gt;Aplicações amigáveis para gerenciamento de banco de dados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.microsoft.com/pt-br/sql-server/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;SQL Server Managment Studio&lt;/strong&gt;&lt;/a&gt; - Nível empresarial para gerenciamento de bancos de dados da &lt;strong&gt;Microsoft&lt;/strong&gt; (MSSQL).&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.microsoft.com/pt-br/sql/azure-data-studio/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Azure Data Studio&lt;/strong&gt;&lt;/a&gt; - Um VsCode modificado para bancos de dados da microsoft.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.pgadmin.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;PgAdmin 3&lt;/strong&gt;&lt;/a&gt; - PgAdmin é a ferramenta de gerenciamento de bancos &lt;em&gt;PostgreSQL&lt;/em&gt; mais popular do mercado. Coloquei a versão 3 porque a 4 ainda não me agrada completamente, mas com certeza no futuro irá.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://robomongo.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Robo 3T&lt;/strong&gt;&lt;/a&gt; - Simples, gratuita e competente no gerenciamento de coleções de dados do &lt;em&gt;MongoDB&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.linqpad.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;LINQ Pad&lt;/strong&gt;&lt;/a&gt; - Apesar de possuir inúmeras outras utilidades, esta ferramenta me ajuda no desenvolvimento de aplicações com banco de dados SQLCe.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.valentina-db.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Valentina Studio&lt;/strong&gt;&lt;/a&gt; - Esta ferramenta me surpreendeu pela sua qualidade e compatibilidade, e foi a que me ofereceu a melhor experiência no &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chat&#34;&gt;Chat&lt;/h2&gt;
+&lt;p&gt;Aplicações para comunicação:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://slack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Slack&lt;/strong&gt;&lt;/a&gt; - A ferramenta líder em comunicação de times.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.pidgin.im/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Pidgin&lt;/strong&gt;&lt;/a&gt; - Com a finalidade de utilizar o protocolo XMPP.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;vcs&#34;&gt;VCS&lt;/h2&gt;
+&lt;p&gt;Clientes para sistemas de controle de versão:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Git&lt;/strong&gt;&lt;/a&gt; - Gerenciamento distribuído de repositórios.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://subversion.apache.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Subversion&lt;/strong&gt;&lt;/a&gt; - Gerenciamento centralizado de repositórios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outras&#34;&gt;Outras&lt;/h2&gt;
+&lt;p&gt;Outras aplicações úteis:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://inkscape.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Inkscape&lt;/strong&gt;&lt;/a&gt; - Ferramenta gratuita incrível para criação de vetores.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.gimp.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Gimp&lt;/strong&gt;&lt;/a&gt; - Outra ferramenta gratuita e incrível, para edição de imagens.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://meldmerge.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Meld&lt;/strong&gt;&lt;/a&gt; - Comparação entre arquivos de maneira simples e efetiva.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.libreoffice.org/discover/libreoffice/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Libre Office&lt;/strong&gt;&lt;/a&gt; - Pacote de aplicações de escritório extremamente competentes e gratuitas.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.postman.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Postman&lt;/strong&gt;&lt;/a&gt; - Cliente para testes de &lt;em&gt;Api&lt;/em&gt;s bem performático e intuitivo.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.virtualbox.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;VirtualBox&lt;/strong&gt;&lt;/a&gt; - Gerenciador de máquinas virtuais gratuito e multiplataforma.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://gnuwin32.sourceforge.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;GNU Win32&lt;/strong&gt;&lt;/a&gt; - Ferramentas da linha de comando GNU para &lt;em&gt;Windows&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://winscp.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;WinSCP&lt;/strong&gt;&lt;/a&gt; - Cliente SFTP, SCP, S3 e FTP para &lt;em&gt;Windows&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://remmina.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Remmina&lt;/strong&gt;&lt;/a&gt; - Excelente cliente de acesso remoto à &lt;em&gt;Desktops&lt;/em&gt;, gratuito e open source.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Este é o meu &lt;em&gt;setup&lt;/em&gt; inicial feito com o intuito de preparar uma máquina para desenvolvimento. A maioria das ferramentas listadas são gratuitas e multiplataforma, o que me permite trabalhar de forme uniforme em basicamente qualquer sistema operacional.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Por que utilizar Linux na sua empresa?</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/09/03/por-que-utilizar-linux-na-sua-empresa/</link>
+        <pubDate>Sun, 03 Sep 2017 20:39:33 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/09/03/por-que-utilizar-linux-na-sua-empresa/</guid>
+        <description>&lt;p&gt;Dias atrás, uma notícia muito séria foi divulgada sobre má utilização de software proprietário: A universidade Cândido Mendes, do Rio de Janeiro, vai ter sua sede leiloada pela Justiça para quitar uma dívida adquirida após ter perdido um processo milionário para a &lt;strong&gt;Microsoft&lt;/strong&gt;, por utilização de versões piratas do &lt;strong&gt;Windows&lt;/strong&gt;. Triste.&lt;/p&gt;
+&lt;p&gt;Embora exista uma parcela da população que ainda não saiba, o &lt;strong&gt;Windows&lt;/strong&gt; é um software privado e você precisa comprar sua licença de uso. Caso não adquira uma, você não poderá utilizar todos os recursos do sistema, terá atrasos no recebimento de atualizações de segurança e será notificado todo dia sobre a necessidade de ativação, entre outros.&lt;/p&gt;
+&lt;h2 id=&#34;a-boa-notícia&#34;&gt;A boa notícia&lt;/h2&gt;
+&lt;p&gt;Provavelmente, você como empresário não deseja ser multado por utilização indevida de software proprietário também, ou, como um funcionário comprometido, não deseja que sua empresa empregadora passe por tal situação, certo?&lt;/p&gt;
+&lt;p&gt;A boa notícia é que existe uma alternativa gratuita, capaz de atender a maioria absoluta das demandas empresariais de software e com desempenho e confiabilidades excelentes: o sistema operacional do pinguim, &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Principais vantagens para você implementar a utilização de &lt;strong&gt;Linux&lt;/strong&gt; no seu ambiente de trabalho:&lt;/p&gt;
+&lt;h3 id=&#34;redução-de-custo-desnecessário&#34;&gt;Redução de custo desnecessário&lt;/h3&gt;
+&lt;p&gt;Não existe disputa neste quesito. Com &lt;strong&gt;Linux&lt;/strong&gt; você não precisará se preocupar com problemas de fiscalização e compras de licenças comerciais, visto que é um sistema operacional completo distribuído de forma gratuita e possui código aberto. Saiba que todos os computadores da sua empresa necessitam de licenças originais para funcionamento, inclusive aquelas máquinas sub-utilizadas.&lt;/p&gt;
+&lt;h3 id=&#34;desempenho-em-hardware-antigo&#34;&gt;Desempenho em hardware antigo&lt;/h3&gt;
+&lt;p&gt;Ainda falando sobre aquelas máquinas sub-utilizadas, provavelmente possuem hardware mais antigo ou menor poder de processamento. Se este for o caso, instalar o &lt;strong&gt;Windows 10&lt;/strong&gt; nela não será uma boa opção, visto que os requisitos para sua execução de forma satisfatória são altos.&lt;/p&gt;
+&lt;p&gt;Por outro lado, algumas distribuições de &lt;strong&gt;Linux&lt;/strong&gt; são focadas em &lt;em&gt;Hardware&lt;/em&gt; menos potentes. Ainda assim, mesmo as distribuições mais potentes possuem requisitos menos exigentes que seu rival da &lt;strong&gt;Microsoft&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Versões mais antigas de &lt;strong&gt;Windows&lt;/strong&gt;, como &lt;strong&gt;Windows 7&lt;/strong&gt; ou &lt;strong&gt;Windows XP&lt;/strong&gt;, irão funcionar bem, porém não receberão atualizações de segurança. Pensando de forma empresarial, esta nem pode ser considerada uma opção.&lt;/p&gt;
+&lt;p&gt;Resta-lhe duas opções: migrar para &lt;strong&gt;Linux&lt;/strong&gt; ou gastar mais dinheiro comprando mais computadores e licenças de &lt;strong&gt;Windows 10&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;segurança&#34;&gt;Segurança&lt;/h3&gt;
+&lt;p&gt;Devido sua adoção massiva, o &lt;strong&gt;Windows&lt;/strong&gt; possui fatia de mercado superior à soma de todos seus concorrentes. Apesar de ser um dado extremamente positivo para a &lt;strong&gt;Microsoft&lt;/strong&gt;, isto faz com que seja o sistema mais visado por usuários mal-intencionados, visando encontrar falhas no sistema para extrair dados sensíveis.&lt;/p&gt;
+&lt;p&gt;Já no mundo &lt;strong&gt;Linux&lt;/strong&gt;, a maioria de usuários nem sequer utiliza programas &lt;em&gt;anti-virus&lt;/em&gt;, já que o código aberto do sistema garante que correções de segurança sejam mais frequentes e possíveis de ser aplicados por uma quantidade muito maior de desenvolvedores do que os da &lt;strong&gt;Microsoft&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Outro fator importante para garantir a segurança de seu &lt;strong&gt;Linux&lt;/strong&gt; é utilizar as lojas de softwares e repositórios oficiais para instalação de aplicativos. Você pode obter aplicativos direto da loja de forma similar à feita em &lt;em&gt;smartphones&lt;/em&gt;, sem comprometer o sistema.&lt;/p&gt;
+&lt;h3 id=&#34;softwares&#34;&gt;Softwares&lt;/h3&gt;
+&lt;p&gt;Como o &lt;strong&gt;Windows&lt;/strong&gt; é o campeão em popularidade ao redor do mundo, isto reflete a quantidade de software disponível para instalação. No quesito jogos, o sistema possui uma gama muito maior de opções que os concorrentes e até desempenho melhor, visto que a integração das empresas de &lt;em&gt;Hardware&lt;/em&gt; são feitas com o &lt;strong&gt;Windows&lt;/strong&gt; em vista.&lt;/p&gt;
+&lt;p&gt;Porém, o ambiente empresarial é diferente e muito menos exigente. É bem provável que você encontre alternativas grátis e compatíveis com &lt;strong&gt;Linux&lt;/strong&gt; para as principais categorias de software, como: suítes de escritório, editores de texto, editores de imagens, editores de vídeo, gerenciadores de e-mail, aplicativos de calendários, entre outros.&lt;/p&gt;
+&lt;p&gt;Apesar da alta compatibilidade, isto pode ser irrelevante se seu ambiente funciona fortemente em relação com a nuvem. Isto porque todos os principais navegadores são compatíveis com qualquer sistema operacional.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dica:&lt;/strong&gt; O site &lt;a class=&#34;link&#34; href=&#34;https://alternativeto.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AlternativeTo&lt;/a&gt; oferece uma busca extremamente simplificada por softwares similares ao solicitado, com resultados categorizados pela comunidade.&lt;/p&gt;
+&lt;h3 id=&#34;visual&#34;&gt;Visual&lt;/h3&gt;
+&lt;p&gt;Usuários de &lt;strong&gt;Windows&lt;/strong&gt; e &lt;strong&gt;MacOS&lt;/strong&gt; são obrigados a concordarem com todas as decisões de &lt;em&gt;design&lt;/em&gt; tomadas por seus fabricantes. No caso do &lt;strong&gt;MacOs&lt;/strong&gt;, todas as interfaces do sistema funcionam de forma coesa e padronizada, porém no sistema da &lt;strong&gt;Microsoft&lt;/strong&gt; a situação é diferente, tendo aplicações com visual do &lt;strong&gt;Windows 2000&lt;/strong&gt;, &lt;em&gt;Aero&lt;/em&gt;, &lt;strong&gt;Windows XP&lt;/strong&gt;, &lt;strong&gt;Windows 10&lt;/strong&gt;, etc.&lt;/p&gt;
+&lt;p&gt;O &lt;strong&gt;Linux&lt;/strong&gt; oferece um catálogo extenso de ambientes gráficos para todos os gostos, sendo possível customizar até os mínimos detalhes. Ainda assim, existem ambientes focados em usuários finais, com filosofia minimalista e que oferecem uma experiência bem satisfatória sem precisar de configurações. Sugestões interessantes: &lt;a class=&#34;link&#34; href=&#34;https://elementary.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;elementaryOs&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://www.deepin.org/en/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;deepinOs&lt;/a&gt; e &lt;a class=&#34;link&#34; href=&#34;https://zorinos.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;zorinOs&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h3&gt;
+&lt;p&gt;Este artigo não visa menosprezar um sistema sobre o outro, mas sim oferecer um novo ponto de vista racional sobre o assunto. Pensando de forma empreendedora, qualquer custo desnecessário deve ser avaliado, ainda mais se houverem mais benefícios embutidos.&lt;/p&gt;
+&lt;h2 id=&#34;referência&#34;&gt;Referência&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.tecmundo.com.br/mercado/121539-universidade-rio-tem-predio-leiloado-ter-usado-windows-pirata.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Artigo Tecmundo sobre universidade Cândido Mendes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Estrutura de diretórios Linux</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/08/10/estrutura-de-diret%C3%B3rios-linux/</link>
+        <pubDate>Mon, 10 Aug 2015 14:17:50 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/08/10/estrutura-de-diret%C3%B3rios-linux/</guid>
+        <description>&lt;p&gt;O &lt;strong&gt;FHS&lt;/strong&gt;, ou (File Hierarchy Standard - &lt;em&gt;padrão hierárquico de arquivos&lt;/em&gt;), define os principais diretórios para sistemas operacionais Linux ou baseados em &lt;em&gt;Unix&lt;/em&gt;. O que difere bastante do padrão utilizado pelo &lt;em&gt;Windows&lt;/em&gt;, onde cada partição do disco rígido recebe uma letra para representá-lo, e pastas do sistema possuem nomes específicos de acordo com seu conteúdo.&lt;/p&gt;
+&lt;p&gt;No &lt;strong&gt;FHS&lt;/strong&gt;, são utilizadas palavras abreviadas, a maioria contendo três letras, o que pode causar estranheza num primeiro contato e dificultar o entendimento do propósito do diretório.&lt;/p&gt;
+&lt;p&gt;Os principais são:&lt;/p&gt;
+&lt;h2 id=&#34;---a-raíz&#34;&gt;&amp;ldquo;/&amp;rdquo; - A raíz&lt;/h2&gt;
+&lt;p&gt;Tudo no Linux está localizado abaixo do diretório &lt;code&gt;/&lt;/code&gt;, conhecido como diretório raiz. Mesmo ao montar outras partições, estas estarão abaixo do diretório raiz, diferente do &lt;em&gt;Windows&lt;/em&gt;, onde outra partição seria montada no caminho &lt;code&gt;D:&lt;/code&gt; provavelmente.&lt;/p&gt;
+&lt;h2 id=&#34;bin---binários-essenciais&#34;&gt;/bin - Binários essenciais&lt;/h2&gt;
+&lt;p&gt;Neste diretório estão mantidos todos os binários essenciais para utilização por parte de um usuário. Programas como bash (&lt;code&gt;sh&lt;/code&gt;), copy (&lt;code&gt;cp&lt;/code&gt;), VI (&lt;code&gt;vi&lt;/code&gt;), Process Status (&lt;code&gt;ps&lt;/code&gt;), entre outros&amp;hellip;, estão mantidos aqui. Colocar binários neste diretório garante que o sistema terá esses utilitários mesmo que outros diretórios não sejam montados.&lt;/p&gt;
+&lt;p&gt;O diretório &lt;code&gt;/sbin&lt;/code&gt; funciona da mesma maneira, porém contendo utilitários essenciais para administração do sistema. Exemplos: &lt;code&gt;adduser&lt;/code&gt;, &lt;code&gt;fdisk&lt;/code&gt;, &lt;code&gt;iptables&lt;/code&gt;, &lt;code&gt;reboot&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;h2 id=&#34;sbin--binários-de-administração&#34;&gt;/sbin – Binários de administração&lt;/h2&gt;
+&lt;p&gt;Contém binários de forma similar ao diretório &lt;code&gt;/bin&lt;/code&gt;, porém os que estão contidos aqui foram criados com a intenção de serem executados por usuários com privilégios de administrador do sistema.&lt;/p&gt;
+&lt;h2 id=&#34;boot--arquivos-de-boot&#34;&gt;/boot – Arquivos de Boot&lt;/h2&gt;
+&lt;p&gt;Este diretório contém os arquivos necessários para inicialização do sistema. Por exemplo, os arquivos da ferramenta &lt;strong&gt;GRUB&lt;/strong&gt; e os &lt;code&gt;kernels&lt;/code&gt; estão armazenados aqui.&lt;/p&gt;
+&lt;h2 id=&#34;dev--devices&#34;&gt;/dev – Devices&lt;/h2&gt;
+&lt;p&gt;Distribuições Linux expõem dispositivos como arquivos neste diretório. Embora não sejam realmente arquivos, são exibidos como tal, por exemplo &lt;code&gt;sda&lt;/code&gt; é exibido como um arquivo mas representa o primeiro drive &lt;em&gt;SATA&lt;/em&gt; no sistema.&lt;/p&gt;
+&lt;p&gt;Aqui também são mantidos &lt;em&gt;pseudo-dispositivos&lt;/em&gt; que não representam de verdade um hardware, como por exemplo o &lt;code&gt;/dev/null&lt;/code&gt;, que representa um dispositivo especial que não produz dados de saída e nem de entrada, sendo útil para o caso onde é necessário descartar a saída de programas, bastando utilizar o pipe para este dispositivo.&lt;/p&gt;
+&lt;h2 id=&#34;etc--arquivos-de-configuração&#34;&gt;/etc – Arquivos de configuração&lt;/h2&gt;
+&lt;p&gt;Diretório responsável por manter arquivos de configuração do sistema como um todo. Configurações pessoais de um usuário devem ser mantidos em seu respectivo diretório &lt;code&gt;/home&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;home---lar&#34;&gt;/home - Lar&lt;/h2&gt;
+&lt;p&gt;Contém os diretórios base de cada usuário criado no sistema e é responsável por manter os dados deste usuário, além de seu arquivos específicos de configuração. Caso um usuário queira alterar dados na pasta &lt;code&gt;/home&lt;/code&gt; de outro, é necessário obter privilégios de administrador.&lt;/p&gt;
+&lt;h2 id=&#34;lib--bibliotecas-essenciais&#34;&gt;/lib – Bibliotecas essenciais&lt;/h2&gt;
+&lt;p&gt;Aqui estão mantidas as bibliotecas (&lt;em&gt;libraries&lt;/em&gt;) essenciais para os programas contidos nos diretórios &lt;code&gt;/bin&lt;/code&gt; e &lt;code&gt;/sbin&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;lostfound--arquivos-recuperados&#34;&gt;/lost+found – Arquivos recuperados&lt;/h2&gt;
+&lt;p&gt;Diretório de &amp;ldquo;achados e perdidos&amp;rdquo;. Caso o sistema quebre, uma checagem de arquivos será realizada no próximo &lt;em&gt;boot&lt;/em&gt; e quaisquer arquivos corrompidos serão colocados neste diretório para que seja possível analisar e recuperar dados destes arquivos.&lt;/p&gt;
+&lt;h2 id=&#34;media--mídia-removível&#34;&gt;/media – Mídia removível&lt;/h2&gt;
+&lt;p&gt;Responsável por criar sub-diretórios correspondentes à dispositivos de mídia removível conectados ao computador.&lt;/p&gt;
+&lt;h2 id=&#34;mnt--pontos-de-montagem&#34;&gt;/mnt – Pontos de montagem&lt;/h2&gt;
+&lt;p&gt;Por convenção, é utilizado para montar temporariamente outros discos disponíveis ou partições. Porém, esta operação é possível de ser feita em qualquer outro diretório.&lt;/p&gt;
+&lt;h2 id=&#34;opt--pacotes-opcionais&#34;&gt;/opt – Pacotes opcionais&lt;/h2&gt;
+&lt;p&gt;Contém sub-diretórios para pacotes de software opcionais. É comumente utilizada por softwares de terceiros e proprietários.&lt;/p&gt;
+&lt;h2 id=&#34;proc--processos&#34;&gt;/proc – Processos&lt;/h2&gt;
+&lt;p&gt;Contém diretórios virtuais que representam os processos em execução no sistema. Cada diretório é nomeado de acordo com o &lt;em&gt;ID&lt;/em&gt; do processo e quando o mesmo é encerrado, automaticamente seu diretório irá desaparecer.&lt;/p&gt;
+&lt;h2 id=&#34;root--root-home&#34;&gt;/root – Root home&lt;/h2&gt;
+&lt;p&gt;Este é o diretório &lt;code&gt;home&lt;/code&gt; do usuário &lt;code&gt;root&lt;/code&gt;. Como este usuário é diferente dos demais, seu diretório base não fica localizado em &lt;code&gt;/home/root&lt;/code&gt; mas apenas em &lt;code&gt;/root&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;run--estado-de-aplicações&#34;&gt;/run – Estado de aplicações&lt;/h2&gt;
+&lt;p&gt;Este diretório fornece um local padrão para as aplicações armazenarem dados sobre seu estado que não podem ser armazenadas no diretório &lt;code&gt;/tmp&lt;/code&gt;, uma vez que estando lá, os dados poderão ser descartados em algum momento.&lt;/p&gt;
+&lt;h2 id=&#34;tmp--temporários&#34;&gt;/tmp – Temporários&lt;/h2&gt;
+&lt;p&gt;As aplicações irão armazenar neste diretórios arquivos temporários. Geralmente, estes arquivos serão apagados ao reiniciar o sistema e podem ser deletados ao executar algum utilitário de limpeza do sistema.&lt;/p&gt;
+&lt;h2 id=&#34;usr--binários-de-usuários&#34;&gt;/usr – Binários de usuários&lt;/h2&gt;
+&lt;p&gt;O diretório &lt;code&gt;/usr&lt;/code&gt; contém aplicações e arquivos utilizados por usuários de forma isolada do resto do sistema. Por exemplo, aplicações que não são essenciais estarão mantidas em &lt;code&gt;/usr/bin&lt;/code&gt; e não em &lt;code&gt;/bin&lt;/code&gt;. Comandos que necessitam de privélgio de administrador estarão em &lt;code&gt;/usr/sbin&lt;/code&gt; e não em &lt;code&gt;/sbin&lt;/code&gt;. Bibliotecas necessárias para estes programas estarão em &lt;code&gt;/usr/lib&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;var--arquivos-variáveis&#34;&gt;/var – Arquivos variáveis&lt;/h2&gt;
+&lt;p&gt;O diretório &lt;code&gt;/var&lt;/code&gt; contém arquivos que podem ser alterados por aplicações, durante o tempo de execução. Um exemplo claro é o sub-diretório &lt;code&gt;/var/log&lt;/code&gt;, que mantém os &lt;em&gt;logs&lt;/em&gt; de execução de aplicações e do sistema operacional.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Para visualizar a documentação completa, acesse: &lt;a class=&#34;link&#34; href=&#34;http://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FHS-3.0&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Guia básico de comandos do Terminal</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/03/03/guia-b%C3%A1sico-de-comandos-do-terminal/</link>
+        <pubDate>Tue, 03 Mar 2015 14:00:18 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/03/03/guia-b%C3%A1sico-de-comandos-do-terminal/</guid>
+        <description>&lt;p&gt;Utilizar o &lt;strong&gt;Terminal&lt;/strong&gt; de comandos pode parecer uma tarefa complexa, limitada e
+intimidadora para usuários não ambientados. Porém, com a enorme adoção de sistemas
+operacionais &lt;em&gt;Linux&lt;/em&gt; por parte de servidores, e &lt;em&gt;Mac&lt;/em&gt; por desenvolvedores, é
+necessário pelo menos um pouco de familiaridade com a ferramenta.&lt;/p&gt;
+&lt;p&gt;Além disso, a maioria das linguagens e frameworks disponibilizam seus recursos
+por meio de &lt;em&gt;CLI&lt;/em&gt;, que significa &lt;em&gt;C&lt;/em&gt;ommand &lt;em&gt;L&lt;/em&gt;ine &lt;em&gt;I&lt;/em&gt;nterface (&lt;em&gt;interface de linha
+de comando&lt;/em&gt;), mesma prática adotada por ferramentas de outras áreas como banco de
+dados e sistemas de controle de versão.&lt;/p&gt;
+&lt;p&gt;Exemplos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;nodejs (node e npm)&lt;/li&gt;
+&lt;li&gt;emberjs e angular&lt;/li&gt;
+&lt;li&gt;php&lt;/li&gt;
+&lt;li&gt;ruby&lt;/li&gt;
+&lt;li&gt;python&lt;/li&gt;
+&lt;li&gt;git e svn&lt;/li&gt;
+&lt;li&gt;mysql e postgres&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;hellip;entre outras.&lt;/p&gt;
+&lt;p&gt;Ou seja, é praticamente impossível pensar num ambiente de desenvolvimento que não
+necessite de nenhuma interação com a linha de comando.&lt;/p&gt;
+&lt;p&gt;E com o passar do tempo é provável que você adquira mais habilidade e
+produtividade utilizando ferramentas do &lt;strong&gt;Terminal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;catálogo&#34;&gt;Catálogo&lt;/h2&gt;
+&lt;p&gt;A seguir, um catálogo simplificado para servir como ponto de partida para adaptação
+à linha de comando de sistemas baseados em &lt;em&gt;Unix&lt;/em&gt;, por categoria.&lt;/p&gt;
+&lt;h3 id=&#34;navegação&#34;&gt;Navegação&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pwd&lt;/code&gt;: imprime o caminho completo do diretório atual.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ls [path]&lt;/code&gt;: lista os arquivos publicos informados no parâmetro &lt;code&gt;path&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cd [path]&lt;/code&gt;: navegar para o diretório informado no parâmetro &lt;code&gt;path&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ajuda&#34;&gt;Ajuda&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;man [command]&lt;/code&gt;: exibe o manual do comando informado no parâmetro &lt;code&gt;command&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command] --help&lt;/code&gt; ou &lt;code&gt;[command] -h&lt;/code&gt;: geralmente, ferramentas da linha de comando
+irão exibir um menu de opções disponíveis e informações de utilização do comando
+informado no parâmetro &lt;code&gt;command&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;manipulação-de-arquivos&#34;&gt;Manipulação de arquivos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cp [source] [destination]&lt;/code&gt;: copiar o arquivo informado no parâmetro &lt;code&gt;source&lt;/code&gt;
+para o caminho no parâmetro &lt;code&gt;destination&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mv [source] [destination]&lt;/code&gt;: mover arquivo ou pasta do parâmetro &lt;code&gt;source&lt;/code&gt; para
+o caminho informado em &lt;code&gt;destination&lt;/code&gt;, ou renomear caso o destino seja o mesmo
+diretório.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;touch [filename]&lt;/code&gt;: cria um arquivo com o nome informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mkdir [fullpath]&lt;/code&gt;: cria um diretório com o caminho completo informado no parâmetro &lt;code&gt;fullpath&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rm [filename]&lt;/code&gt;: excluir o arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rm -r [path]&lt;/code&gt;: exclui um diretório informado no parâmetro &lt;code&gt;path&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ln -s [source] [destination]&lt;/code&gt;: cria um link simbólico entre o arquivo informado
+no parâmetro &lt;code&gt;source&lt;/code&gt; e o destino informado no &lt;code&gt;destination&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;visualização-de-arquivos&#34;&gt;Visualização de arquivos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;echo [text]&lt;/code&gt;: imprime o texto informado no parâmetro &lt;code&gt;text&lt;/code&gt; no terminal.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;echo $[varname]&lt;/code&gt;: exibe o conteúdo presente na variável informada no parâmetro &lt;code&gt;varname&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cat [filename]&lt;/code&gt;: imprime o conteúdo presente no arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;head [filename]&lt;/code&gt;: imprime as dez primeiras linhas do arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tail [filename]&lt;/code&gt;: imprime as dez últimas linhas do arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grep [pattern] [filename]&lt;/code&gt;: imprime as linhas do arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt; que satisfazem o padrão (&lt;em&gt;Regex&lt;/em&gt;) informado no parâmetro &lt;code&gt;pattern&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;administração&#34;&gt;Administração&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo [command]&lt;/code&gt;: executa o comando informado no parâmetro &lt;code&gt;command&lt;/code&gt; como super usuário.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command1] &amp;amp;&amp;amp; [command2]&lt;/code&gt;: o operador &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; permite que vários comandos sejam executados em sequência.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command] &amp;amp;&lt;/code&gt;: executa o comando informado no parâmetro &lt;code&gt;command&lt;/code&gt; em segundo plano.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bash [script.sh]&lt;/code&gt;: utiliza o &lt;em&gt;bash&lt;/em&gt; para executar o script informado no parâmetro &lt;code&gt;script.sh&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command1] | [command2]&lt;/code&gt;: redireciona a saída do comando &lt;code&gt;command1&lt;/code&gt; para a entrada do
+comando &lt;code&gt;command2&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command] &amp;gt; [filename]&lt;/code&gt;: redireciona a saída do comando &lt;code&gt;command1&lt;/code&gt; para um
+arquivo criado com o nome informado em &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command] &amp;gt;&amp;gt; [filename]&lt;/code&gt;: adiciona a saída do comando &lt;code&gt;command1&lt;/code&gt; no final do
+arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;processos&#34;&gt;Processos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ps&lt;/code&gt;: exibe uma lista de processos em execução do usuário atual no terminal atual.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ps -e&lt;/code&gt;: exibe todos os processos em execução.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pstree&lt;/code&gt;: exibe a lista de processos em execução, em forma de árvore.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pgrep [name]&lt;/code&gt;: exibe o PID do processo informado no parâmetro &lt;code&gt;name&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kill -9 [PID]&lt;/code&gt;: envia o sinal de encerramento para o processo que possui o PID
+informado no parâmetro &lt;code&gt;PID&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;permissões&#34;&gt;Permissões&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;chmod [code] [filename]&lt;/code&gt;: altera a permissão do arquivo informado em &lt;code&gt;filename&lt;/code&gt;
+de acordo com o código informado no parâmetro &lt;code&gt;code&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chmod +x [filename]&lt;/code&gt;: torna o arquivo &lt;code&gt;filename&lt;/code&gt; um executável.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chwon [path]&lt;/code&gt;: altera o dono do arquivo ou diretório informado no parâmetro &lt;code&gt;path&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;commando-find&#34;&gt;Commando &amp;ldquo;find&amp;rdquo;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;find .&lt;/code&gt;: procura arquivos e diretórios recursivamente a partir do atual.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;find . -name *.png -exec cp &#39;{}&#39; ~/images \;&lt;/code&gt;: copia todos os arquivos PNG para a pasta &lt;code&gt;~/images&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;find . -name .svn -prune -exec rm -r &#39;{}&#39; \;&lt;/code&gt;: exclui todos os diretórios com nome &lt;code&gt;.svn&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;find . -type f -exec file &#39;{}&#39; \;&lt;/code&gt;: executa os arquivos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;net&#34;&gt;Net&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ssh user@server&lt;/code&gt;: acessar um servidor via &lt;strong&gt;SSH&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scp user@host:[remotefile] [localpath]&lt;/code&gt;: Copia o arquivo remoto para uma pasta local.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scp [localfile] user@host:[remotepath]&lt;/code&gt;: Copia um arquivo local para o servidor remoto.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget [url]&lt;/code&gt;: efetua o download do arquivo informado em &lt;code&gt;url&lt;/code&gt; a partir da web.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

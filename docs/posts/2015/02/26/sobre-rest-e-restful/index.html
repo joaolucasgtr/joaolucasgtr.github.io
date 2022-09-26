@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Primeiramente introduzido por Roy Fielding em sua dissertação de mestrado de 2000, o termo REST representa um estilo arquitetural focado na troca de dados entre clientes e servidores pela web. Note que o termo correto para definição de REST é estilo arquitetural, não é um protocolo e nem um padrão de projeto.
+O ponto chave é que o servidor não precisa saber nada sobre a aplicação em si, deixando-o altamente desacoplado e facilmente integrável por clientes diversos.'><title>Sobre REST e RESTful</title>
+
+<link rel='canonical' href='https://joaolucasgtr.github.io/posts/2015/02/26/sobre-rest-e-restful/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Sobre REST e RESTful'>
+<meta property='og:description' content='Primeiramente introduzido por Roy Fielding em sua dissertação de mestrado de 2000, o termo REST representa um estilo arquitetural focado na troca de dados entre clientes e servidores pela web. Note que o termo correto para definição de REST é estilo arquitetural, não é um protocolo e nem um padrão de projeto.
+O ponto chave é que o servidor não precisa saber nada sobre a aplicação em si, deixando-o altamente desacoplado e facilmente integrável por clientes diversos.'>
+<meta property='og:url' content='https://joaolucasgtr.github.io/posts/2015/02/26/sobre-rest-e-restful/'>
+<meta property='og:site_name' content='@joaolucasgtr'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='web' /><meta property='article:published_time' content='2015-02-26T16:53:33&#43;00:00'/><meta property='article:modified_time' content='2015-02-26T16:53:33&#43;00:00'/>
+<meta name="twitter:site" content="@_joaolucasgtr">
+    <meta name="twitter:creator" content="@_joaolucasgtr"><meta name="twitter:title" content="Sobre REST e RESTful">
+<meta name="twitter:description" content="Primeiramente introduzido por Roy Fielding em sua dissertação de mestrado de 2000, o termo REST representa um estilo arquitetural focado na troca de dados entre clientes e servidores pela web. Note que o termo correto para definição de REST é estilo arquitetural, não é um protocolo e nem um padrão de projeto.
+O ponto chave é que o servidor não precisa saber nada sobre a aplicação em si, deixando-o altamente desacoplado e facilmente integrável por clientes diversos.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Alternar Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://avatars.githubusercontent.com/u/13789716?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">@joaolucasgtr</a></h1>
+            <h2 class="site-description">Hi, my name is João Lucas and I&#39;m a passionate fullstack developer.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:joaolucasgtr@gmail.com'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://gitlab.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitLab"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://br.linkedin.com/in/joaolucasgtr'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/_joaolucasgtr'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ'
+                        target="_blank"
+                        title="Youtube"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="4" />
+  <path d="M10 9l5 3l-5 3z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/sobre/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Sobre</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Arquivo</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Busca</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo Escuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/architecture/" >
+                architecture
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2015/02/26/sobre-rest-e-restful/">Sobre REST e RESTful</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 26, 2015</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minutos de leitura
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Primeiramente introduzido por Roy Fielding em sua dissertação de mestrado de 2000, o termo <em>REST</em> representa um estilo arquitetural focado na troca de dados entre clientes e servidores pela <em>web</em>. Note que o termo correto para definição de <em>REST</em> é estilo arquitetural, não é um protocolo e nem um padrão de projeto.</p>
+<p>O ponto chave é que o servidor não precisa saber nada sobre a aplicação em si, deixando-o altamente desacoplado e facilmente integrável por clientes diversos.</p>
+<blockquote>
+<p>O termo REST é um acrônimo para <strong>Re</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer (Transferência de Estado Representacional), porém o legal é que a palavra REST significa descansar, que é exatamente o comportamento de uma api REST.</p>
+</blockquote>
+<h2 id="princípios">Princípios</h2>
+<p>No capítulo cinco, Roy descreve os princípios básicos de sua tese, que são:</p>
+<ul>
+<li><strong>Client-Server</strong> (Cliente-Servidor) - Aplicações REST possuem arquitetura Cliente-Servidor, obedecendo o conceito de <em>Separação de responsabilidades</em>. Isto facilita o processo de evolução, portabilidade e escalabilidade de software.</li>
+<li><strong>Stateless</strong> (Sem estado) - O servidor não deve manter nenhum estado a respeito dos clientes. Cada requisição deve conter toda informação necessária para entendimento e processamento da mesma.</li>
+<li><strong>Cache</strong> - Para aprimorar a eficiência da rede, servidores podem marcar respostas como <em>cacheable</em> (cacheáveis), para que os clientes possam reutilizá-las posteriormente.</li>
+<li><strong>Uniform Interface</strong> (Interface uniforme) - A característica central que difere o REST de outras arquiteturas <em>web</em> é sua ênfase em uma interface uniforme de comunicação.</li>
+<li><strong>Layered System</strong> (Sistema em camadas) - Compor a aplicação em camadas, onde cada componente não consegue acessar código presente fora de sua camada, facilita a adição de balanceadores de carga e <em>proxies</em>, para aprimorar a performance e segurança.</li>
+</ul>
+<p>Um serviço é dito <strong>RESTful</strong> quando atende aos princípios descritos acima, definidos por Roy. A combinação destes princípios criam um tipo de aplicação bem específico, focado em escalabilidade, performance e segurança.</p>
+<h2 id="protocolo">Protocolo</h2>
+<p>O protocolo utilizado para comunicação é o <strong>HTTP</strong>. Apesar de existir há mais de vinte anos, o protocolo recebeu diversas atualizações para modernização e aprimoramento semântico. Sugestões de criação de novos verbos, pelo próprio Roy, foram adotadas e implementadas, permitindo que a leitura ficasse bem mais próxima da nossa realidade. Requisições como:</p>
+<ul>
+<li><strong>GET</strong> - <code>http://server:8080/users</code></li>
+<li><strong>DELETE</strong> - <code>http://server:8080/users/john</code></li>
+<li><strong>POST</strong> - <code>http://server:8080/users</code> - <code>data={ name: stevie }</code></li>
+</ul>
+<p>são extremamente explícitas no que se propõem a fazer.</p>
+<h2 id="rest-vs-restful">REST vs RESTful</h2>
+<p>Após a definição do que é <strong>REST</strong> e <strong>RESTful</strong>, pode ser que ainda exista dúvida sobre as diferenças entre os termos. Sabemos que <strong>REST</strong> é um estilo arquitetural e <strong>RESTful</strong> é o serviço que implementa <strong>REST</strong>. Porém, somente pode-se dizer que uma api é <strong>RESTful</strong> se a mesma obedecer a todos os princípios definidos por Roy.</p>
+<p>Muitos desenvolvedores podem não sentir nenhum tipo de incômodo ao se deparar com <em>endpoints</em> como estes:</p>
+<ul>
+<li><strong>GET</strong> - <code>http://server:8080/users/123/delete</code></li>
+<li><strong>PUT</strong> - <code>http://server:8080/users</code></li>
+</ul>
+<p>Tudo bem se você consegue viver com isso, rs. Estes <em>endpoints</em> não estão errados, a nível de código, e irão funcionar normalmente sem lançamento de exceções ou algo do tipo. Porém, eles não respeitam a questão semântica do estilo arquitetural, visto que, no primeiro caso, um verbo <strong>GET</strong> está sendo usado para deleção, e no segundo, <strong>PUT</strong> usado para criação.</p>
+<h2 id="dica">Dica</h2>
+<p>Para aprimorar a habilidade de criação de <em>endpoints</em> semânticos, basta imaginar sua <em>api</em> como uma estrutura de diretórios.</p>
+<p>Considerando a entidade <strong>Usuario</strong>, imagine que você possui uma pasta chamada <code>Usuarios</code>, criada dentro do diretório <code>Sistema</code>. Dentro desta pasta, existem várias pastas, uma para cada usuário do sistema, onde cada nome de pasta seja equivalente ao <em>Id</em> do respectivo usuário. Em cada pasta de usuário, estaria um arquivo de texto com os dados do mesmo.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> _ Usuarios
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>_ <span class="m">1</span>
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>  <span class="p">|</span>_ usuario_1.txt
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>_ <span class="m">2</span>
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>  <span class="p">|</span>_ usuario_2.txt
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>_ <span class="m">3</span>
+</span></span><span class="line"><span class="cl">      <span class="p">|</span>_ usuario_3.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Navegando pelo gerenciador de arquivos do seu sistema operacional, abrir a pasta de <code>Usuarios</code> lhe exibirá a lista de <em>Id</em>s de usuários do sistema. Consequentemente, abrir a pasta de um usuário mostrará suas informações. O &ldquo;endereço&rdquo; de navegação entre arquivos seria:</p>
+<ul>
+<li><code>/Sistema</code>, para mostrar a pasta de usuários;</li>
+<li><code>/Usuarios</code>, para exibir os Ids;</li>
+<li><code>/Usuarios/1</code>, para ler informações de um usuário.</li>
+</ul>
+<p>Caso queira excluir um usuário, basta excluir a pasta do seu <em>Id</em>; Para atualizar, incluir um novo arquivo na sua pasta de <em>Id</em>; e para criar, basta adicionar uma nova pasta dentro do diretório <code>Usuarios</code>.</p>
+<p>Agora, basta utilizar a mesma ideia para criar <em>endpoints</em> para todos os verbos <strong>HTTP</strong>. Exemplo:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th><strong>Verbo</strong></th>
+<th><strong>Recurso</strong></th>
+<th><strong>Descricao</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GET</strong></td>
+<td><code>/usuarios</code></td>
+<td>Retorna a lista de usuários do sistema</td>
+</tr>
+<tr>
+<td><strong>GET</strong></td>
+<td><code>/usuarios/:id</code></td>
+<td>Retorna dados do usuário pelo seu Id informado</td>
+</tr>
+<tr>
+<td><strong>POST</strong></td>
+<td><code>/usuarios</code></td>
+<td>Envia um novo usuário para ser inserido no sistema, no corpo da requisição</td>
+</tr>
+<tr>
+<td><strong>PUT</strong></td>
+<td><code>/usuarios/:id</code></td>
+<td>Envia dados para atualização do usuário, de acordo com seu <em>Id</em> informado</td>
+</tr>
+<tr>
+<td><strong>DELETE</strong></td>
+<td><code>/usuarios/:id</code></td>
+<td>Exclui do sistema o usuário pelo seu Id informado</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="conclusão">Conclusão</h2>
+<p>A discussão sobre <strong>REST</strong> vs <strong>RESTful</strong> na realidade é uma discussão desnecessária. Cabe ao time decidir se haverá regras tão formais sobre a criação de <em>apis</em> ou mais maleáveis. O importante é manter a consistência através do código para evitar falhas de interpretação e divergências entre os membros.</p>
+<h2 id="referência">Referência</h2>
+<ul>
+<li><a class="link" href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm"  target="_blank" rel="noopener"
+    >Roy Fielding Paper - Chapter 5</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/web/">web</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Conteúdo relacionado</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2017/03/20/soa-service-oriented-architecture/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SOA - Service Oriented Architecture</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/02/02/arquitetura-em-camadas/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Arquitetura em camadas</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "joaolucasgtr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2022 @joaolucasgtr
+    </section>
+    
+    <section class="powerby">
+        Criado com <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> desenvolvido por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Índice</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#princípios">Princípios</a></li>
+    <li><a href="#protocolo">Protocolo</a></li>
+    <li><a href="#rest-vs-restful">REST vs RESTful</a></li>
+    <li><a href="#dica">Dica</a></li>
+    <li><a href="#conclusão">Conclusão</a></li>
+    <li><a href="#referência">Referência</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

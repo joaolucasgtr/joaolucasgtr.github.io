@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>release on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/release/</link>
+        <description>Recent content in release on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Mon, 09 Nov 2015 17:53:41 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/release/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Tipos de teste</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/11/09/tipos-de-teste/</link>
+        <pubDate>Mon, 09 Nov 2015 17:53:41 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/11/09/tipos-de-teste/</guid>
+        <description>&lt;p&gt;A tabela abaixo foi criada para demonstrar alguns &lt;strong&gt;tipos de teste&lt;/strong&gt;, que constituem o conceito de &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Software testing&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O objetivo é prover uma visão geral sobre diferentes possibilidades de análise do &lt;strong&gt;Software&lt;/strong&gt;, a fim de encontrar falhas e determinar a qualidade do mesmo.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Teste&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Resumo&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Referência&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Installation testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;O teste de instalação se concentra nos requisitos necessários para que o cliente possa executar corretamente o &lt;strong&gt;Software&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Installation_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Compatibility testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;O teste de compatibilidade é conduzido à aplicação, a fim de avaliar a compatibilidade do &lt;strong&gt;Software&lt;/strong&gt; com ambiente presente no cliente.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Compatibility_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Smoke Testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste orientado ao &amp;ldquo;&lt;em&gt;Coração&lt;/em&gt;&amp;rdquo; do sistema. Verificação na funcionalidade principal do &lt;strong&gt;Software&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Smoke_testing_%28software%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Regression Testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;O teste de regressão procura descobrir novos &lt;em&gt;Bugs&lt;/em&gt; após alterações feitas no código, incluindo a re-execução de testes efetuados anteriormente à mudança, para comparação com resultados oriundos dos testes atuais.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Regression_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Acceptance testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste formal, respeitando as necessidades do cliente, requisitos e regras de negócio, para determinar se o &lt;strong&gt;Software&lt;/strong&gt; satisfaz, ou não, os critérios acordados com o cliente.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Acceptance_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Alpha testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Ver referência&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_testing#Alpha_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Beta testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Ver referência&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_testing#Beta_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Continuous testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste contínuo é o processo de execução de &lt;strong&gt;Testes Automatizados&lt;/strong&gt;, a fim de obter resultados imediatos referentes aos riscos de negócio associados ao &lt;strong&gt;Software&lt;/strong&gt; &lt;em&gt;Release Candidate&lt;/em&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Continuous_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Destructive testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste destrutivo é a tentativa de fazer com que o &lt;strong&gt;Software&lt;/strong&gt; falhe, passando &lt;em&gt;Inputs&lt;/em&gt; com valores inválidos e, ou, inesperados.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Destructive_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Performance testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Aplicado para determinar como o &lt;strong&gt;Software&lt;/strong&gt; se comporta, em termos de responsividade e estabilidade, para que sejam investigados fragmentos de código onde possam ser aplicadas melhorias na implementação, &lt;em&gt;design&lt;/em&gt; e arquitetura.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_performance_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Usability testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Utilizado para determinar se as interfaces do usuário são fáceis de usar e compreender.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Usability_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Acessibility testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste de acessibilidade é aplicado para verificar as diretrizes de usabilidade, determinadas no início do projeto.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Accessibility&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Security testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste essencial para &lt;strong&gt;Software&amp;rsquo;s&lt;/strong&gt; que processam dados confidenciais, a fim de evitar invasões.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Security_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Internationalization and localization&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste para identificar se há erros na adaptação de tradução do aplicativo para outras linguagens.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Internationalization_and_localization&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Development testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Testes aplicados em sincronia com o processo de desenvolvimento, visando diminuir os riscos, tempo e custo do &lt;strong&gt;Software&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Development_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;A/B testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Basicamente, consiste em comparar duas saídas, quando apenas uma variável foi alterada. Ex: execute um teste, mude alguma variável, execute o teste novamente, compare os resultados.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/A/B_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Concurrent testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;O foco é comparar o desempenho em baterias de teste com rotinas e entradas normais em oposição ao teste com valores não esperados, como o &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Stress_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;stress testing&lt;/a&gt; ,por exemplo.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Concurrent_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Conformance testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste funcional, caixa-preta, no qual uma implementação é testada com relação aos requisitos mencionados explicitamente na sua especificação.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Conformance_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
+        <title>Estágios para liberação de software</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/</link>
+        <pubDate>Fri, 06 Nov 2015 08:24:41 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/stages.png&#34;
+	width=&#34;708&#34;
+	height=&#34;441&#34;
+	srcset=&#34;https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/stages_hu4bf462fbbb92f43f233e7ddf7c1ca4cf_52938_480x0_resize_box_3.png 480w, https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/stages_hu4bf462fbbb92f43f233e7ddf7c1ca4cf_52938_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;release stages&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;160&#34;
+		data-flex-basis=&#34;385px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;O &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_release_life_cycle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Ciclo de vida para liberação de um software&lt;/strong&gt;&lt;/a&gt; consiste na soma dos estágios de desenvolvimento e amadurecimento para um fragmento de &lt;strong&gt;Software&lt;/strong&gt;: abrangendo desde o seu desenvolvimento inicial até o seu lançamento, incluindo versões atualizadas que aplicam melhorias ou correções no &lt;strong&gt;Software.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Os estágios são:&lt;/p&gt;
+&lt;h2 id=&#34;pré-alfa-pre-alpha&#34;&gt;Pré-alfa (Pre-alpha)&lt;/h2&gt;
+&lt;p&gt;Pré-alfa se refere à todas as atividades realizadas no projeto do &lt;strong&gt;Software&lt;/strong&gt;, antes de ser testado, que podem ser: &lt;strong&gt;Análise de requisitos&lt;/strong&gt;, &lt;strong&gt;Design do Software&lt;/strong&gt;, &lt;strong&gt;Testes unitários&lt;/strong&gt;, etc.&lt;/p&gt;
+&lt;h2 id=&#34;alfa-alpha&#34;&gt;Alfa (Alpha)&lt;/h2&gt;
+&lt;p&gt;A fase alfa é a primeira onde se iniciam os testes do &lt;strong&gt;Software&lt;/strong&gt;. Nela, são aplicadas algumas técnicas de teste, como a &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/White-box_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Caixa Branca&lt;/strong&gt;&lt;/a&gt;. Validações adicionais são utilizadas por outra equipe, usando técnicas de &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Gray_box_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Caixa Cinza&lt;/strong&gt;&lt;/a&gt; e &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Black-box_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Caixa Preta&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;strong&gt;Software&lt;/strong&gt; alfa pode ser instável, contendo &lt;em&gt;Bugs&lt;/em&gt; e perda de dados, e pode não contar com todos os recursos planejados anteriormente.&lt;/p&gt;
+&lt;h2 id=&#34;beta-beta&#34;&gt;Beta (Beta)&lt;/h2&gt;
+&lt;p&gt;A fase beta, geralmente, começa quando o &lt;strong&gt;Software&lt;/strong&gt; está com os recursos completos, porém ainda suscetível à &lt;em&gt;Bugs&lt;/em&gt;, problemas de performance e perda de dados.&lt;/p&gt;
+&lt;p&gt;O foco desta fase é &lt;strong&gt;reduzir os impactos ao usuário&lt;/strong&gt;, aplicando testes de usabilidade.&lt;/p&gt;
+&lt;p&gt;Geralmente, é nesta fase onde os produtos estarão disponíveis do lado de fora da empresa que os desenvolveu, sendo utilizados em demonstrações, por exemplo.&lt;/p&gt;
+&lt;h2 id=&#34;candidato-à-liberação-release-candidate&#34;&gt;Candidato à Liberação (Release Candidate)&lt;/h2&gt;
+&lt;p&gt;Nessa fase, o &lt;strong&gt;Software&lt;/strong&gt; está em uma versão beta, mas com potencial para se tornar um produto final. Todos os recursos já foram planejados, implementados e testados sem reportar algum &lt;em&gt;Bug&lt;/em&gt; significativo.&lt;/p&gt;
+&lt;p&gt;Ainda poderá haver alteração no código para consertar defeitos, mudanças na documentação e arquivos, e código externos para casos de teste.&lt;/p&gt;
+&lt;p&gt;Os testadores receberão essa versão para utilizá-la como produto final e a conduzirão para clientes, onde serão efetuados testes a partir de suas perspectivas.&lt;/p&gt;
+&lt;h2 id=&#34;liberação-ao-mercado-release-to-marketing&#34;&gt;Liberação ao Mercado (Release to Marketing)&lt;/h2&gt;
+&lt;p&gt;O produto está pronto para ser entregue para os clientes, contendo uma assinatura digital que garanta sua autenticidade.&lt;/p&gt;
+&lt;p&gt;Pode significar também, em outro contexto, que o &lt;strong&gt;Software&lt;/strong&gt; já foi entregue para um cliente para instalação em seu respectivo &lt;em&gt;Hardware&lt;/em&gt; de usuário final. O termo não define o mecanismo de entrega, mas apenas o estado de qualidade, que é suficiente para distribuição em massa.&lt;/p&gt;
+&lt;h2 id=&#34;disponibilidade-geral-general-availability&#34;&gt;Disponibilidade Geral (General Availability)&lt;/h2&gt;
+&lt;p&gt;Disponibilidade Geral é o estágio onde todas as atividades de comercialização necessárias já foram completadas e o produto está disponível no mercado.&lt;/p&gt;
+&lt;p&gt;Atividades de comercialização podem incluir testes de compilação e segurança, assim como localização e disponibilidade em escala global.&lt;/p&gt;
+&lt;p&gt;O tempo entre &lt;a class=&#34;link&#34; href=&#34;#rtm&#34; &gt;&lt;strong&gt;Liberação ao Mercado&lt;/strong&gt;&lt;/a&gt; e &lt;a class=&#34;link&#34; href=&#34;#ga&#34; &gt;&lt;strong&gt;Disponibilidade Geral&lt;/strong&gt;&lt;/a&gt; pode durar de uma semana a meses, em caso de atraso nas atividades de comercialização.&lt;/p&gt;
+&lt;h2 id=&#34;gold&#34;&gt;Gold&lt;/h2&gt;
+&lt;p&gt;O termo Gold se refere à versão mais atual do &lt;strong&gt;Software&lt;/strong&gt; e pode incluir alguns &lt;em&gt;Patches&lt;/em&gt;, ou até mesmo pacotes de serviços, que os usuários das versões &lt;a class=&#34;link&#34; href=&#34;#rtm&#34; &gt;&lt;strong&gt;Liberação ao Mercado&lt;/strong&gt;&lt;/a&gt; e &lt;a class=&#34;link&#34; href=&#34;#ga&#34; &gt;&lt;strong&gt;Disponibilidade Geral&lt;/strong&gt;&lt;/a&gt; teriam que baixar individualmente.&lt;/p&gt;
+&lt;p&gt;Pode incluir também alguns recursos extras ou &lt;em&gt;Addons&lt;/em&gt; criados após as liberações anteriores.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

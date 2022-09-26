@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>agile on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/agile/</link>
+        <description>Recent content in agile on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Tue, 08 Mar 2016 23:58:59 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/agile/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Guia prático para criação de User Stories</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/03/08/guia-pr%C3%A1tico-para-cria%C3%A7%C3%A3o-de-user-stories/</link>
+        <pubDate>Tue, 08 Mar 2016 23:58:59 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/03/08/guia-pr%C3%A1tico-para-cria%C3%A7%C3%A3o-de-user-stories/</guid>
+        <description>&lt;p&gt;As estórias de usuário, ou &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/User_story&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;User Stories&lt;/strong&gt;&lt;/a&gt;, são utilizadas para organização de requisitos por parte do &lt;strong&gt;PO&lt;/strong&gt; (&lt;a class=&#34;link&#34; href=&#34;https://pt.wikipedia.org/wiki/Scrum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;Product Owner&lt;/em&gt;&lt;/a&gt;) e tem como foco principal o objetivo do usuário.&lt;/p&gt;
+&lt;p&gt;Estórias fracionam os requisitos e facilitam a estimação do esforço gasto para realização do objetivo descrito, sendo curtas, simples e claras. Caso uma estória acabe ficando extensa, isso é um sinal de que ela pode ser divida em outras.&lt;/p&gt;
+&lt;h3 id=&#34;princípio-invest&#34;&gt;Princípio INVEST&lt;/h3&gt;
+&lt;p&gt;O acrônimo &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/INVEST_%28mnemonic%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;INVEST&lt;/strong&gt;&lt;/a&gt; foi criado para definir as características de uma boa estória, como demonstrado a seguir:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Letra&lt;/th&gt;
+&lt;th&gt;Significado&lt;/th&gt;
+&lt;th&gt;Resumo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;I&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Independent&lt;/td&gt;
+&lt;td&gt;Uma boa estória deve ser independente de outras.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;N&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Negotiable&lt;/td&gt;
+&lt;td&gt;Até o dia da implementação, a estória pode ser modificada ou reescrita.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Valuable&lt;/td&gt;
+&lt;td&gt;Deve entregar algum valor para o usuário final.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;E&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Estimable&lt;/td&gt;
+&lt;td&gt;O prazo para entrega deve sempre ser estimável.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;S&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Small&lt;/td&gt;
+&lt;td&gt;Não deve demorar mais do que um &lt;em&gt;Sprint&lt;/em&gt; para ser entregue.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Testable&lt;/td&gt;
+&lt;td&gt;Se não puder testar as alterações entregues, não saberá se funcionam bem, certo?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;definições-e-exemplos&#34;&gt;Definições e exemplos&lt;/h3&gt;
+&lt;p&gt;Para construir uma estória, basta definir o &lt;strong&gt;autor&lt;/strong&gt;, a &lt;strong&gt;ação&lt;/strong&gt;,a funcionalidade desejada, ou seja, o &lt;strong&gt;resultado&lt;/strong&gt;, e a sua &lt;strong&gt;prioridade&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Autor&lt;/strong&gt; - O proprietário da estória, a pessoa interessada na funcionalidade. Recomendado descrição de forma bem clara.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Ação&lt;/strong&gt; - A ação necessária para que o autor possa alcançar seu objetivo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Resultado&lt;/strong&gt; - Resultado que ator espera ao executar a ação, de acordo com sua ótica.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prioridade&lt;/strong&gt; - Estórias com prioridade alta serão incluídas mais cedo nos &lt;em&gt;Sprint&amp;rsquo;s&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Modelo:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Como um [autor], eu quero [ação] para que [resultado].
+Prioridade: [alta, média, baixa].
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo de um sistema de biblioteca:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Como um &amp;quot;vendedor responsável pelo setor de livros&amp;quot;,
+eu quero &amp;quot;procurar por livros filtrando por nome&amp;quot;,
+para que possa &amp;quot;verificar se o livro x está disponível&amp;quot;.
+Prioridade: &amp;quot;alta&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo de sistema de aluguel de filmes:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Como um &amp;quot;cliente&amp;quot;,
+eu quero &amp;quot;ver os filmes disponíveis para locação&amp;quot;,
+para que possa &amp;quot;alugá-lo&amp;quot;.
+Prioridade: &amp;quot;alta&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo de sistema de cadastro de clientes&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Como um &amp;quot;vendedor&amp;quot;,
+eu quero &amp;quot;consultar meus clientes pelo CNPJ&amp;quot;,
+para &amp;quot;negociar descontos para pessoa jurídica&amp;quot;.
+Prioridade: &amp;quot;média&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

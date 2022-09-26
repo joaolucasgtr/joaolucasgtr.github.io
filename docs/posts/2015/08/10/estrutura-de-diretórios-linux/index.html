@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='O FHS, ou (File Hierarchy Standard - padrão hierárquico de arquivos), define os principais diretórios para sistemas operacionais Linux ou baseados em Unix. O que difere bastante do padrão utilizado pelo Windows, onde cada partição do disco rígido recebe uma letra para representá-lo, e pastas do sistema possuem nomes específicos de acordo com seu conteúdo.
+No FHS, são utilizadas palavras abreviadas, a maioria contendo três letras, o que pode causar estranheza num primeiro contato e dificultar o entendimento do propósito do diretório.'><title>Estrutura de diretórios Linux</title>
+
+<link rel='canonical' href='https://joaolucasgtr.github.io/posts/2015/08/10/estrutura-de-diret%C3%B3rios-linux/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Estrutura de diretórios Linux'>
+<meta property='og:description' content='O FHS, ou (File Hierarchy Standard - padrão hierárquico de arquivos), define os principais diretórios para sistemas operacionais Linux ou baseados em Unix. O que difere bastante do padrão utilizado pelo Windows, onde cada partição do disco rígido recebe uma letra para representá-lo, e pastas do sistema possuem nomes específicos de acordo com seu conteúdo.
+No FHS, são utilizadas palavras abreviadas, a maioria contendo três letras, o que pode causar estranheza num primeiro contato e dificultar o entendimento do propósito do diretório.'>
+<meta property='og:url' content='https://joaolucasgtr.github.io/posts/2015/08/10/estrutura-de-diret%C3%B3rios-linux/'>
+<meta property='og:site_name' content='@joaolucasgtr'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2015-08-10T14:17:50&#43;00:00'/><meta property='article:modified_time' content='2015-08-10T14:17:50&#43;00:00'/>
+<meta name="twitter:site" content="@_joaolucasgtr">
+    <meta name="twitter:creator" content="@_joaolucasgtr"><meta name="twitter:title" content="Estrutura de diretórios Linux">
+<meta name="twitter:description" content="O FHS, ou (File Hierarchy Standard - padrão hierárquico de arquivos), define os principais diretórios para sistemas operacionais Linux ou baseados em Unix. O que difere bastante do padrão utilizado pelo Windows, onde cada partição do disco rígido recebe uma letra para representá-lo, e pastas do sistema possuem nomes específicos de acordo com seu conteúdo.
+No FHS, são utilizadas palavras abreviadas, a maioria contendo três letras, o que pode causar estranheza num primeiro contato e dificultar o entendimento do propósito do diretório.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Alternar Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://avatars.githubusercontent.com/u/13789716?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">@joaolucasgtr</a></h1>
+            <h2 class="site-description">Hi, my name is João Lucas and I&#39;m a passionate fullstack developer.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:joaolucasgtr@gmail.com'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://gitlab.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitLab"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://br.linkedin.com/in/joaolucasgtr'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/_joaolucasgtr'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ'
+                        target="_blank"
+                        title="Youtube"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="4" />
+  <path d="M10 9l5 3l-5 3z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/sobre/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Sobre</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Arquivo</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Busca</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo Escuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/fundamentals/" >
+                fundamentals
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2015/08/10/estrutura-de-diret%C3%B3rios-linux/">Estrutura de diretórios Linux</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 10, 2015</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minutos de leitura
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>O <strong>FHS</strong>, ou (File Hierarchy Standard - <em>padrão hierárquico de arquivos</em>), define os principais diretórios para sistemas operacionais Linux ou baseados em <em>Unix</em>. O que difere bastante do padrão utilizado pelo <em>Windows</em>, onde cada partição do disco rígido recebe uma letra para representá-lo, e pastas do sistema possuem nomes específicos de acordo com seu conteúdo.</p>
+<p>No <strong>FHS</strong>, são utilizadas palavras abreviadas, a maioria contendo três letras, o que pode causar estranheza num primeiro contato e dificultar o entendimento do propósito do diretório.</p>
+<p>Os principais são:</p>
+<h2 id="---a-raíz">&ldquo;/&rdquo; - A raíz</h2>
+<p>Tudo no Linux está localizado abaixo do diretório <code>/</code>, conhecido como diretório raiz. Mesmo ao montar outras partições, estas estarão abaixo do diretório raiz, diferente do <em>Windows</em>, onde outra partição seria montada no caminho <code>D:</code> provavelmente.</p>
+<h2 id="bin---binários-essenciais">/bin - Binários essenciais</h2>
+<p>Neste diretório estão mantidos todos os binários essenciais para utilização por parte de um usuário. Programas como bash (<code>sh</code>), copy (<code>cp</code>), VI (<code>vi</code>), Process Status (<code>ps</code>), entre outros&hellip;, estão mantidos aqui. Colocar binários neste diretório garante que o sistema terá esses utilitários mesmo que outros diretórios não sejam montados.</p>
+<p>O diretório <code>/sbin</code> funciona da mesma maneira, porém contendo utilitários essenciais para administração do sistema. Exemplos: <code>adduser</code>, <code>fdisk</code>, <code>iptables</code>, <code>reboot</code>, etc.</p>
+<h2 id="sbin--binários-de-administração">/sbin – Binários de administração</h2>
+<p>Contém binários de forma similar ao diretório <code>/bin</code>, porém os que estão contidos aqui foram criados com a intenção de serem executados por usuários com privilégios de administrador do sistema.</p>
+<h2 id="boot--arquivos-de-boot">/boot – Arquivos de Boot</h2>
+<p>Este diretório contém os arquivos necessários para inicialização do sistema. Por exemplo, os arquivos da ferramenta <strong>GRUB</strong> e os <code>kernels</code> estão armazenados aqui.</p>
+<h2 id="dev--devices">/dev – Devices</h2>
+<p>Distribuições Linux expõem dispositivos como arquivos neste diretório. Embora não sejam realmente arquivos, são exibidos como tal, por exemplo <code>sda</code> é exibido como um arquivo mas representa o primeiro drive <em>SATA</em> no sistema.</p>
+<p>Aqui também são mantidos <em>pseudo-dispositivos</em> que não representam de verdade um hardware, como por exemplo o <code>/dev/null</code>, que representa um dispositivo especial que não produz dados de saída e nem de entrada, sendo útil para o caso onde é necessário descartar a saída de programas, bastando utilizar o pipe para este dispositivo.</p>
+<h2 id="etc--arquivos-de-configuração">/etc – Arquivos de configuração</h2>
+<p>Diretório responsável por manter arquivos de configuração do sistema como um todo. Configurações pessoais de um usuário devem ser mantidos em seu respectivo diretório <code>/home</code>.</p>
+<h2 id="home---lar">/home - Lar</h2>
+<p>Contém os diretórios base de cada usuário criado no sistema e é responsável por manter os dados deste usuário, além de seu arquivos específicos de configuração. Caso um usuário queira alterar dados na pasta <code>/home</code> de outro, é necessário obter privilégios de administrador.</p>
+<h2 id="lib--bibliotecas-essenciais">/lib – Bibliotecas essenciais</h2>
+<p>Aqui estão mantidas as bibliotecas (<em>libraries</em>) essenciais para os programas contidos nos diretórios <code>/bin</code> e <code>/sbin</code>.</p>
+<h2 id="lostfound--arquivos-recuperados">/lost+found – Arquivos recuperados</h2>
+<p>Diretório de &ldquo;achados e perdidos&rdquo;. Caso o sistema quebre, uma checagem de arquivos será realizada no próximo <em>boot</em> e quaisquer arquivos corrompidos serão colocados neste diretório para que seja possível analisar e recuperar dados destes arquivos.</p>
+<h2 id="media--mídia-removível">/media – Mídia removível</h2>
+<p>Responsável por criar sub-diretórios correspondentes à dispositivos de mídia removível conectados ao computador.</p>
+<h2 id="mnt--pontos-de-montagem">/mnt – Pontos de montagem</h2>
+<p>Por convenção, é utilizado para montar temporariamente outros discos disponíveis ou partições. Porém, esta operação é possível de ser feita em qualquer outro diretório.</p>
+<h2 id="opt--pacotes-opcionais">/opt – Pacotes opcionais</h2>
+<p>Contém sub-diretórios para pacotes de software opcionais. É comumente utilizada por softwares de terceiros e proprietários.</p>
+<h2 id="proc--processos">/proc – Processos</h2>
+<p>Contém diretórios virtuais que representam os processos em execução no sistema. Cada diretório é nomeado de acordo com o <em>ID</em> do processo e quando o mesmo é encerrado, automaticamente seu diretório irá desaparecer.</p>
+<h2 id="root--root-home">/root – Root home</h2>
+<p>Este é o diretório <code>home</code> do usuário <code>root</code>. Como este usuário é diferente dos demais, seu diretório base não fica localizado em <code>/home/root</code> mas apenas em <code>/root</code>.</p>
+<h2 id="run--estado-de-aplicações">/run – Estado de aplicações</h2>
+<p>Este diretório fornece um local padrão para as aplicações armazenarem dados sobre seu estado que não podem ser armazenadas no diretório <code>/tmp</code>, uma vez que estando lá, os dados poderão ser descartados em algum momento.</p>
+<h2 id="tmp--temporários">/tmp – Temporários</h2>
+<p>As aplicações irão armazenar neste diretórios arquivos temporários. Geralmente, estes arquivos serão apagados ao reiniciar o sistema e podem ser deletados ao executar algum utilitário de limpeza do sistema.</p>
+<h2 id="usr--binários-de-usuários">/usr – Binários de usuários</h2>
+<p>O diretório <code>/usr</code> contém aplicações e arquivos utilizados por usuários de forma isolada do resto do sistema. Por exemplo, aplicações que não são essenciais estarão mantidas em <code>/usr/bin</code> e não em <code>/bin</code>. Comandos que necessitam de privélgio de administrador estarão em <code>/usr/sbin</code> e não em <code>/sbin</code>. Bibliotecas necessárias para estes programas estarão em <code>/usr/lib</code>.</p>
+<h2 id="var--arquivos-variáveis">/var – Arquivos variáveis</h2>
+<p>O diretório <code>/var</code> contém arquivos que podem ser alterados por aplicações, durante o tempo de execução. Um exemplo claro é o sub-diretório <code>/var/log</code>, que mantém os <em>logs</em> de execução de aplicações e do sistema operacional.</p>
+<hr>
+<p>Para visualizar a documentação completa, acesse: <a class="link" href="http://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html"  target="_blank" rel="noopener"
+    >FHS-3.0</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">linux</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Conteúdo relacionado</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2015/03/03/guia-b%C3%A1sico-de-comandos-do-terminal/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Guia básico de comandos do Terminal</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/06/15/introdu%C3%A7%C3%A3o-ao-git/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Introdução ao Git</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2016/10/06/princ%C3%ADpios-importantes/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Princípios Importantes</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2016/05/04/introdu%C3%A7%C3%A3o-ao-versionamento-sem%C3%A2ntico/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Introdução ao versionamento semântico</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2016/03/08/guia-pr%C3%A1tico-para-cria%C3%A7%C3%A3o-de-user-stories/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Guia prático para criação de User Stories</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "joaolucasgtr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2022 @joaolucasgtr
+    </section>
+    
+    <section class="powerby">
+        Criado com <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> desenvolvido por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Índice</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#---a-raíz">&ldquo;/&rdquo; - A raíz</a></li>
+    <li><a href="#bin---binários-essenciais">/bin - Binários essenciais</a></li>
+    <li><a href="#sbin--binários-de-administração">/sbin – Binários de administração</a></li>
+    <li><a href="#boot--arquivos-de-boot">/boot – Arquivos de Boot</a></li>
+    <li><a href="#dev--devices">/dev – Devices</a></li>
+    <li><a href="#etc--arquivos-de-configuração">/etc – Arquivos de configuração</a></li>
+    <li><a href="#home---lar">/home - Lar</a></li>
+    <li><a href="#lib--bibliotecas-essenciais">/lib – Bibliotecas essenciais</a></li>
+    <li><a href="#lostfound--arquivos-recuperados">/lost+found – Arquivos recuperados</a></li>
+    <li><a href="#media--mídia-removível">/media – Mídia removível</a></li>
+    <li><a href="#mnt--pontos-de-montagem">/mnt – Pontos de montagem</a></li>
+    <li><a href="#opt--pacotes-opcionais">/opt – Pacotes opcionais</a></li>
+    <li><a href="#proc--processos">/proc – Processos</a></li>
+    <li><a href="#root--root-home">/root – Root home</a></li>
+    <li><a href="#run--estado-de-aplicações">/run – Estado de aplicações</a></li>
+    <li><a href="#tmp--temporários">/tmp – Temporários</a></li>
+    <li><a href="#usr--binários-de-usuários">/usr – Binários de usuários</a></li>
+    <li><a href="#var--arquivos-variáveis">/var – Arquivos variáveis</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

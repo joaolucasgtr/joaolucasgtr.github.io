@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Na engenharia de software, um design pattern (ou padrão de projeto), é uma solução de alto nível já definida para problemas recorrentes no campo da programação. Não representa um framework, código fonte ou algo do tipo, mas sim um template que descreve como deverá ser aplicado para solucionar o problema a que se propõe.
+Mas a explosão de popularidade ocorreu mesmo após o lançamento do livro Design Patterns: Elements of Reusable Object-Oriented Software (ou Padrões de Projeto: soluções reutilizáveis de software orientado a objetos), de 1994, escrito pela &amp;ldquo;Gang of four&amp;rdquo;: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.'><title>Sobre padrões de projeto</title>
+
+<link rel='canonical' href='https://joaolucasgtr.github.io/posts/2016/12/01/sobre-padr%C3%B5es-de-projeto/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Sobre padrões de projeto'>
+<meta property='og:description' content='Na engenharia de software, um design pattern (ou padrão de projeto), é uma solução de alto nível já definida para problemas recorrentes no campo da programação. Não representa um framework, código fonte ou algo do tipo, mas sim um template que descreve como deverá ser aplicado para solucionar o problema a que se propõe.
+Mas a explosão de popularidade ocorreu mesmo após o lançamento do livro Design Patterns: Elements of Reusable Object-Oriented Software (ou Padrões de Projeto: soluções reutilizáveis de software orientado a objetos), de 1994, escrito pela &amp;ldquo;Gang of four&amp;rdquo;: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.'>
+<meta property='og:url' content='https://joaolucasgtr.github.io/posts/2016/12/01/sobre-padr%C3%B5es-de-projeto/'>
+<meta property='og:site_name' content='@joaolucasgtr'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='design patterns' /><meta property='article:published_time' content='2016-12-01T20:44:42&#43;00:00'/><meta property='article:modified_time' content='2016-12-01T20:44:42&#43;00:00'/>
+<meta name="twitter:site" content="@_joaolucasgtr">
+    <meta name="twitter:creator" content="@_joaolucasgtr"><meta name="twitter:title" content="Sobre padrões de projeto">
+<meta name="twitter:description" content="Na engenharia de software, um design pattern (ou padrão de projeto), é uma solução de alto nível já definida para problemas recorrentes no campo da programação. Não representa um framework, código fonte ou algo do tipo, mas sim um template que descreve como deverá ser aplicado para solucionar o problema a que se propõe.
+Mas a explosão de popularidade ocorreu mesmo após o lançamento do livro Design Patterns: Elements of Reusable Object-Oriented Software (ou Padrões de Projeto: soluções reutilizáveis de software orientado a objetos), de 1994, escrito pela &amp;ldquo;Gang of four&amp;rdquo;: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Alternar Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://avatars.githubusercontent.com/u/13789716?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">@joaolucasgtr</a></h1>
+            <h2 class="site-description">Hi, my name is João Lucas and I&#39;m a passionate fullstack developer.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:joaolucasgtr@gmail.com'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://gitlab.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitLab"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://br.linkedin.com/in/joaolucasgtr'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/_joaolucasgtr'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ'
+                        target="_blank"
+                        title="Youtube"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="4" />
+  <path d="M10 9l5 3l-5 3z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/sobre/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Sobre</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Arquivo</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Busca</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo Escuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/engineering/" >
+                engineering
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2016/12/01/sobre-padr%C3%B5es-de-projeto/">Sobre padrões de projeto</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 01, 2016</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 minutos de leitura
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Na engenharia de software, um <em>design pattern</em> (ou padrão de projeto), é uma solução de alto nível já definida para problemas recorrentes no campo da programação. Não representa um <em>framework</em>, código fonte ou algo do tipo, mas sim um <em>template</em> que descreve como deverá ser aplicado para solucionar o problema a que se propõe.</p>
+<p>Mas a explosão de popularidade ocorreu mesmo após o lançamento do livro <a class="link" href="https://en.wikipedia.org/wiki/Design_Patterns"  target="_blank" rel="noopener"
+    >Design Patterns: Elements of Reusable Object-Oriented Software</a> (ou Padrões de Projeto: soluções reutilizáveis de software orientado a objetos), de 1994, escrito pela &ldquo;<em>Gang of four</em>&rdquo;: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. A edição original traz a definição de vinte e três padrões clássicos e você encontra uma lista resumida no <a class="link" href="#Lista-de-padroes-por-categoria" >final deste artigo</a>.</p>
+<h2 id="sobre-o-livro">Sobre o livro</h2>
+<p>O livro possui duas partes, sendo a primeira explorando as capacidades e armadilhas da programação orientada a objetos, e a segunda abordando os vinte e três padrões. Para aproveitar a leitura é necessário que você já possua proficiência nos conceitos de orientação a objetos, para que você não tenha que interromper a leitura sempre que for mencionado algo como polimorfismo, herança ou interface, por exemplo.</p>
+<p>Por outro lado, não será uma leitura técnica avançada, pois os padrões são descritos com soluções simples e elegantes, visando suprir algumas necessidades da programação orientada a objetos. Sendo assim, não são necessários recursos incomuns ou truques fantásticos de programação para implementá-los, ou seja, todos os padrões podem ser escritos usando recursos básicos das linguagens de programação.</p>
+<h2 id="benefícios">Benefícios</h2>
+<p>Assim que entender como utilizar os padrões e sua reação for um &ldquo;A-Ha!&rdquo; (e não um &ldquo;Ahn?&rdquo;), provavelmente nunca mais verá a orientação a objetos da mesma forma. Você terá diversos <em>insights</em> que o ajudarão a produzir <em>designs</em> mais flexíveis, modulares, reutilizáveis e mais compreensíveis. Afinal, este é o seu objetivo, certo?</p>
+<p>Construir <em>software</em> é difícil, construir <em>software</em> orientado a objetos de forma reutilizável é ainda mais difícil. Você deve criar objetos pertinentes, classes com a granularidade correta, definir boas <em>interfaces</em> e suas heranças, e ainda estabelecer relacionamento entre essas entidades. Você deve evitar o <em>redesign</em> ou ao menos tentar minimizá-lo. Desenvolvedores experientes lhe dirão que um <em>design</em> flexível e reutilizável é praticamente impossível de se fazer da forma &ldquo;certa&rdquo; da primeira vez.</p>
+<p>O propósito do livro é registrar experiências adquiridas anteriormente, transformando-as em padrões, que facilitam a criação de novos sistemas, expressando técnicas bem sucedidas.</p>
+<p>Padrões te ajudam a ter mais alternativas de soluções na hora de escrever código e ainda facilitam o processo de documentação e manutenção, fornecendo especificações explícitas de classes e interação entre os objetos.</p>
+<h2 id="definindo-um-padrão">Definindo um padrão</h2>
+<p>Cada padrão sistematicamente nomeia, explica e avalia um <em>design</em> importante e recorrente. O objetivo é capturar o <em>design</em> de forma que pessoas possam utilizá-lo de forma eficiente.</p>
+<p>Em geral, um padrão possui quatro elementos essenciais:</p>
+<ul>
+<li><strong>Nome -</strong> O nome do padrão é utilizado para descrever um problema, a solução e as consequências, e deve ser escrito em uma palavra ou duas. Também ajuda na comunicação em um nível alto de abstração e foi um dos pontos mais difíceis durante a produção do livro.</li>
+<li><strong>Problema a ser resolvido -</strong> O problema descreve quando aplicar o padrão e seu contexto. Algumas vezes o problema irá incluir uma lista de condições que devem ser atendidas antes de aplicar o padrão.</li>
+<li><strong>Solução dada pelo padrão -</strong> A solução descreve os elementos que constituem o <em>design</em>, seus relacionamentos, responsabilidades e colaborações. A solução não descreve um <em>design</em> concreto e particular, uma vez que os padrões são <em>templates</em> abstratos para serem aplicados em diversas situações diferentes.</li>
+<li><strong>Consequências -</strong> As consequências são os resultados e os <em>trade-offs</em> da aplicação do padrão e devem sempre ser consideradas antes de decidir a aplicação do padrão.</li>
+</ul>
+<h3 id="como-escolher-um-design-pattern">Como escolher um Design Pattern</h3>
+<p>Com mais de vinte padrões no catálogo, pode parecer difícil encontrar um que seja adequado ao seu problema de <em>design</em>. A seguir, algumas abordagens diferentes para definir qual padrão é a melhor escolha para o seu problema:</p>
+<ol>
+<li>Considere como padrões resolvem problemas de <em>design</em>, quais são os objetos apropriados, a granularidade desses objetos e <em>interfaces</em> relacionadas. Estudar estes pontos é um bom ponto de partida para encontrar um padrão adequado.</li>
+<li>Leia através de cada intenção dos padrões para encontrar um ou mais que pareçam relevantes para o seu problema. Utilize o catálogo no próximo tópico para facilitar sua busca.</li>
+<li>Estude como os padrões se relacionam. Estudar os relacionamentos podem te guiar na direção certa dos padrões ou grupos de padrões. Imagem de referência no final do artigo.</li>
+<li>Estude os padrões por seu propósito. Existem três categorias diferentes de padrões: criacionais, estruturais e comportamentais. Isto com certeza irá facilitar a busca ao comparar padrões diferentes agrupados por propósito.</li>
+<li>Examine as <a class="link" href="https://blogs.agilefaqs.com/2008/09/05/common-causes-of-redesign/"  target="_blank" rel="noopener"
+    >causas de <em>redesign</em></a>, pois elas possuem padrões relacionados criados para resolver estes problemas.</li>
+<li>Considere o que pode ser variável no seu <em>design</em>. Em vez de considerar o que poderia forçá-lo ao <em>redesign</em>, considere o que quer que seja possível mudar sem <em>redesign</em>. O foco aqui está em encapsular o conceito que irá variar, tema de muitos padrões.</li>
+</ol>
+<h2 id="lista-de-padrões-por-categoria">Lista de padrões por categoria</h2>
+<h3 id="criacionais">Criacionais</h3>
+<p>São padrões que criam objetos, em vez de ter que instanciá-los diretamente. Isto proporciona ao programa maior flexibilidade em decidir quais objetos precisam ser criados para um determinado caso.</p>
+<ul>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Abstract_factory_pattern"  target="_blank" rel="noopener"
+    ><strong>Abstract factory</strong></a> agrupa <em>factories</em> que possuem um tema em comum.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Builder_pattern"  target="_blank" rel="noopener"
+    ><strong>Builder</strong></a> constrói objetos complexos separando construção e representação.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Factory_method_pattern"  target="_blank" rel="noopener"
+    ><strong>Factory Method</strong></a> constrói objetos sem especificar exatamente qual classe utilizar.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Prototype_pattern"  target="_blank" rel="noopener"
+    ><strong>Prototype</strong></a> cria objetos clonando outros existentes.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Singleton_pattern"  target="_blank" rel="noopener"
+    ><strong>Singleton</strong></a> restringe a criação de um objeto para uma única instância de classe.</li>
+</ul>
+<h3 id="estruturais">Estruturais</h3>
+<p>Estes visam composição de objetos e classes. Utilizam herança para compor <em>interfaces</em> e definir maneiras de compor objetos e obter novas funcionalidades.</p>
+<ul>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Adapter_pattern"  target="_blank" rel="noopener"
+    ><strong>Adapter</strong></a> permite classes com <em>interfaces</em> incompatíveis a trabalharem juntas, criando sua própria <em>interface</em> a partir de uma classe já existente.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Bridge_pattern"  target="_blank" rel="noopener"
+    ><strong>Bridge</strong></a> desacopla abstração de implementação para que as duas possam variar independentemente.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Composite_pattern"  target="_blank" rel="noopener"
+    ><strong>Composite</strong></a> compõe zero ou mais objetos similares, para que possam ser manipulados como um só.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Decorator_pattern"  target="_blank" rel="noopener"
+    ><strong>Decorator</strong></a> dinamicamente adicionar ou sobrescreve o comportamento de um método já existente em um objeto.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Facade_pattern"  target="_blank" rel="noopener"
+    ><strong>Facade</strong></a> provê uma <em>interface</em> simplificada para uma implementação grande de código.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Flyweight_pattern"  target="_blank" rel="noopener"
+    ><strong>Flyweight</strong></a> reduz o custo de criação e manipulação de um grande número de objetos parecidos.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Proxy_pattern"  target="_blank" rel="noopener"
+    ><strong>Proxy</strong></a> provê uma forma para que outro objeto controle o acesso, reduza custos e reduza a complexidade.</li>
+</ul>
+<h3 id="comportamentais">Comportamentais</h3>
+<p>A maioria destes padrões se preocupa com a comunicação entre objetos.</p>
+<ul>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern"  target="_blank" rel="noopener"
+    ><strong>Chain of responsibility</strong></a> delega comandos para uma cadeia de processamento de objetos.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Command_pattern"  target="_blank" rel="noopener"
+    ><strong>Command</strong></a> cria objetos que encapsulam ações e parâmetros.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Interpreter_pattern"  target="_blank" rel="noopener"
+    ><strong>Interpreter</strong></a> implementa uma linguagem especializada.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Iterator_pattern"  target="_blank" rel="noopener"
+    ><strong>Iterator</strong></a> acessa os elementos de uma coleção sem expor sua representação interna.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Mediator_pattern"  target="_blank" rel="noopener"
+    ><strong>Mediator</strong></a> permite desacoplamento entre classes, sendo a única a ter conhecimento detalhado de seus métodos.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Memento_pattern"  target="_blank" rel="noopener"
+    ><strong>Memento</strong></a> provê habilidade de restaurar um objeto ao seu estado anterior (<code>ctrl+z</code>).</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Observer_pattern"  target="_blank" rel="noopener"
+    ><strong>Observer</strong></a> permite comunicação entre objetos através de eventos.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/State_pattern"  target="_blank" rel="noopener"
+    ><strong>State</strong></a> permite um objeto a mudar seu comportamento quando seu estado interno altera.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Strategy_pattern"  target="_blank" rel="noopener"
+    ><strong>Strategy</strong></a> permite escolher dinamicamente um algoritmo, de uma família, em tempo de execução.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Template_method_pattern"  target="_blank" rel="noopener"
+    ><strong>Template</strong></a> define um algoritmo esqueleto como uma classe abstrata, permitindo que subclasses implementem o comportamento concreto.</li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Visitor_pattern"  target="_blank" rel="noopener"
+    ><strong>Visitor</strong></a> separa um algoritmo de uma estrutura de objeto ao mover-se hierarquicamente dentre métodos de um objeto.</li>
+</ul>
+<h2 id="por-onde-começar">Por onde começar?</h2>
+<p>Se você ainda não é um desenvolvedor com experiência, então comece com os mais simples e comuns, listados a seguir:</p>
+<ul>
+<li>Abstract Factory</li>
+<li>Adapter</li>
+<li>Composite</li>
+<li>Decorator</li>
+<li>Factory Method</li>
+<li>Observer</li>
+<li>Strategy</li>
+<li>Template Method</li>
+</ul>
+<h2 id="conclusão">Conclusão</h2>
+<p>A importância dos padrões de projetos é reconhecida globalmente por oferecer soluções inteligentes para problemas recorrentes. Dificilmente você encontrará sistemas orientados a objetos que não utilizem ao menos um dos padrões apresentados neste artigo, sendo que em sistemas grandes a tendendência é que vários padrões tenham sido utilizados.</p>
+<p>Aplicar padrões de projetos é considerada uma boa prática de engenharia de <em>software</em> pois evita que você viole o princípio <strong>DRY</strong> (don&rsquo;t repeat yourself), ao poupar a si mesmo de gastar horas pensando em soluções que já foram criadas, aplicadas e testadas em ambientes de produção ao redor do globo.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/design-patterns/">design patterns</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Conteúdo relacionado</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2017/03/20/o-padr%C3%A3o-dao/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O padrão DAO</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2016/12/06/o-padr%C3%A3o-mvc/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O padrão MVC</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/02/20/solid-com-exemplos/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SOLID (com exemplos)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/02/15/refatora%C3%A7%C3%A3o/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Refatoração</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/01/08/o-princ%C3%ADpio-kiss/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O princípio KISS</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "joaolucasgtr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2022 @joaolucasgtr
+    </section>
+    
+    <section class="powerby">
+        Criado com <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> desenvolvido por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Índice</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#sobre-o-livro">Sobre o livro</a></li>
+    <li><a href="#benefícios">Benefícios</a></li>
+    <li><a href="#definindo-um-padrão">Definindo um padrão</a>
+      <ol>
+        <li><a href="#como-escolher-um-design-pattern">Como escolher um Design Pattern</a></li>
+      </ol>
+    </li>
+    <li><a href="#lista-de-padrões-por-categoria">Lista de padrões por categoria</a>
+      <ol>
+        <li><a href="#criacionais">Criacionais</a></li>
+        <li><a href="#estruturais">Estruturais</a></li>
+        <li><a href="#comportamentais">Comportamentais</a></li>
+      </ol>
+    </li>
+    <li><a href="#por-onde-começar">Por onde começar?</a></li>
+    <li><a href="#conclusão">Conclusão</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

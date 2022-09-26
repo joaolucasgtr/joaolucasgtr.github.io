@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>architecture on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/categories/architecture/</link>
+        <description>Recent content in architecture on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Mon, 20 Mar 2017 20:18:07 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/categories/architecture/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>SOA - Service Oriented Architecture</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/03/20/soa-service-oriented-architecture/</link>
+        <pubDate>Mon, 20 Mar 2017 20:18:07 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/03/20/soa-service-oriented-architecture/</guid>
+        <description>&lt;p&gt;O termo &lt;strong&gt;SOA&lt;/strong&gt; representa as iniciais de &lt;strong&gt;Service Oriented Architecture&lt;/strong&gt; (&lt;em&gt;arquitetura orientada a serviços&lt;/em&gt;), e representa um estilo arquitetural onde recursos da aplicação são disponibilizados por meio de serviços, através de um protocolo de comunicação pela rede.&lt;/p&gt;
+&lt;h2 id=&#34;serviços&#34;&gt;Serviços&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Serviço&lt;/strong&gt; é uma unidade de funcionalidade que pode ser acessado de forma remota ou local, e de forma independente. Um serviço possui quatro propriedades:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Representa uma atividade de negócio com uma resposta definida&lt;/li&gt;
+&lt;li&gt;É &lt;em&gt;self-contained&lt;/em&gt; (independente)&lt;/li&gt;
+&lt;li&gt;É uma caixa preta para seus consumidores, já que não possuem conhecimento de como o serviço funciona por dentro&lt;/li&gt;
+&lt;li&gt;Pode consistir de outros serviços de camadas inferiores&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Arquitetura orientada a serviços permite a integração entre sistemas distribuídos, mantidos e publicados de forma completamente separada. Está relacionada à ideia de API (&lt;em&gt;application programming interface&lt;/em&gt;), um contrato de comunicação bem definido, que visa simplificar a integração entre &lt;em&gt;softwares&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;conceitos&#34;&gt;Conceitos&lt;/h2&gt;
+&lt;p&gt;Um manifesto foi publicado em outubro de 2009, onde são descritos seis valores listados a seguir:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Valor de negócio&lt;/strong&gt; tem mais importância do que à estratégia técnica;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Metas estratégicas&lt;/strong&gt; têm mais importância que benefícios específicos do projeto;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interoperabilidade intrínseca&lt;/strong&gt; tem mais importância do que a integração personalizada;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Serviços compartilhados&lt;/strong&gt; têm mais importância que as implementações específicas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibilidade&lt;/strong&gt; tem mais importância que otimização;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Refinamento evolutivo&lt;/strong&gt; tem mais importância do que a busca pela perfeição inicial.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;princípios&#34;&gt;Princípios&lt;/h2&gt;
+&lt;p&gt;Apesar de não existirem padrões industriais que definem exatamente a composição de arquitetura orientada a  serviços, alguns princípios foram criados.&lt;/p&gt;
+&lt;p&gt;Os mais comuns são:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Autonomia de referência de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;O relacionamento entre serviços é minimizado até o nível de que só conhecem a existência uns dos outros.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Transparẽncia de localização de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços podem ser chamados de qualquer local dentro da rede que estão contidos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Abstração de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços agem como uma caixa preta, ou seja, a lógica interna fica escondida dos consumidores.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Autonomia de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços são independentes e controlam toda a funcionalidade que encapsulam.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Falta de estado de serviços (Stateless)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços não armazenam estado, somente retornam o valor requisitado ou lançam alguma exceção, minimizando o consumo de recursos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Granularidade de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Este princípio diz que serviços devem possuir um tamanho adequado. Sua funcionalidade deve ser relevante.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Normalidade de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Serviços são normalizados (como tabelas em banco de dados) para minimizar a possibilidade de redundância.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reusabilidade de serviços&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A lógica é dividida em vários serviços, para promover o reuso do código.&lt;/p&gt;
+&lt;p&gt;&amp;hellip;entre outros.&lt;/p&gt;
+&lt;h2 id=&#34;implementações&#34;&gt;Implementações&lt;/h2&gt;
+&lt;p&gt;A arquitetura em questão é implementada através de web services ou microserviços. Estes representam os blocos de funcionalidades acessíveis através de protocolos de comunicação de rede, que são independentes de plataforma ou linguagem de programação.&lt;/p&gt;
+&lt;p&gt;Sendo assim, sistemas podem operar de forma independente e dinâmica, utilizando diversas tecnologias como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Web services baseados em WSDL e SOAP&lt;/li&gt;
+&lt;li&gt;Messaging, com ActiveMQ, JMS, RabbitMQ&lt;/li&gt;
+&lt;li&gt;REST over HTTP&lt;/li&gt;
+&lt;li&gt;WCF (Windows Communication Foundation)&lt;/li&gt;
+&lt;li&gt;gRPC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Como vimos, a arquitetura orientada a serviços reforça vários conceitos de boas práticas, como reuso, modularidade, separação de responsabilidade, entre outros. Além disso, fatores como escalabilidade, flexibilidade e alta disponibilidade a transformam numa opção muito atrativa para o ambiente corporativo, devido à simplicidade na adoção e manutenção por parte das equipes de desenvolvimento.&lt;/p&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Service-oriented_architecture&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;Service-oriented architecture on Wikipedia&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://soa-manifesto.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;SOA Manifesto&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Arquitetura em camadas</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/02/02/arquitetura-em-camadas/</link>
+        <pubDate>Thu, 02 Feb 2017 14:18:55 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/02/02/arquitetura-em-camadas/</guid>
+        <description>&lt;p&gt;Construir um software utilizando a arquitetura em camadas significa desacoplar de forma lógica grupos de rotinas por responsabilidade. Cada camada então deverá possuir apenas uma responsabilidade e gerenciar suas dependências de forma interna. Uma camada superior pode usar os serviços de uma camada inferior, porém o oposto não pode ser aplicado.
+É importante frisar que para a aplicação desta arquitetura ser bem sucedida, é necessário que o contexto exija a existência desse nível de desacoplamento, ou seja, aplicações de grande escala, onde desacoplamento, boa manutenibilidade e estruturas formais são um requisito básico.&lt;/p&gt;
+&lt;h2 id=&#34;sobre&#34;&gt;Sobre&lt;/h2&gt;
+&lt;p&gt;Uma arquitetura em camadas, geralmente mencionada como n-tier architecture, ou multicamadas, é a forma de estruturar aplicações de forma distribuída. O modelo mais comum de utilização é a arquitetura em três camadas, sendo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Camada de apresentação&lt;/li&gt;
+&lt;li&gt;Camada de negócio&lt;/li&gt;
+&lt;li&gt;Camada de dados&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;cujo objetivo claro é obter uma estrutura mais flexível, onde cada camada pode ser facilmente substituída sem a necessidade de refatoração nas demais.&lt;/p&gt;
+&lt;h2 id=&#34;camada-de-apresentação&#34;&gt;Camada de apresentação&lt;/h2&gt;
+&lt;p&gt;É o nível mais alto da aplicação, onde é possível visualizar e interagir com os dados gerenciados pela aplicação. Geralmente é chamada através de uma GUI (Graphical User Interface, ou interface gráfica de usuário), porém, em diversas aplicações a linha de comando é a camada de apresentação.&lt;/p&gt;
+&lt;p&gt;É de extrema importância que a única responsabilidade desta camada seja somente exibir os dados obtidos diretamente da camada inferior, a camada de regras de negócio, visando não ferir a premissa de que qualquer camada possa ser facilmente substituída.&lt;/p&gt;
+&lt;h3 id=&#34;padrões-de-projeto&#34;&gt;Padrões de projeto&lt;/h3&gt;
+&lt;p&gt;A utilização de padrões de projeto apropriados para a camada de apresentação pode reduzir drasticamente o esforço de desenvolvimento do sistema. Além disso, adotar padrões amplamente conhecidos irá melhorar a manutenibilidade e entrada de novos colaboradores ao projeto.&lt;/p&gt;
+&lt;p&gt;Decisões mal tomadas nesta camada são, em particular, muito caras e custosas para se resolver, e você pode identificá-las quando:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Aumentar a complexidade das interações do usuário, envolvendo relacionamentos não triviais entre entidades e páginas do sistema;&lt;/li&gt;
+&lt;li&gt;Regras de negócios mudam e você precisa apresentar dados novos ou modificar funcionalidades existentes para novos usuários;&lt;/li&gt;
+&lt;li&gt;Você precisar portar sua aplicação para outras plataformas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Os padrões mais frequentemente utilizados na camada de apresentação são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Observer:&lt;/strong&gt; fornecendo um mecanismo para que um objeto notifique outros de suas alterações, sem estabelecer fortes vínculos de dependências entre eles;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Page Controller:&lt;/strong&gt; utilizado por padrão no ASP.NET, onde cada página irá possuir sua classe controladora (Controller);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model-View-Controller (MVC):&lt;/strong&gt; para casos de interfaces complexas, onde é necessário o reaproveitamento de dados em locais diferentes de visualização.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;camada-de-negócio&#34;&gt;Camada de negócio&lt;/h2&gt;
+&lt;p&gt;A camada de lógica de negócios, ou &lt;em&gt;Business Layer&lt;/em&gt;, se refere a implementação de regras de negócio ou requisitos do sistema. Aqui é escrito o código do “mundo real”, que determina como devem ser manipulados os dados da aplicação, como serão aplicadas as regras de validação e serve como camada de ligação entre as camadas de apresentação e dados.
+É a camada com a maior probabilidade de mudança.&lt;/p&gt;
+&lt;h3 id=&#34;padrões-de-projeto-1&#34;&gt;Padrões de projeto&lt;/h3&gt;
+&lt;p&gt;A camada de negócio é que a vai possibilitar o maior número de casos de aplicação de padrões de projeto, por ser a camada “central” da aplicação. Assim, praticamente todos os padrões comportamentais podem ser encaixados nesta camada, basta estudar se é compatível com suas regras de negócio e aplicar.&lt;/p&gt;
+&lt;p&gt;Os padrões mais frequentemente utilizados na camada de negócio são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Facade:&lt;/strong&gt; fornecendo uma fachada simplificada que encapsula implementações complexas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chain of responsibility:&lt;/strong&gt; organizando a comunicação entre objetos solicitantes e fornecedores sem estabelecer dependência entre eles;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Strategy:&lt;/strong&gt; aprimorando a separação de responsabilidades por meio de abstrações e implementações concretas que não afetam estruturas já prontas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interpreter:&lt;/strong&gt; resolvendo expressões através de uma representação hierárquica de objetos;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mediator:&lt;/strong&gt; encapsulando a maneira como os objetos interagem entre si&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;entre diversos outros&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;camada-de-dados&#34;&gt;Camada de dados&lt;/h2&gt;
+&lt;p&gt;Aqui é escrito todo código responsável por lidar com a persistência dos dados da aplicação, como bancos de dados, sistema de arquivos, etc. É necessário que a camada de dados possua uma API de comunicação que expõe métodos de acesso aos dados e evite totalmente possuir dependência de outras camadas. Isto irá facilitará o processo de substituição da camada de dados quando houver a necessidade de mudança de estrutura para melhorar o desempenho do sistema, por exemplo.&lt;/p&gt;
+&lt;h3 id=&#34;padrões-de-projeto-2&#34;&gt;Padrões de projeto&lt;/h3&gt;
+&lt;p&gt;É necessário considerar algumas questões no design da camada de dados que podem afetar diversos aspectos do sistema, como segurança, desempenho e escalabilidade. Deve ser simples também o processo de manutenção e extensão assim que os requisitos começarem a mudar.&lt;/p&gt;
+&lt;p&gt;Pontos a serem considerados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Escolha da tecnologia de persistência:&lt;/strong&gt; existe realmente a necessidade de se usar um banco de dados? Se sim, esse banco deve ser relacional ou não? Se não, você pode gravar os dados em um arquivo XML ou JSON, ou no formato Chave-Valor?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Utilize abstração para diminuir o acoplamento:&lt;/strong&gt; isto pode ser alcançado utilizando Interfaces, com entradas a saídas bem definidas, ou classes abstratas para compartilhamento de lógicas genéricas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mantenha toda a lógica da camada de dados na camada de dados!&lt;/strong&gt; Esta camada deve esconder das outras as rotinas de conexão com banco de dados, criação e execução de queries e conhecimento da tecnologia de persistência;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manipular exceções:&lt;/strong&gt; somente exceções relacionadas ao acesso a dados devem ser tratadas aqui e propagar para as camadas superiores as demais exceções para tratamento adequado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Padrões mais frequentemente utilizados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Singleton:&lt;/strong&gt; sendo a única fonte de se obter uma conexão ativa com o banco de dados em todo o sistema;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data-Access-Objects (DAO):&lt;/strong&gt; fornecendo acesso à entidades persistidas de forma isolada segura;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Active Record:&lt;/strong&gt; onde cada entidade de dados é mapeada em uma classe com as operações de CRUD já embutidas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Repository:&lt;/strong&gt; que fornece uma visão mais orientada a objetos do banco de dados&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unit of work:&lt;/strong&gt; mantendo uma lista de objetos afetados por uma transação para escrita coordenada das alterações.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Neste artigo, pudemos observar alguns cenários de aplicação da arquitetura em camadas, visando aprimorar a forma como estruturamos sistemas. É possível notar como dois conceitos de boas práticas de programação trabalham muito bem juntos: a arquitetura em camadas e os padrões de projeto. Porém, isto não deve ser considerado como verdade absoluta para todos os casos. A aplicação indevida pode acabar gerando o efeito contrário ao proposto, burocratizando demais o processo de desenvolvimento e manutenção.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aplique conceitos certos diante de contextos certos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Multitier_architecture&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Multitier architecture on wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff647343%28v=pandp.10%29?redirectedfrom=MSDN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Design and Implementation Guidelines for Web Clients&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ee658127%28v=pandp.10%29?redirectedfrom=MSDN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Design Fundamentals, Chapter 8: Data Layer Guidelines&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Sobre REST e RESTful</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/02/26/sobre-rest-e-restful/</link>
+        <pubDate>Thu, 26 Feb 2015 16:53:33 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/02/26/sobre-rest-e-restful/</guid>
+        <description>&lt;p&gt;Primeiramente introduzido por Roy Fielding em sua dissertação de mestrado de 2000, o termo &lt;em&gt;REST&lt;/em&gt; representa um estilo arquitetural focado na troca de dados entre clientes e servidores pela &lt;em&gt;web&lt;/em&gt;. Note que o termo correto para definição de &lt;em&gt;REST&lt;/em&gt; é estilo arquitetural, não é um protocolo e nem um padrão de projeto.&lt;/p&gt;
+&lt;p&gt;O ponto chave é que o servidor não precisa saber nada sobre a aplicação em si, deixando-o altamente desacoplado e facilmente integrável por clientes diversos.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;O termo REST é um acrônimo para &lt;strong&gt;Re&lt;/strong&gt;presentational &lt;strong&gt;S&lt;/strong&gt;tate &lt;strong&gt;T&lt;/strong&gt;ransfer (Transferência de Estado Representacional), porém o legal é que a palavra REST significa descansar, que é exatamente o comportamento de uma api REST.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;princípios&#34;&gt;Princípios&lt;/h2&gt;
+&lt;p&gt;No capítulo cinco, Roy descreve os princípios básicos de sua tese, que são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Client-Server&lt;/strong&gt; (Cliente-Servidor) - Aplicações REST possuem arquitetura Cliente-Servidor, obedecendo o conceito de &lt;em&gt;Separação de responsabilidades&lt;/em&gt;. Isto facilita o processo de evolução, portabilidade e escalabilidade de software.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stateless&lt;/strong&gt; (Sem estado) - O servidor não deve manter nenhum estado a respeito dos clientes. Cada requisição deve conter toda informação necessária para entendimento e processamento da mesma.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cache&lt;/strong&gt; - Para aprimorar a eficiência da rede, servidores podem marcar respostas como &lt;em&gt;cacheable&lt;/em&gt; (cacheáveis), para que os clientes possam reutilizá-las posteriormente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Uniform Interface&lt;/strong&gt; (Interface uniforme) - A característica central que difere o REST de outras arquiteturas &lt;em&gt;web&lt;/em&gt; é sua ênfase em uma interface uniforme de comunicação.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Layered System&lt;/strong&gt; (Sistema em camadas) - Compor a aplicação em camadas, onde cada componente não consegue acessar código presente fora de sua camada, facilita a adição de balanceadores de carga e &lt;em&gt;proxies&lt;/em&gt;, para aprimorar a performance e segurança.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Um serviço é dito &lt;strong&gt;RESTful&lt;/strong&gt; quando atende aos princípios descritos acima, definidos por Roy. A combinação destes princípios criam um tipo de aplicação bem específico, focado em escalabilidade, performance e segurança.&lt;/p&gt;
+&lt;h2 id=&#34;protocolo&#34;&gt;Protocolo&lt;/h2&gt;
+&lt;p&gt;O protocolo utilizado para comunicação é o &lt;strong&gt;HTTP&lt;/strong&gt;. Apesar de existir há mais de vinte anos, o protocolo recebeu diversas atualizações para modernização e aprimoramento semântico. Sugestões de criação de novos verbos, pelo próprio Roy, foram adotadas e implementadas, permitindo que a leitura ficasse bem mais próxima da nossa realidade. Requisições como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GET&lt;/strong&gt; - &lt;code&gt;http://server:8080/users&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DELETE&lt;/strong&gt; - &lt;code&gt;http://server:8080/users/john&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;POST&lt;/strong&gt; - &lt;code&gt;http://server:8080/users&lt;/code&gt; - &lt;code&gt;data={ name: stevie }&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;são extremamente explícitas no que se propõem a fazer.&lt;/p&gt;
+&lt;h2 id=&#34;rest-vs-restful&#34;&gt;REST vs RESTful&lt;/h2&gt;
+&lt;p&gt;Após a definição do que é &lt;strong&gt;REST&lt;/strong&gt; e &lt;strong&gt;RESTful&lt;/strong&gt;, pode ser que ainda exista dúvida sobre as diferenças entre os termos. Sabemos que &lt;strong&gt;REST&lt;/strong&gt; é um estilo arquitetural e &lt;strong&gt;RESTful&lt;/strong&gt; é o serviço que implementa &lt;strong&gt;REST&lt;/strong&gt;. Porém, somente pode-se dizer que uma api é &lt;strong&gt;RESTful&lt;/strong&gt; se a mesma obedecer a todos os princípios definidos por Roy.&lt;/p&gt;
+&lt;p&gt;Muitos desenvolvedores podem não sentir nenhum tipo de incômodo ao se deparar com &lt;em&gt;endpoints&lt;/em&gt; como estes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GET&lt;/strong&gt; - &lt;code&gt;http://server:8080/users/123/delete&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PUT&lt;/strong&gt; - &lt;code&gt;http://server:8080/users&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tudo bem se você consegue viver com isso, rs. Estes &lt;em&gt;endpoints&lt;/em&gt; não estão errados, a nível de código, e irão funcionar normalmente sem lançamento de exceções ou algo do tipo. Porém, eles não respeitam a questão semântica do estilo arquitetural, visto que, no primeiro caso, um verbo &lt;strong&gt;GET&lt;/strong&gt; está sendo usado para deleção, e no segundo, &lt;strong&gt;PUT&lt;/strong&gt; usado para criação.&lt;/p&gt;
+&lt;h2 id=&#34;dica&#34;&gt;Dica&lt;/h2&gt;
+&lt;p&gt;Para aprimorar a habilidade de criação de &lt;em&gt;endpoints&lt;/em&gt; semânticos, basta imaginar sua &lt;em&gt;api&lt;/em&gt; como uma estrutura de diretórios.&lt;/p&gt;
+&lt;p&gt;Considerando a entidade &lt;strong&gt;Usuario&lt;/strong&gt;, imagine que você possui uma pasta chamada &lt;code&gt;Usuarios&lt;/code&gt;, criada dentro do diretório &lt;code&gt;Sistema&lt;/code&gt;. Dentro desta pasta, existem várias pastas, uma para cada usuário do sistema, onde cada nome de pasta seja equivalente ao &lt;em&gt;Id&lt;/em&gt; do respectivo usuário. Em cada pasta de usuário, estaria um arquivo de texto com os dados do mesmo.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; _ Usuarios
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ usuario_1.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ usuario_2.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_ usuario_3.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Navegando pelo gerenciador de arquivos do seu sistema operacional, abrir a pasta de &lt;code&gt;Usuarios&lt;/code&gt; lhe exibirá a lista de &lt;em&gt;Id&lt;/em&gt;s de usuários do sistema. Consequentemente, abrir a pasta de um usuário mostrará suas informações. O &amp;ldquo;endereço&amp;rdquo; de navegação entre arquivos seria:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/Sistema&lt;/code&gt;, para mostrar a pasta de usuários;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/Usuarios&lt;/code&gt;, para exibir os Ids;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/Usuarios/1&lt;/code&gt;, para ler informações de um usuário.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Caso queira excluir um usuário, basta excluir a pasta do seu &lt;em&gt;Id&lt;/em&gt;; Para atualizar, incluir um novo arquivo na sua pasta de &lt;em&gt;Id&lt;/em&gt;; e para criar, basta adicionar uma nova pasta dentro do diretório &lt;code&gt;Usuarios&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Agora, basta utilizar a mesma ideia para criar &lt;em&gt;endpoints&lt;/em&gt; para todos os verbos &lt;strong&gt;HTTP&lt;/strong&gt;. Exemplo:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Verbo&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Recurso&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Descricao&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Retorna a lista de usuários do sistema&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios/:id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Retorna dados do usuário pelo seu Id informado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Envia um novo usuário para ser inserido no sistema, no corpo da requisição&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios/:id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Envia dados para atualização do usuário, de acordo com seu &lt;em&gt;Id&lt;/em&gt; informado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DELETE&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/usuarios/:id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Exclui do sistema o usuário pelo seu Id informado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;A discussão sobre &lt;strong&gt;REST&lt;/strong&gt; vs &lt;strong&gt;RESTful&lt;/strong&gt; na realidade é uma discussão desnecessária. Cabe ao time decidir se haverá regras tão formais sobre a criação de &lt;em&gt;apis&lt;/em&gt; ou mais maleáveis. O importante é manter a consistência através do código para evitar falhas de interpretação e divergências entre os membros.&lt;/p&gt;
+&lt;h2 id=&#34;referência&#34;&gt;Referência&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Roy Fielding Paper - Chapter 5&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

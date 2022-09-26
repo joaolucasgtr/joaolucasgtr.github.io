@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/page/</link>
+        <description>Recent content in Pages on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Sobre</title>
+        <link>https://joaolucasgtr.github.io/sobre/</link>
+        <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/sobre/</guid>
+        <description>&lt;p&gt;Este blog foi criado com o intuito de centralizar e compartilhar meus estudos e experiências relacionados a área de desenvolvimento de software. A ideia é ter um local de fácil acesso e livre de propagandas para consulta e discussão dos tópicos abordados.&lt;/p&gt;
+&lt;p&gt;Caso haja alguma sugestão, dúvida ou crítica, sinta-se livre para comentar nas publicações. =)&lt;/p&gt;
+&lt;h3 id=&#34;sobre-mim&#34;&gt;Sobre mim&lt;/h3&gt;
+&lt;p&gt;João Lucas, nascido em 21 de novembro de 1990. Atualmente resido na cidade de Juiz de Fora (Mg). Trabalho com desenvolvimento de software desde 2014, criando aplicações &lt;em&gt;Web&lt;/em&gt;, &lt;em&gt;Desktop&lt;/em&gt; e &lt;em&gt;Mobile&lt;/em&gt;. Sempre buscando me manter atualizado com as novas tecnologias e aplicar as boas práticas de programação.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Amante de Linux e músico nas horas vagas.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;projetos-open-source&#34;&gt;Projetos open source&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;breve&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;referências&#34;&gt;Referências&lt;/h3&gt;
+&lt;p&gt;Referências obrigatórias para desenvolvedores diferenciados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/The_Pragmatic_Programmer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Pragmatic programmer&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Robert_C._Martin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Clean code&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Design_Patterns&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Design patterns&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Arquivo</title>
+        <link>https://joaolucasgtr.github.io/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Busca</title>
+        <link>https://joaolucasgtr.github.io/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

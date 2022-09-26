@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>design patterns on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/design-patterns/</link>
+        <description>Recent content in design patterns on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Mon, 20 Mar 2017 20:18:07 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>O padrão DAO</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/03/20/o-padr%C3%A3o-dao/</link>
+        <pubDate>Mon, 20 Mar 2017 20:18:07 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/03/20/o-padr%C3%A3o-dao/</guid>
+        <description>&lt;p&gt;O padrão &lt;strong&gt;DAO&lt;/strong&gt; (&lt;em&gt;Data access object&lt;/em&gt;) fornece uma interface abstrata de comunicação com o banco de dados, ou qualquer outro mecanismo de persistẽncia de dados. Mapeando todas as chamadas da aplicação para a camada de persistência, classes &lt;strong&gt;DAO&lt;/strong&gt; proverão operações de dados específicas sem expor o banco de dados em si. Este isolamento, respeita o princípio de responsabilidade única.&lt;/p&gt;
+&lt;h2 id=&#34;vantagens&#34;&gt;Vantagens&lt;/h2&gt;
+&lt;p&gt;A principal vantagem na utilização do padrão é a clara separação entre partes do código que não deveriam conhecer uma a outra. Todos os detalhes de implementação da comunicação entre a aplicação e o banco de dados ficam encapsuladas de forma que as demais partes do código não possuam acesso.&lt;/p&gt;
+&lt;p&gt;Sendo assim, alterações na persistẽncia de uma entidade pode ser aplicadas em apenas um lugar do código.&lt;/p&gt;
+&lt;p&gt;Ao implementar o DAO como um intermediário entre a aplicação e o mecanismo de armazenamento, ganhamos a possibilidade de alterar completamente a tecnologia de persistência sem requerer muito esforço na camada de código da aplicação.&lt;/p&gt;
+&lt;h2 id=&#34;desvantagens&#34;&gt;Desvantagens&lt;/h2&gt;
+&lt;p&gt;Possíveis desvantagens ao implementar o padrão são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Leaky_abstraction&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Leaky Abstractions&lt;/a&gt; - Abstrações imperfeitas geradas devido ao aumento na complexidade das regras de negócio;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Duplicate_code&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Código duplicado&lt;/a&gt; - Ao duplicar operações de CRUD em classes distintas&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Abstraction_inversion&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inversão de abstração&lt;/a&gt; - Ao precisar reescrever funções já implementadas porém não expostas pelas interfaces para utilização em alto nível.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;como-funciona&#34;&gt;Como funciona&lt;/h2&gt;
+&lt;p&gt;A implementação “clássica” do padrão DAO, exige que tenhamos uma interface com as operações de banco de dados, a classe implementadora da interface e uma classe de domínio que represente o modelo (ou entidade do banco de dados).&lt;/p&gt;
+&lt;p&gt;No exemplo, vamos usar o padrão para demonstrar operações com a entidade &lt;strong&gt;Customer&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Modelo:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Customer&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;implements&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;java&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;io&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Serializable&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CustomerNumber&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;streetAddress&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;city&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;cm&#34;&gt;/* getters e setters... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Interface de operações:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;CustomerDAO&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;insertCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;deleteCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Customer&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;findCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;updateCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Collection&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;selectCustomersTO&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Classe implementadora:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* Classe que se comunica com o banco de dados Postgres: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;CustomerPgDAO&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;implements&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CustomerDAO&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;CloudscapeCustomerDAO&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* inicialização... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;insertCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* lógica de inserção... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* retorna o novo id criado ou -1 em caso de erro. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;deleteCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* lógica de deleção... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* retorna um boolean dizendo se a operação foi bem sucedida. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Customer&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;findCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* lógica para consulta de um registro da entidade Customer... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* retorna uma instância da classe Customer ou nulo. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;updateCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* lógica para atualizar um registro... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* retorna um boolean dizendo se a operação foi bem sucedida. */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Collection&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;selectCustomersTO&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* lógica para listar os registros de Customer... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Código para consumir este DAO&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Em outras partes da aplicação, onde você irá precisar interagir com as classes do padrão, você irá precisar de algo como:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* criando instância da classe: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;CustomerDAO&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dao&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CustomerPgDAO&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* criando um novo Customer: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newCustomer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dao&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;insertCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* procurando algum Customer específico: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Customer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;customer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dao&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* modificando os valores do Customer obtido: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;customer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setAddress&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;customer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setEmail&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* aplicando a persistência através do DAO: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dao&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;updateCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;customer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* excluir um Customer da persistência: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dao&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;deleteCustomer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Neste exemplo estamos lidando com persistência no banco de dados &lt;strong&gt;Postgresql&lt;/strong&gt;, mas caso seja necessário adicionar suporte a outro banco de dados, basta criar uma nova classe implementadora da interface &lt;strong&gt;CustomerDAO&lt;/strong&gt;, como foi feito em &lt;strong&gt;CustomerPgDAO&lt;/strong&gt;, porém com a lógica de comunicação compatível com o novo banco de dados, como &lt;strong&gt;MongoDB&lt;/strong&gt; por exemplo.&lt;/p&gt;
+&lt;p&gt;Do ponto de vista da camada de negócio, não será necessária nenhuma alteração!&lt;/p&gt;
+&lt;p&gt;Vale ressaltar também que pode ser utilizado o padrão de projeto &lt;strong&gt;Factory Method&lt;/strong&gt; para encapsular a definição e criação de instâncias implementadoras da interface &lt;strong&gt;CustomerDAO&lt;/strong&gt;, diminuindo ainda mais o nível de acoplamento no código.&lt;/p&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Apesar de existirem diversas ferramentas que já fazem o trabalho pesado para o desenvolvedor, é muito válido conhecer o padrão e os problemas que ele se propõe a resolver. Compreender os conceitos por trás das abstrações já existentes pode ser uma forma de aprimorar suas habilidades de programação, fornecendo maior compreensão sobre um problema e sua solução.&lt;/p&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Data_access_object&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Data Access Object on Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.oracle.com/java/technologies/dataaccessobject.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Oracle&amp;rsquo;s Core J2EE Patterns&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Arquitetura em camadas</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/02/02/arquitetura-em-camadas/</link>
+        <pubDate>Thu, 02 Feb 2017 14:18:55 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/02/02/arquitetura-em-camadas/</guid>
+        <description>&lt;p&gt;Construir um software utilizando a arquitetura em camadas significa desacoplar de forma lógica grupos de rotinas por responsabilidade. Cada camada então deverá possuir apenas uma responsabilidade e gerenciar suas dependências de forma interna. Uma camada superior pode usar os serviços de uma camada inferior, porém o oposto não pode ser aplicado.
+É importante frisar que para a aplicação desta arquitetura ser bem sucedida, é necessário que o contexto exija a existência desse nível de desacoplamento, ou seja, aplicações de grande escala, onde desacoplamento, boa manutenibilidade e estruturas formais são um requisito básico.&lt;/p&gt;
+&lt;h2 id=&#34;sobre&#34;&gt;Sobre&lt;/h2&gt;
+&lt;p&gt;Uma arquitetura em camadas, geralmente mencionada como n-tier architecture, ou multicamadas, é a forma de estruturar aplicações de forma distribuída. O modelo mais comum de utilização é a arquitetura em três camadas, sendo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Camada de apresentação&lt;/li&gt;
+&lt;li&gt;Camada de negócio&lt;/li&gt;
+&lt;li&gt;Camada de dados&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;cujo objetivo claro é obter uma estrutura mais flexível, onde cada camada pode ser facilmente substituída sem a necessidade de refatoração nas demais.&lt;/p&gt;
+&lt;h2 id=&#34;camada-de-apresentação&#34;&gt;Camada de apresentação&lt;/h2&gt;
+&lt;p&gt;É o nível mais alto da aplicação, onde é possível visualizar e interagir com os dados gerenciados pela aplicação. Geralmente é chamada através de uma GUI (Graphical User Interface, ou interface gráfica de usuário), porém, em diversas aplicações a linha de comando é a camada de apresentação.&lt;/p&gt;
+&lt;p&gt;É de extrema importância que a única responsabilidade desta camada seja somente exibir os dados obtidos diretamente da camada inferior, a camada de regras de negócio, visando não ferir a premissa de que qualquer camada possa ser facilmente substituída.&lt;/p&gt;
+&lt;h3 id=&#34;padrões-de-projeto&#34;&gt;Padrões de projeto&lt;/h3&gt;
+&lt;p&gt;A utilização de padrões de projeto apropriados para a camada de apresentação pode reduzir drasticamente o esforço de desenvolvimento do sistema. Além disso, adotar padrões amplamente conhecidos irá melhorar a manutenibilidade e entrada de novos colaboradores ao projeto.&lt;/p&gt;
+&lt;p&gt;Decisões mal tomadas nesta camada são, em particular, muito caras e custosas para se resolver, e você pode identificá-las quando:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Aumentar a complexidade das interações do usuário, envolvendo relacionamentos não triviais entre entidades e páginas do sistema;&lt;/li&gt;
+&lt;li&gt;Regras de negócios mudam e você precisa apresentar dados novos ou modificar funcionalidades existentes para novos usuários;&lt;/li&gt;
+&lt;li&gt;Você precisar portar sua aplicação para outras plataformas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Os padrões mais frequentemente utilizados na camada de apresentação são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Observer:&lt;/strong&gt; fornecendo um mecanismo para que um objeto notifique outros de suas alterações, sem estabelecer fortes vínculos de dependências entre eles;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Page Controller:&lt;/strong&gt; utilizado por padrão no ASP.NET, onde cada página irá possuir sua classe controladora (Controller);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model-View-Controller (MVC):&lt;/strong&gt; para casos de interfaces complexas, onde é necessário o reaproveitamento de dados em locais diferentes de visualização.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;camada-de-negócio&#34;&gt;Camada de negócio&lt;/h2&gt;
+&lt;p&gt;A camada de lógica de negócios, ou &lt;em&gt;Business Layer&lt;/em&gt;, se refere a implementação de regras de negócio ou requisitos do sistema. Aqui é escrito o código do “mundo real”, que determina como devem ser manipulados os dados da aplicação, como serão aplicadas as regras de validação e serve como camada de ligação entre as camadas de apresentação e dados.
+É a camada com a maior probabilidade de mudança.&lt;/p&gt;
+&lt;h3 id=&#34;padrões-de-projeto-1&#34;&gt;Padrões de projeto&lt;/h3&gt;
+&lt;p&gt;A camada de negócio é que a vai possibilitar o maior número de casos de aplicação de padrões de projeto, por ser a camada “central” da aplicação. Assim, praticamente todos os padrões comportamentais podem ser encaixados nesta camada, basta estudar se é compatível com suas regras de negócio e aplicar.&lt;/p&gt;
+&lt;p&gt;Os padrões mais frequentemente utilizados na camada de negócio são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Facade:&lt;/strong&gt; fornecendo uma fachada simplificada que encapsula implementações complexas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chain of responsibility:&lt;/strong&gt; organizando a comunicação entre objetos solicitantes e fornecedores sem estabelecer dependência entre eles;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Strategy:&lt;/strong&gt; aprimorando a separação de responsabilidades por meio de abstrações e implementações concretas que não afetam estruturas já prontas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interpreter:&lt;/strong&gt; resolvendo expressões através de uma representação hierárquica de objetos;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mediator:&lt;/strong&gt; encapsulando a maneira como os objetos interagem entre si&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;entre diversos outros&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;camada-de-dados&#34;&gt;Camada de dados&lt;/h2&gt;
+&lt;p&gt;Aqui é escrito todo código responsável por lidar com a persistência dos dados da aplicação, como bancos de dados, sistema de arquivos, etc. É necessário que a camada de dados possua uma API de comunicação que expõe métodos de acesso aos dados e evite totalmente possuir dependência de outras camadas. Isto irá facilitará o processo de substituição da camada de dados quando houver a necessidade de mudança de estrutura para melhorar o desempenho do sistema, por exemplo.&lt;/p&gt;
+&lt;h3 id=&#34;padrões-de-projeto-2&#34;&gt;Padrões de projeto&lt;/h3&gt;
+&lt;p&gt;É necessário considerar algumas questões no design da camada de dados que podem afetar diversos aspectos do sistema, como segurança, desempenho e escalabilidade. Deve ser simples também o processo de manutenção e extensão assim que os requisitos começarem a mudar.&lt;/p&gt;
+&lt;p&gt;Pontos a serem considerados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Escolha da tecnologia de persistência:&lt;/strong&gt; existe realmente a necessidade de se usar um banco de dados? Se sim, esse banco deve ser relacional ou não? Se não, você pode gravar os dados em um arquivo XML ou JSON, ou no formato Chave-Valor?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Utilize abstração para diminuir o acoplamento:&lt;/strong&gt; isto pode ser alcançado utilizando Interfaces, com entradas a saídas bem definidas, ou classes abstratas para compartilhamento de lógicas genéricas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mantenha toda a lógica da camada de dados na camada de dados!&lt;/strong&gt; Esta camada deve esconder das outras as rotinas de conexão com banco de dados, criação e execução de queries e conhecimento da tecnologia de persistência;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manipular exceções:&lt;/strong&gt; somente exceções relacionadas ao acesso a dados devem ser tratadas aqui e propagar para as camadas superiores as demais exceções para tratamento adequado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Padrões mais frequentemente utilizados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Singleton:&lt;/strong&gt; sendo a única fonte de se obter uma conexão ativa com o banco de dados em todo o sistema;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data-Access-Objects (DAO):&lt;/strong&gt; fornecendo acesso à entidades persistidas de forma isolada segura;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Active Record:&lt;/strong&gt; onde cada entidade de dados é mapeada em uma classe com as operações de CRUD já embutidas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Repository:&lt;/strong&gt; que fornece uma visão mais orientada a objetos do banco de dados&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unit of work:&lt;/strong&gt; mantendo uma lista de objetos afetados por uma transação para escrita coordenada das alterações.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Neste artigo, pudemos observar alguns cenários de aplicação da arquitetura em camadas, visando aprimorar a forma como estruturamos sistemas. É possível notar como dois conceitos de boas práticas de programação trabalham muito bem juntos: a arquitetura em camadas e os padrões de projeto. Porém, isto não deve ser considerado como verdade absoluta para todos os casos. A aplicação indevida pode acabar gerando o efeito contrário ao proposto, burocratizando demais o processo de desenvolvimento e manutenção.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aplique conceitos certos diante de contextos certos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Multitier_architecture&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Multitier architecture on wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff647343%28v=pandp.10%29?redirectedfrom=MSDN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Design and Implementation Guidelines for Web Clients&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ee658127%28v=pandp.10%29?redirectedfrom=MSDN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Design Fundamentals, Chapter 8: Data Layer Guidelines&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>O padrão MVC</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/12/06/o-padr%C3%A3o-mvc/</link>
+        <pubDate>Tue, 06 Dec 2016 22:22:37 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/12/06/o-padr%C3%A3o-mvc/</guid>
+        <description>&lt;p&gt;O padrão &lt;strong&gt;MVC&lt;/strong&gt;, que significa &lt;strong&gt;Model-View-Controller&lt;/strong&gt; (Modelo-Visão-Controlador), é um Design Pattern criado para aprimorar o desenvolvimento de interfaces de comunicação com o usuário.&lt;/p&gt;
+&lt;p&gt;Foi uma das primeiras abordagens a descrever o conceito de separação de responsabilidades, onde cada letra da sigla representa um componente que possui apenas uma responsabilidade bem definida.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Relações entre os componentes:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Modelo:&lt;/strong&gt; é o componente que representa os dados da aplicação. Possui a responsabilidade de gerenciá-los e validá-los, de acordo com regras de negócio;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Visão:&lt;/strong&gt; é a representação gráfica dos dados manipulados pela aplicação. Sua única responsabilidade é a de feedback ao usuário;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Controlador:&lt;/strong&gt; situa-se entre os outros dois componentes, permitindo que os mesmos se comuniquem durante a execução da aplicação.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Após a divisão da aplicação nestes três componentes, é esperado que eles se comuniquem da seguinte maneira:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O modelo gerencia os dados da aplicação recebendo inputs do controlador;&lt;/li&gt;
+&lt;li&gt;A visão exibe os dados presentes em seu modelo;&lt;/li&gt;
+&lt;li&gt;O controlador recebe os inputs do usuário e os direciona para o modelo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;vantagens&#34;&gt;Vantagens&lt;/h2&gt;
+&lt;p&gt;Algumas das vantagens obtidas ao se aplicar o padrão MVC são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Alta coesão:&lt;/strong&gt; a separação de componentes proposta pelo MVC permite o agrupamento de códigos similares de forma lógica;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Baixo acoplamento:&lt;/strong&gt; a própria natureza do padrão é reduzir o nível de acoplamento entre Modelo, Visão e Controladores;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Facilidade de manutenção:&lt;/strong&gt; em consequência da separação de responsabilidades torna o desenvolvimento futuro mais simples de ser compreendido;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Testabilidade:&lt;/strong&gt; com baixo acoplamento e separação de responsabilidades, cada componente pode ser testado de forma independente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;desvantagens&#34;&gt;Desvantagens&lt;/h2&gt;
+&lt;p&gt;Apesar de ser um padrão extremamente popular e utilizado, ele também possui algumas desvantagens:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Navegabilidade:&lt;/strong&gt; a navegação pode se tornar complexa e requer que os desenvolvedores se adaptem à decomposição que o padrão exige;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consistência de vários artefatos:&lt;/strong&gt; a decomposição em três componentes pode causar dispersão, exigindo maior cuidado dos desenvolvedores para que a consistência seja mantida;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Inflação de arquivos:&lt;/strong&gt; à medida que o projeto cresce, a quantidade de arquivos também crescerá, podendo dificultar a navegação entre eles;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Time to market:&lt;/strong&gt; por exigir conhecimento mais avançado, o início do projeto será mais demorado até que a equipe inteira assimile as exigências do padrão.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;como-funciona&#34;&gt;Como funciona&lt;/h2&gt;
+&lt;p&gt;Imagine que nos seja solicitado a implementação de um formulário de cadastro de clientes, e que após algum tempo de análise, chegamos à conclusão que será melhor aplicar o padrão &lt;strong&gt;MVC&lt;/strong&gt;, baseado nas vantagens e desvantagens que ele possui.&lt;/p&gt;
+&lt;p&gt;Um bom começo seria a classe de Modelo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Client&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;email&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;cm&#34;&gt;/* getters and setters... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;A visão representa o &lt;strong&gt;GUI&lt;/strong&gt; propriamente dito. No nosso caso, será o terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ClientView&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;printClientDetails&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;email&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;- Client:&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;    Name&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;    E-mail&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;email&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;O controlador recebe as instâncias do modelo e visão, e possui os métodos de manipulação de ambas as classes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ClientController&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Client&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ClientView&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;cm&#34;&gt;/* getter and setters... */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getClientName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;setClientName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getClientEmail&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getEmail&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;setClientEmail&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;email&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setEmail&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;email&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;updateView&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;printClientDetails&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getEmail&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;No método principal, demonstramos a utilização do padrão:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;cm&#34;&gt;/* create a Client instance: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;Client&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;client&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;John Doe&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;john_doe@email.com&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;cm&#34;&gt;/* create a View instance: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;ClientView&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ClientView&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;cm&#34;&gt;/* create a Controller instance: */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;ClientController&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;controller&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ClientController&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;updateView&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;cm&#34;&gt;/* console:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     - Client:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;       Name: John Doe
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;       E-mail: john_doe@email.com
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;  */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setClientName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;John moe&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setClientEmail&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;john_moe@email.com&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;updateView&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;cm&#34;&gt;/* console:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     - Client:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;       Name: John Moe
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;       E-mail: john_moe@email.com
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;  */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Pode parecer muito trabalho para algo simples e realmente é. Porém, se o objetivo for criar um projeto grande, com diversas interfaces, este padrão irá ajudar a manter a base de código estruturada de forma mais coesa e com com melhor índice de manutenibilidade.&lt;/p&gt;
+&lt;h2 id=&#34;observações&#34;&gt;Observações&lt;/h2&gt;
+&lt;p&gt;É extremamente comum encontrar materiais descrevendo o padrão MVC como sendo um padrão arquitetural e isso é um erro. MVC é um padrão de projeto e é frequentemente confundido com arquitetura em camadas.&lt;/p&gt;
+&lt;p&gt;Um exemplo claro desse equívoco é encontrado em tutoriais que inserem códigos de acesso ao banco de dados em classes de Modelo. O MVC é um padrão destinado à criação de interfaces, o que numa arquitetura multi camadas significa a camada de apresentação.&lt;/p&gt;
+&lt;p&gt;Misturar códigos de camadas diferentes certamente irá gerar efeitos contrários aos propostos: aumento na complexidade do código, falta de coesão, alto acoplamento, etc.&lt;/p&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Model-view-controller on Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://martinfowler.com/eaaDev/uiArchs.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Martin Fowler about GUI Architectures&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Sobre padrões de projeto</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/12/01/sobre-padr%C3%B5es-de-projeto/</link>
+        <pubDate>Thu, 01 Dec 2016 20:44:42 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/12/01/sobre-padr%C3%B5es-de-projeto/</guid>
+        <description>&lt;p&gt;Na engenharia de software, um &lt;em&gt;design pattern&lt;/em&gt; (ou padrão de projeto), é uma solução de alto nível já definida para problemas recorrentes no campo da programação. Não representa um &lt;em&gt;framework&lt;/em&gt;, código fonte ou algo do tipo, mas sim um &lt;em&gt;template&lt;/em&gt; que descreve como deverá ser aplicado para solucionar o problema a que se propõe.&lt;/p&gt;
+&lt;p&gt;Mas a explosão de popularidade ocorreu mesmo após o lançamento do livro &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Design_Patterns&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Design Patterns: Elements of Reusable Object-Oriented Software&lt;/a&gt; (ou Padrões de Projeto: soluções reutilizáveis de software orientado a objetos), de 1994, escrito pela &amp;ldquo;&lt;em&gt;Gang of four&lt;/em&gt;&amp;rdquo;: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. A edição original traz a definição de vinte e três padrões clássicos e você encontra uma lista resumida no &lt;a class=&#34;link&#34; href=&#34;#Lista-de-padroes-por-categoria&#34; &gt;final deste artigo&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;sobre-o-livro&#34;&gt;Sobre o livro&lt;/h2&gt;
+&lt;p&gt;O livro possui duas partes, sendo a primeira explorando as capacidades e armadilhas da programação orientada a objetos, e a segunda abordando os vinte e três padrões. Para aproveitar a leitura é necessário que você já possua proficiência nos conceitos de orientação a objetos, para que você não tenha que interromper a leitura sempre que for mencionado algo como polimorfismo, herança ou interface, por exemplo.&lt;/p&gt;
+&lt;p&gt;Por outro lado, não será uma leitura técnica avançada, pois os padrões são descritos com soluções simples e elegantes, visando suprir algumas necessidades da programação orientada a objetos. Sendo assim, não são necessários recursos incomuns ou truques fantásticos de programação para implementá-los, ou seja, todos os padrões podem ser escritos usando recursos básicos das linguagens de programação.&lt;/p&gt;
+&lt;h2 id=&#34;benefícios&#34;&gt;Benefícios&lt;/h2&gt;
+&lt;p&gt;Assim que entender como utilizar os padrões e sua reação for um &amp;ldquo;A-Ha!&amp;rdquo; (e não um &amp;ldquo;Ahn?&amp;rdquo;), provavelmente nunca mais verá a orientação a objetos da mesma forma. Você terá diversos &lt;em&gt;insights&lt;/em&gt; que o ajudarão a produzir &lt;em&gt;designs&lt;/em&gt; mais flexíveis, modulares, reutilizáveis e mais compreensíveis. Afinal, este é o seu objetivo, certo?&lt;/p&gt;
+&lt;p&gt;Construir &lt;em&gt;software&lt;/em&gt; é difícil, construir &lt;em&gt;software&lt;/em&gt; orientado a objetos de forma reutilizável é ainda mais difícil. Você deve criar objetos pertinentes, classes com a granularidade correta, definir boas &lt;em&gt;interfaces&lt;/em&gt; e suas heranças, e ainda estabelecer relacionamento entre essas entidades. Você deve evitar o &lt;em&gt;redesign&lt;/em&gt; ou ao menos tentar minimizá-lo. Desenvolvedores experientes lhe dirão que um &lt;em&gt;design&lt;/em&gt; flexível e reutilizável é praticamente impossível de se fazer da forma &amp;ldquo;certa&amp;rdquo; da primeira vez.&lt;/p&gt;
+&lt;p&gt;O propósito do livro é registrar experiências adquiridas anteriormente, transformando-as em padrões, que facilitam a criação de novos sistemas, expressando técnicas bem sucedidas.&lt;/p&gt;
+&lt;p&gt;Padrões te ajudam a ter mais alternativas de soluções na hora de escrever código e ainda facilitam o processo de documentação e manutenção, fornecendo especificações explícitas de classes e interação entre os objetos.&lt;/p&gt;
+&lt;h2 id=&#34;definindo-um-padrão&#34;&gt;Definindo um padrão&lt;/h2&gt;
+&lt;p&gt;Cada padrão sistematicamente nomeia, explica e avalia um &lt;em&gt;design&lt;/em&gt; importante e recorrente. O objetivo é capturar o &lt;em&gt;design&lt;/em&gt; de forma que pessoas possam utilizá-lo de forma eficiente.&lt;/p&gt;
+&lt;p&gt;Em geral, um padrão possui quatro elementos essenciais:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Nome -&lt;/strong&gt; O nome do padrão é utilizado para descrever um problema, a solução e as consequências, e deve ser escrito em uma palavra ou duas. Também ajuda na comunicação em um nível alto de abstração e foi um dos pontos mais difíceis durante a produção do livro.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problema a ser resolvido -&lt;/strong&gt; O problema descreve quando aplicar o padrão e seu contexto. Algumas vezes o problema irá incluir uma lista de condições que devem ser atendidas antes de aplicar o padrão.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solução dada pelo padrão -&lt;/strong&gt; A solução descreve os elementos que constituem o &lt;em&gt;design&lt;/em&gt;, seus relacionamentos, responsabilidades e colaborações. A solução não descreve um &lt;em&gt;design&lt;/em&gt; concreto e particular, uma vez que os padrões são &lt;em&gt;templates&lt;/em&gt; abstratos para serem aplicados em diversas situações diferentes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consequências -&lt;/strong&gt; As consequências são os resultados e os &lt;em&gt;trade-offs&lt;/em&gt; da aplicação do padrão e devem sempre ser consideradas antes de decidir a aplicação do padrão.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;como-escolher-um-design-pattern&#34;&gt;Como escolher um Design Pattern&lt;/h3&gt;
+&lt;p&gt;Com mais de vinte padrões no catálogo, pode parecer difícil encontrar um que seja adequado ao seu problema de &lt;em&gt;design&lt;/em&gt;. A seguir, algumas abordagens diferentes para definir qual padrão é a melhor escolha para o seu problema:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Considere como padrões resolvem problemas de &lt;em&gt;design&lt;/em&gt;, quais são os objetos apropriados, a granularidade desses objetos e &lt;em&gt;interfaces&lt;/em&gt; relacionadas. Estudar estes pontos é um bom ponto de partida para encontrar um padrão adequado.&lt;/li&gt;
+&lt;li&gt;Leia através de cada intenção dos padrões para encontrar um ou mais que pareçam relevantes para o seu problema. Utilize o catálogo no próximo tópico para facilitar sua busca.&lt;/li&gt;
+&lt;li&gt;Estude como os padrões se relacionam. Estudar os relacionamentos podem te guiar na direção certa dos padrões ou grupos de padrões. Imagem de referência no final do artigo.&lt;/li&gt;
+&lt;li&gt;Estude os padrões por seu propósito. Existem três categorias diferentes de padrões: criacionais, estruturais e comportamentais. Isto com certeza irá facilitar a busca ao comparar padrões diferentes agrupados por propósito.&lt;/li&gt;
+&lt;li&gt;Examine as &lt;a class=&#34;link&#34; href=&#34;https://blogs.agilefaqs.com/2008/09/05/common-causes-of-redesign/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;causas de &lt;em&gt;redesign&lt;/em&gt;&lt;/a&gt;, pois elas possuem padrões relacionados criados para resolver estes problemas.&lt;/li&gt;
+&lt;li&gt;Considere o que pode ser variável no seu &lt;em&gt;design&lt;/em&gt;. Em vez de considerar o que poderia forçá-lo ao &lt;em&gt;redesign&lt;/em&gt;, considere o que quer que seja possível mudar sem &lt;em&gt;redesign&lt;/em&gt;. O foco aqui está em encapsular o conceito que irá variar, tema de muitos padrões.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;lista-de-padrões-por-categoria&#34;&gt;Lista de padrões por categoria&lt;/h2&gt;
+&lt;h3 id=&#34;criacionais&#34;&gt;Criacionais&lt;/h3&gt;
+&lt;p&gt;São padrões que criam objetos, em vez de ter que instanciá-los diretamente. Isto proporciona ao programa maior flexibilidade em decidir quais objetos precisam ser criados para um determinado caso.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Abstract_factory_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Abstract factory&lt;/strong&gt;&lt;/a&gt; agrupa &lt;em&gt;factories&lt;/em&gt; que possuem um tema em comum.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Builder_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Builder&lt;/strong&gt;&lt;/a&gt; constrói objetos complexos separando construção e representação.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Factory_method_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Factory Method&lt;/strong&gt;&lt;/a&gt; constrói objetos sem especificar exatamente qual classe utilizar.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Prototype_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Prototype&lt;/strong&gt;&lt;/a&gt; cria objetos clonando outros existentes.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Singleton_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Singleton&lt;/strong&gt;&lt;/a&gt; restringe a criação de um objeto para uma única instância de classe.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;estruturais&#34;&gt;Estruturais&lt;/h3&gt;
+&lt;p&gt;Estes visam composição de objetos e classes. Utilizam herança para compor &lt;em&gt;interfaces&lt;/em&gt; e definir maneiras de compor objetos e obter novas funcionalidades.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Adapter_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Adapter&lt;/strong&gt;&lt;/a&gt; permite classes com &lt;em&gt;interfaces&lt;/em&gt; incompatíveis a trabalharem juntas, criando sua própria &lt;em&gt;interface&lt;/em&gt; a partir de uma classe já existente.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Bridge_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Bridge&lt;/strong&gt;&lt;/a&gt; desacopla abstração de implementação para que as duas possam variar independentemente.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Composite_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Composite&lt;/strong&gt;&lt;/a&gt; compõe zero ou mais objetos similares, para que possam ser manipulados como um só.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Decorator_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Decorator&lt;/strong&gt;&lt;/a&gt; dinamicamente adicionar ou sobrescreve o comportamento de um método já existente em um objeto.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Facade_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Facade&lt;/strong&gt;&lt;/a&gt; provê uma &lt;em&gt;interface&lt;/em&gt; simplificada para uma implementação grande de código.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Flyweight_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Flyweight&lt;/strong&gt;&lt;/a&gt; reduz o custo de criação e manipulação de um grande número de objetos parecidos.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Proxy_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Proxy&lt;/strong&gt;&lt;/a&gt; provê uma forma para que outro objeto controle o acesso, reduza custos e reduza a complexidade.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;comportamentais&#34;&gt;Comportamentais&lt;/h3&gt;
+&lt;p&gt;A maioria destes padrões se preocupa com a comunicação entre objetos.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Chain of responsibility&lt;/strong&gt;&lt;/a&gt; delega comandos para uma cadeia de processamento de objetos.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Command_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Command&lt;/strong&gt;&lt;/a&gt; cria objetos que encapsulam ações e parâmetros.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Interpreter_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Interpreter&lt;/strong&gt;&lt;/a&gt; implementa uma linguagem especializada.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Iterator_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Iterator&lt;/strong&gt;&lt;/a&gt; acessa os elementos de uma coleção sem expor sua representação interna.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Mediator_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Mediator&lt;/strong&gt;&lt;/a&gt; permite desacoplamento entre classes, sendo a única a ter conhecimento detalhado de seus métodos.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Memento_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Memento&lt;/strong&gt;&lt;/a&gt; provê habilidade de restaurar um objeto ao seu estado anterior (&lt;code&gt;ctrl+z&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Observer_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Observer&lt;/strong&gt;&lt;/a&gt; permite comunicação entre objetos através de eventos.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/State_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;State&lt;/strong&gt;&lt;/a&gt; permite um objeto a mudar seu comportamento quando seu estado interno altera.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Strategy_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Strategy&lt;/strong&gt;&lt;/a&gt; permite escolher dinamicamente um algoritmo, de uma família, em tempo de execução.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Template_method_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Template&lt;/strong&gt;&lt;/a&gt; define um algoritmo esqueleto como uma classe abstrata, permitindo que subclasses implementem o comportamento concreto.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Visitor_pattern&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Visitor&lt;/strong&gt;&lt;/a&gt; separa um algoritmo de uma estrutura de objeto ao mover-se hierarquicamente dentre métodos de um objeto.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;por-onde-começar&#34;&gt;Por onde começar?&lt;/h2&gt;
+&lt;p&gt;Se você ainda não é um desenvolvedor com experiência, então comece com os mais simples e comuns, listados a seguir:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Abstract Factory&lt;/li&gt;
+&lt;li&gt;Adapter&lt;/li&gt;
+&lt;li&gt;Composite&lt;/li&gt;
+&lt;li&gt;Decorator&lt;/li&gt;
+&lt;li&gt;Factory Method&lt;/li&gt;
+&lt;li&gt;Observer&lt;/li&gt;
+&lt;li&gt;Strategy&lt;/li&gt;
+&lt;li&gt;Template Method&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;A importância dos padrões de projetos é reconhecida globalmente por oferecer soluções inteligentes para problemas recorrentes. Dificilmente você encontrará sistemas orientados a objetos que não utilizem ao menos um dos padrões apresentados neste artigo, sendo que em sistemas grandes a tendendência é que vários padrões tenham sido utilizados.&lt;/p&gt;
+&lt;p&gt;Aplicar padrões de projetos é considerada uma boa prática de engenharia de &lt;em&gt;software&lt;/em&gt; pois evita que você viole o princípio &lt;strong&gt;DRY&lt;/strong&gt; (don&amp;rsquo;t repeat yourself), ao poupar a si mesmo de gastar horas pensando em soluções que já foram criadas, aplicadas e testadas em ambientes de produção ao redor do globo.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

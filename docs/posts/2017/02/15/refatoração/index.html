@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='O termo &amp;ldquo;refatorar&amp;rdquo; diz respeito à técnica de reestruturação de um trecho de código existente, modificando a sua estrutura interna sem modificar seu comportamento externo. Apesar de não parecer muito atraente para pessoas da área de gerência, a aplicação contínua desta prática poderá gerar efeitos bastante significativos na agilidade de trabalho do projeto alvo.
+O que é No livro “Refactoring”, escrito por Martin Fowler em 2000, ele define:
+Substantivo:
+“uma mudança feita na estrutura interna do software para deixá-lo mais fácil de entender e mais barato de modificá-lo, sem alterar seu comportamento observável.'><title>Refatoração</title>
+
+<link rel='canonical' href='https://joaolucasgtr.github.io/posts/2017/02/15/refatora%C3%A7%C3%A3o/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Refatoração'>
+<meta property='og:description' content='O termo &amp;ldquo;refatorar&amp;rdquo; diz respeito à técnica de reestruturação de um trecho de código existente, modificando a sua estrutura interna sem modificar seu comportamento externo. Apesar de não parecer muito atraente para pessoas da área de gerência, a aplicação contínua desta prática poderá gerar efeitos bastante significativos na agilidade de trabalho do projeto alvo.
+O que é No livro “Refactoring”, escrito por Martin Fowler em 2000, ele define:
+Substantivo:
+“uma mudança feita na estrutura interna do software para deixá-lo mais fácil de entender e mais barato de modificá-lo, sem alterar seu comportamento observável.'>
+<meta property='og:url' content='https://joaolucasgtr.github.io/posts/2017/02/15/refatora%C3%A7%C3%A3o/'>
+<meta property='og:site_name' content='@joaolucasgtr'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='refactoring' /><meta property='article:published_time' content='2017-02-15T22:53:12&#43;00:00'/><meta property='article:modified_time' content='2017-02-15T22:53:12&#43;00:00'/>
+<meta name="twitter:site" content="@_joaolucasgtr">
+    <meta name="twitter:creator" content="@_joaolucasgtr"><meta name="twitter:title" content="Refatoração">
+<meta name="twitter:description" content="O termo &amp;ldquo;refatorar&amp;rdquo; diz respeito à técnica de reestruturação de um trecho de código existente, modificando a sua estrutura interna sem modificar seu comportamento externo. Apesar de não parecer muito atraente para pessoas da área de gerência, a aplicação contínua desta prática poderá gerar efeitos bastante significativos na agilidade de trabalho do projeto alvo.
+O que é No livro “Refactoring”, escrito por Martin Fowler em 2000, ele define:
+Substantivo:
+“uma mudança feita na estrutura interna do software para deixá-lo mais fácil de entender e mais barato de modificá-lo, sem alterar seu comportamento observável.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Alternar Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://avatars.githubusercontent.com/u/13789716?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">@joaolucasgtr</a></h1>
+            <h2 class="site-description">Hi, my name is João Lucas and I&#39;m a passionate fullstack developer.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:joaolucasgtr@gmail.com'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://gitlab.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitLab"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://br.linkedin.com/in/joaolucasgtr'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/_joaolucasgtr'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ'
+                        target="_blank"
+                        title="Youtube"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="4" />
+  <path d="M10 9l5 3l-5 3z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/sobre/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Sobre</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Arquivo</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Busca</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo Escuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/engineering/" >
+                engineering
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2017/02/15/refatora%C3%A7%C3%A3o/">Refatoração</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 15, 2017</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minutos de leitura
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>O termo &ldquo;refatorar&rdquo; diz respeito à técnica de reestruturação de um trecho de código existente, modificando a sua estrutura interna sem modificar seu comportamento externo. Apesar de não parecer muito atraente para pessoas da área de gerência, a aplicação contínua desta prática poderá gerar efeitos bastante significativos na agilidade de trabalho do projeto alvo.</p>
+<h2 id="o-que-é">O que é</h2>
+<p>No livro “Refactoring”, escrito por Martin Fowler em 2000, ele define:</p>
+<p><strong>Substantivo:</strong></p>
+<blockquote>
+<p>“uma mudança feita na estrutura interna do software para deixá-lo mais fácil de entender e mais barato de modificá-lo, sem alterar seu comportamento observável.”</p>
+</blockquote>
+<p><strong>Verbo:</strong></p>
+<blockquote>
+<p>reestruturar um software aplicando uma série de refatorações, sem alterar seu comportamento observável.</p>
+</blockquote>
+<p>Refatoração não é somente uma nova palavra para “limpar seu código”, pois define uma técnica de aprimoramento da saúde da base de código. Esta técnica consiste em aplicar várias transformações pequenas, com poucas alterações. Após várias dessas transformações em sequência o resultado final certamente será significativo.</p>
+<h2 id="por-que-utilizar">Por que utilizar?</h2>
+<p>As intenções por trás da refatoração são: melhorar o <em>design</em> do código, melhorar a estruturação, reduzir complexidades, aplicar boas práticas, etc.</p>
+<p>A refatoração é geralmente iniciada após a percepção de <em>bad smells</em>, ou seja, funções muito grandes, exagero de condicionais, identificação de códigos similares próximos, entre outros.</p>
+<p>Outro ponto muito importante sobre a refatoração é a diminuição do custo para implementação de melhorias. Quando um software é lançado, existe a necessidade de continuar aprimorando-o constantemente, para correção de <em>bugs</em> e inclusão de novos recursos.</p>
+<p>Numa base de código não saudável, a medida em que novos recursos vão sendo implementados, sem aplicação de refatoração, a velocidade do time de desenvolvimento irá diminuir constantemente. Por isso é importante manter a cultura de refatoração, para evitar o aumento de complexidade desnecessário.</p>
+<h2 id="quando-refatorar">Quando refatorar?</h2>
+<p>Segundo o livro, a refatoração não deve ser uma tarefa especial lançada no planejamento, mas sim uma prática inserida no dia-a-dia de todos os desenvolvedores. O autor ainda cita dois exemplos sobre o <em>mindset</em> que utiliza para definir quando um código precisa ser refatorado:</p>
+<p><strong>Ao adicionar um novo recurso a um sistema</strong></p>
+<p>Primeiramente, é necessário olhar ao código já existente e se ele está estruturado de um jeito que seja simples incluir essa nova funcionalidade. Se não estiver, geralmente é melhor aplicar refatorações no código antes, para que a inclusão do recurso seja feita de forma simples.</p>
+<p>Assim o tempo total de sua tarefa deverá ser menor do que gastar horas tentando entender um código complexo e que, na próxima vez que um desenvolvedor passar por ele, terá de gastar muito tempo também tentando entendê-lo.</p>
+<p><strong>Ao modificar um recurso já existente</strong></p>
+<p>É sempre bom vasculhar a base de código já existente antes de começar. Pode ser que você encontre o que precisa em funções já definidas em outras partes do código, sobrando para você apenas o trabalho de chamá-las corretamente e evitar violar o princípio <strong>DRY</strong>.</p>
+<p>Caso o código que você precise alterar exija bastante esforço para compreensão, então é melhor aplicar refatorações para que outro desenvolvedor não seja exigido novamente por esse código (incluindo seu &ldquo;eu&rdquo; do futuro).</p>
+<h2 id="exemplos">Exemplos</h2>
+<p>A seguir, alguns exemplos de técnicas de refatoração presentes no livro:</p>
+<h3 id="extract-method">Extract method</h3>
+<p><strong>Problema:</strong> Você possui um fragmento de código que pode ser agrupado:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">printOwing</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">printBanner</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="cm">/* Print details. */</span>
+</span></span><span class="line"><span class="cl">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;name: &#34;</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;amount: &#34;</span> <span class="o">+</span> <span class="n">getOutstanding</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Solução:</strong> Agrupe este trecho em um novo método e chame-o no método antigo:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">printOwing</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">printBanner</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">printDetails</span><span class="o">(</span><span class="n">getOutstanding</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">printDetails</span><span class="o">(</span><span class="kt">double</span> <span class="n">outstanding</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;name: &#34;</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;amount: &#34;</span> <span class="o">+</span> <span class="n">outstanding</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Esta técnica visa deixar seu código mais legível e reduzir a quantidade de linhas por método no código.</p>
+<h3 id="extract-variable">Extract variable</h3>
+<p><strong>Problema:</strong> Você possui uma expressão difícil de entender:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">renderBanner</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">((</span><span class="n">platform</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="s">&#34;MAC&#34;</span><span class="o">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">1</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">       <span class="o">(</span><span class="n">browser</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="s">&#34;IE&#34;</span><span class="o">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">1</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">wasInitialized</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">resize</span> <span class="o">&gt;</span> <span class="n">0</span> <span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* faça algo aqui... */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Solução:</strong> Atribuir o resultado das expressões a variáveis cujo nome são auto-explicativos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">renderBanner</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">isMacOs</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="s">&#34;MAC&#34;</span><span class="o">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">isIE</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="s">&#34;IE&#34;</span><span class="o">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">wasResized</span> <span class="o">=</span> <span class="n">resize</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">isMacOs</span> <span class="o">&amp;&amp;</span> <span class="n">isIE</span> <span class="o">&amp;&amp;</span> <span class="n">wasInitialized</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">wasResized</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* faça algo aqui... */</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Esta outra técnica também visa aprimorar a legibilidade do código e reduzir a margem de erro ao lidar com múltiplas expressões.</p>
+<h2 id="replace-temp-with-query">Replace temp with query</h2>
+<p><strong>Problema:</strong> Você criou uma variável temporária para receber o valor de uma expressão:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">basePrice</span> <span class="o">=</span> <span class="n">_quantity</span> <span class="o">*</span> <span class="n">_itemPrice</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">(</span><span class="n">basePrice</span> <span class="o">&gt;</span> <span class="n">1000</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">basePrice</span> <span class="o">*</span> <span class="n">0</span><span class="o">.</span><span class="na">95</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">basePrice</span> <span class="o">*</span> <span class="n">0</span><span class="o">.</span><span class="na">98</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Solução:</strong> Mova a expressão para um método novo e utilize o retorno deste método:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">(</span><span class="n">basePrice</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">1000</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">basePrice</span><span class="o">()</span> <span class="o">*</span> <span class="n">0</span><span class="o">.</span><span class="na">95</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">basePrice</span><span class="o">()</span> <span class="o">*</span> <span class="n">0</span><span class="o">.</span><span class="na">98</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">basePrice</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">_quantity</span> <span class="o">*</span> <span class="n">_itemPrice</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Esta técnica é utilizada para deixar o código mais flexível e preparar o terreno para aplicar a <strong>Extract Method</strong> posteriormente.</p>
+<h2 id="consolidate-conditional-expression">Consolidate conditional expression</h2>
+<p><strong>Problema:</strong> Você possui múltiplas condições que geram o mesmo resultado:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">disabilityAmount</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">_seniority</span> <span class="o">&lt;</span> <span class="n">2</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">_monthsDisabled</span> <span class="o">&gt;</span> <span class="n">12</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">_isPartTime</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="cm">/* compute the disability amount */</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Solução:</strong> Consolide as condicionais em uma expressão única:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">disabilityAmount</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">isNotEligibleForDisability</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* Compute the disability amount. */</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">boolean</span> <span class="nf">isNotEligableForDisability</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">(</span><span class="n">_seniority</span> <span class="o">&lt;</span> <span class="n">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">      <span class="o">||</span> <span class="n">_monthsDisabled</span> <span class="o">&gt;</span> <span class="n">12</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">      <span class="o">||</span> <span class="n">_isPartTime</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Assim você certamente irá evitar (ou até remover) trechos de códigos duplicados e possuir métodos simples para manutenções posteriores.</p>
+<h2 id="decompose-conditional">Decompose conditional</h2>
+<p><strong>Problema:</strong> Você possui uma condicional complexa:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">(</span><span class="n">date</span><span class="o">.</span><span class="na">before</span> <span class="o">(</span><span class="n">SUMMER_START</span><span class="o">)</span> <span class="o">||</span> <span class="n">date</span><span class="o">.</span><span class="na">after</span><span class="o">(</span><span class="n">SUMMER_END</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">charge</span> <span class="o">=</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">_winterRate</span> <span class="o">+</span> <span class="n">_winterServiceCharge</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">charge</span> <span class="o">=</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">_summerRate</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Solução:</strong> Decomponha as partes complexas em métodos separados: a condição, o trecho executado quando a condição for positiva e o trecho executado quando for negativa:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">(</span><span class="n">notSummer</span><span class="o">(</span><span class="n">date</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">charge</span> <span class="o">=</span> <span class="n">winterCharge</span><span class="o">(</span><span class="n">quantity</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">charge</span> <span class="o">=</span> <span class="n">summerCharge</span> <span class="o">(</span><span class="n">quantity</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Assim é possível dividir lógicas complexas, de forma que seja possível esquecer o que ocorre no <code>else</code> enquanto você estiver ocupado com o que deve ser executado dentro bloco <code>if</code>.</p>
+<h2 id="replace-error-code-with-exception">Replace error code with Exception</h2>
+<p><strong>Problema:</strong> Um método retorna um valor específico para indicar erro:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">withdraw</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">amount</span> <span class="o">&gt;</span> <span class="n">_balance</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_balance</span> <span class="o">-=</span> <span class="n">amount</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Solução:</strong> Lance uma exceção:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">withdraw</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BalanceException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">amount</span> <span class="o">&gt;</span> <span class="n">_balance</span><span class="o">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="n">BalanceException</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="n">_balance</span> <span class="o">-=</span> <span class="n">amount</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lançar códigos de erros é algo obsoleto, herdado de linguagens procedurais. Lançar exceções irá lhe fornecer diagnósticos mais completos sobre as eventuais falhas ocorridas no sistema.</p>
+<h2 id="conclusão">Conclusão</h2>
+<p>Neste artigo pudemos introduzir alguns tópicos sobre o assunto &ldquo;refatoração&rdquo; e exemplificar algumas técnicas básicas. Um mergulho nos materiais originais irá expandir seu repertório de técnicas de escrita de código, que podem ser bem úteis em situações extremas, ou seja, te tornará um desenvolvedor mais seguro e capaz.</p>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a class="link" href="https://refactoring.com/"  target="_blank" rel="noopener"
+    >Martin Fowler&rsquo;s Refactoring</a></li>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Code_refactoring"  target="_blank" rel="noopener"
+    >Code Refactoring on Wikipedia</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/refactoring/">refactoring</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Conteúdo relacionado</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2017/03/20/o-padr%C3%A3o-dao/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O padrão DAO</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/02/20/solid-com-exemplos/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SOLID (com exemplos)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/01/08/o-princ%C3%ADpio-kiss/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O princípio KISS</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2017/01/06/o-princ%C3%ADpio-dry/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O princípio DRY</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2016/12/06/o-padr%C3%A3o-mvc/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">O padrão MVC</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "joaolucasgtr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2022 @joaolucasgtr
+    </section>
+    
+    <section class="powerby">
+        Criado com <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> desenvolvido por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Índice</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#o-que-é">O que é</a></li>
+    <li><a href="#por-que-utilizar">Por que utilizar?</a></li>
+    <li><a href="#quando-refatorar">Quando refatorar?</a></li>
+    <li><a href="#exemplos">Exemplos</a>
+      <ol>
+        <li><a href="#extract-method">Extract method</a></li>
+        <li><a href="#extract-variable">Extract variable</a></li>
+      </ol>
+    </li>
+    <li><a href="#replace-temp-with-query">Replace temp with query</a></li>
+    <li><a href="#consolidate-conditional-expression">Consolidate conditional expression</a></li>
+    <li><a href="#decompose-conditional">Decompose conditional</a></li>
+    <li><a href="#replace-error-code-with-exception">Replace error code with Exception</a></li>
+    <li><a href="#conclusão">Conclusão</a></li>
+    <li><a href="#referências">Referências</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

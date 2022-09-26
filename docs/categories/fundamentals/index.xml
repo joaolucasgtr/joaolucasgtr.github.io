@@ -1,0 +1,1252 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>fundamentals on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/categories/fundamentals/</link>
+        <description>Recent content in fundamentals on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Thu, 15 Jun 2017 19:34:43 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/categories/fundamentals/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Introdução ao Git</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/06/15/introdu%C3%A7%C3%A3o-ao-git/</link>
+        <pubDate>Thu, 15 Jun 2017 19:34:43 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/06/15/introdu%C3%A7%C3%A3o-ao-git/</guid>
+        <description>&lt;p&gt;Como a grande maioria das IDEs e Editores de código já possuem ferramentas gráficas
+para gerenciar o versionamento de código, você pode acabar se acomodando à esses
+recursos simplificados e não se preocupar em aprender outras maneiras de fazê-lo.&lt;/p&gt;
+&lt;p&gt;Pode ser que você se veja numa situação onde a sua ferramenta favorita não
+esteja disponível (&lt;em&gt;como numa prova, por exemplo&lt;/em&gt;) ou em outra onde a única ferramenta
+disponível para manipulação do sistema operacional seja o tão temido &lt;strong&gt;Terminal&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Com o domínio absoluto de sistemas operacionais baseados em &lt;strong&gt;Linux&lt;/strong&gt; no mercado de
+servidores*, é bem provável que você  passe por algo parecido um dia, caso não tenha ainda.&lt;/p&gt;
+&lt;p&gt;Sendo assim, separei alguns comandos essenciais para o fluxo de trabalho do
+dia a dia, agrupados por estágio de utilização para facilitar o entendimento.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://hostingtribunal.com/blog/linux-statistics&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;* fonte&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;configuração&#34;&gt;Configuração&lt;/h2&gt;
+&lt;p&gt;Configurações iniciais:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.name &amp;quot;John Doe&amp;quot;&lt;/code&gt; - denifir nome global do usuário.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.email &amp;quot;john_doe@gitlab.com&amp;quot;&lt;/code&gt; - definir email global do usuário.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;início&#34;&gt;Início&lt;/h2&gt;
+&lt;p&gt;Duas maneiras simples para iniciar um repositório &lt;strong&gt;git&lt;/strong&gt; local em seu HD:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git clone [url do repositório]&lt;/code&gt; - caso o repositório já exista no servidor
+remoto e você quer criar um repositório local exatamente igual ao remoto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git init&lt;/code&gt; - caso você queira transformar a pasta atual em um repositório &lt;strong&gt;git&lt;/strong&gt;.
+Após a criação, é necessário adicionar o endereço do servidor remoto para que possa
+enviar ao servidor as alterações realizadas localmente: &lt;code&gt;git remote add origin [url do repositório]&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Feito isso, você já está pronto para utilizar o versionamento de forma local.&lt;/p&gt;
+&lt;h2 id=&#34;branches&#34;&gt;Branches&lt;/h2&gt;
+&lt;p&gt;Após o passo anterior, você automaticamente estará trabalhando na &lt;em&gt;branch&lt;/em&gt; &lt;em&gt;&lt;strong&gt;master&lt;/strong&gt;&lt;/em&gt;,
+o que pode não ser considerado uma boa prática por parte da equipe. Geralmente você
+vai querer criar uma &lt;em&gt;branch&lt;/em&gt; para desenvolvimento e, depois das implementações concluídas,
+aplicá-las à &lt;em&gt;branch&lt;/em&gt; &lt;em&gt;&lt;strong&gt;master&lt;/strong&gt;&lt;/em&gt; como conclusão de suas tarefas.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git checkout -b [nome da branch]&lt;/code&gt; - cria a &lt;em&gt;branch&lt;/em&gt; localmente e já altera
+a cópia de trabalho atual.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git push -u&lt;/code&gt; - envia as alterações locais para o servidor remoto, já criando
+uma &lt;em&gt;branch&lt;/em&gt; com o mesmo nome da local.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;gerenciamento&#34;&gt;Gerenciamento&lt;/h2&gt;
+&lt;p&gt;Comandos utilizados com maior frequência, após as fases de configuração anteriores:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git pull&lt;/code&gt; - sincroniza a versão local com as alterações persistidas no servidor
+remoto, enviadas desde a última vez que este comando foi executado. O servidor irá
+bloquear suas alterações caso a sua versão local esteja desatualizada.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git add [arquivo ou caminho]&lt;/code&gt; - coloca o arquivo, ou arquivos no caminho, na fila para
+o próximo envio de dados ao servidor.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git status&lt;/code&gt; - exibe um relatório de alterações realizadas localmente para conferência.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git reset HEAD [arquivo]&lt;/code&gt; - caso mude de ideia sobre alguma alteração na fila
+de envios, utilize este comando para descartar as alterações, removendo assim o
+arquivo da fila de envio.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git commit -m &amp;quot;[mensagem]&amp;quot;&lt;/code&gt; - aplica as alterações que estavam na fila até então
+no seu servidor local.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git push&lt;/code&gt; - envia para o servidor remoto o pacote de atualizações produzido
+localmente na sua máquina, desde a última sincronização.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;analisando-alterações&#34;&gt;Analisando alterações&lt;/h2&gt;
+&lt;p&gt;Para consultar o histórico de alterações, utilize o comando:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log&lt;/code&gt; - abre uma lista descritiva sobre os &lt;em&gt;commits&lt;/em&gt; realizados até então.
+É possível aplicar diversas opções de filtro, como por exemplo:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log --max-count=5&lt;/code&gt; - para exibir os últimos cinco&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log --author=John Doe&lt;/code&gt; - para exibir somente &lt;em&gt;commits&lt;/em&gt; enviados pelo usuário &amp;ldquo;John Doe&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log --stat&lt;/code&gt; - para ver estatísticas de alteração em cada &lt;em&gt;commit&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log --since=2.weeks&lt;/code&gt; - &lt;em&gt;commits&lt;/em&gt; das últimas duas semanas&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gitignore&#34;&gt;.gitignore&lt;/h2&gt;
+&lt;p&gt;Para ignorar alterações em arquivos e pastas de maneira automática no repositório,
+é preciso criar o arquivo &lt;code&gt;.gitignore&lt;/code&gt;, que nada mais é que um arquivo de texto,
+sem extensão, onde você irá definir em cada linha o que deverá ser ignorado pelo versionamento.&lt;/p&gt;
+&lt;p&gt;As definições escritas podem ser arquivos, pastas, subpastas, arquivos de uma determinada
+extensão, etc&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;referência-completa&#34;&gt;Referência completa:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/docs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;git&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/docs/gitignore&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;.gitignore&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Princípios Importantes</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/10/06/princ%C3%ADpios-importantes/</link>
+        <pubDate>Thu, 06 Oct 2016 14:39:31 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/10/06/princ%C3%ADpios-importantes/</guid>
+        <description>&lt;p&gt;Se você é um desenvolvedor de software que almeja aperfeiçoar sua técnica de escrita de código (&lt;em&gt;sim, existem técnicas para escrever código&lt;/em&gt;), então você provavelmente irá se deparar com diversos princípios de programação criados pela &lt;em&gt;Engenharia de Software&lt;/em&gt;. Estes princípios foram criados com o intuito de aprimorar alguns atributos de qualidade de sistemas, que apesar de não funcionais influenciam diretamente no resultado final de um produto de software.&lt;/p&gt;
+&lt;h2 id=&#34;benefícios&#34;&gt;Benefícios&lt;/h2&gt;
+&lt;p&gt;Ao aplicar os princípios você estará automaticamente sendo beneficiado nos atributos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Readability (Leitura)&lt;/strong&gt; - O código será mais facilmente entendido por outros membros do time de desenvolvimento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modularity (Modularidade)&lt;/strong&gt; - A divisão de funcionalidades em peças independentes (módulos) facilitará o processo de reuso e reduzirá a quantidade final de código escrito para a aplicação.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maintainability (Manutenabilidade)&lt;/strong&gt; - O processo de manutenção será beneficiado com a melhoria da qualidade do código, além disso será diminuída a barreira de entrada de novos desenvolvedores nos projetos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Extensibility (Extensibilidade)&lt;/strong&gt; - A inclusão de novas funcionalidades no sistema reduzirá consideravelmente a chance de efeitos colaterais devido ao código desacoplado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agility (Agilidade)&lt;/strong&gt; - Em decorrência da otimização dos processos de desenvolvimento, manutenção e extensão, os clientes poderão receber software de maneira mais ágil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;sobre-os-princípios&#34;&gt;Sobre os princípios&lt;/h2&gt;
+&lt;p&gt;A lista a seguir contém apenas alguns princípios chave, que serão o suficiente para começar e observar o aprimoramento na qualidade de código produzido instantaneamente. A lista completa de artigos no Wikipedia você encontra aqui:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Category:Programming_principles&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Wikipedia&amp;rsquo;s programming principles articles list&lt;/a&gt;&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;kiss&#34;&gt;KISS&lt;/h3&gt;
+&lt;p&gt;A sigla &lt;strong&gt;KISS&lt;/strong&gt; é o acrônimo para &amp;ldquo;&lt;strong&gt;keep it simple, stupid&lt;/strong&gt;&amp;rdquo; ou &amp;ldquo;&lt;strong&gt;keep it stupid simple&lt;/strong&gt;&amp;rdquo;. Este princípio visa reduzir casos de &lt;strong&gt;Overengineering&lt;/strong&gt;, ou excesso de engenharia, que é muito comum entre desenvolvedores do nível júnior e pleno.&lt;/p&gt;
+&lt;p&gt;O foco principal é a simplicidade, evitando ao máximo toda complexidade desnecessária. Uma tática para aplicação do princípio é sempre quebrar grandes problemas em problemas menores, mais simples e mais compreensíveis.&lt;/p&gt;
+&lt;h3 id=&#34;yagni&#34;&gt;YAGNI&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;You aren&amp;rsquo;t gonna need it&lt;/strong&gt; (&lt;em&gt;você não vai precisar disso&lt;/em&gt;) sugere aos desenvolvedores que não seja adicionado qualquer recurso ao &lt;em&gt;software&lt;/em&gt; antes que ele seja realmente necessário. Segundo o princípio, o código deve se restringir aos requisitos já existentes e não em tentar prever solicitações futuras.&lt;/p&gt;
+&lt;p&gt;Este conceito foi proposto pela metodologia &lt;a class=&#34;link&#34; href=&#34;http://www.extremeprogramming.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Extreme Programming&lt;/a&gt; de desenvolvimento ágil, que visa atacar a satisfação do cliente, pois em vez de entregar tudo que o cliente poderia desejar no futuro, será entregue somente o que ele precisa para hoje.&lt;/p&gt;
+&lt;h3 id=&#34;separation-of-concerns&#34;&gt;Separation of concerns&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Separation of concerns&lt;/strong&gt; (&lt;em&gt;separação de responsabilidades&lt;/em&gt;) é um princípio que visa separar o código em partes distintas, organizadas de forma lógica de acordo com sua responsabilidade. A aplicação correta deste princípio irá resultar em um grau maior de desacoplamento, tornando o &lt;em&gt;software&lt;/em&gt; modular, onde cada módulo encapsula todo código relacionado à sua responsabilidade de forma lógica e coesa.&lt;/p&gt;
+&lt;p&gt;O princípio se aplica também à &lt;strong&gt;Arquitetura de Software&lt;/strong&gt;, e foi utilizado como base para as definições de arquiteturas em camadas, por exemplo.&lt;/p&gt;
+&lt;h3 id=&#34;solid&#34;&gt;SOLID&lt;/h3&gt;
+&lt;p&gt;A sigla &lt;strong&gt;SOLID&lt;/strong&gt;, em desenvolvimento de &lt;em&gt;software&lt;/em&gt;, representa cinco princípios de &lt;em&gt;design&lt;/em&gt; que visam facilitar a compreensão, desenvolvimento e manutenção de sistemas orientados a objetos. Aplicar o &lt;strong&gt;SOLID&lt;/strong&gt; na prática significa aprimorar drasticamente a qualidade do código, tornando-o mais: legível, coeso, testável e reutilizável.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conceitos:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Sigla&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Nome&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;S&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Single-responsibility_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Single-responsibility principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Uma classe deveria possuir somente uma responsabilidade e razão para mudar.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;O&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Open–closed principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Entidades do &lt;em&gt;software&lt;/em&gt; devem estar abertas à extensão mas fechadas para modificação&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;L&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Liskov_substitution_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liskov substitution principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Objetos em um programa devem poder ser substituídos por instâncias dos seus subtipos sem alterar seu funcionamento.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;I&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Interface_segregation_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Interface segregation principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Muitas interfaces específicas são melhores que uma interface generalista.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;D&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Dependency_inversion_principle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dependency inversion principle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;É melhor depender de abstrações e não de implementações.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Claramente, aplicar o &lt;strong&gt;SOLID&lt;/strong&gt; em 100% do código que você escreve é uma tarefa extremamente difícil, e será ainda mais caso você fique adiando o dia de botar a mão na massa e aplicar os conceitos.&lt;/p&gt;
+&lt;h3 id=&#34;boy-scout-rule&#34;&gt;Boy-Scout Rule&lt;/h3&gt;
+&lt;p&gt;Os escoteiros possuem uma regra bem simples e clara:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Leave Things BETTER than you found them.” - Robert Baden Powell&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ao acampar, se o local de acampamento estiver uma bagunça, você deve limpá-lo independentemente de quem bagunçou, sempre deixando-o mais limpo do que estava quando você chegou.&lt;/p&gt;
+&lt;p&gt;Então Robert C. Martin adaptou essa regra para a programação, dizendo:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Leave the code cleaner than you found it&amp;rdquo; - Robert C. Martin&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;ldquo;Deixe o código mais limpo do que estava quando você o encontrou&amp;rdquo;, significa sempre que possível aplicar refatorações de melhoria nos códigos, isso irá contribuir para a qualidade do projeto em geral e evitar a deterioração natural que os sistemas tendem a seguir durante seu período de vida.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;O artigo de &lt;a class=&#34;link&#34; href=&#34;https://martinfowler.com/bliki/OpportunisticRefactoring.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;refatoração oportunista&lt;/a&gt;, de Martin Fowler, segue a mesma linha de raciocínio.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dry&#34;&gt;DRY&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Don&amp;rsquo;t repeat yourself&lt;/strong&gt; (&lt;em&gt;Não se repita&lt;/em&gt;) é o último, mas não menos importante, princípio desta lista. O princípio define que &amp;ldquo;cada porção de conhecimento em um sistema deve possuir uma representação &lt;strong&gt;ÚNICA&lt;/strong&gt; em todo o sistema&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Utilizar o &lt;strong&gt;DRY&lt;/strong&gt; significa trabalhar de forma mais inteligente, escrevendo menos código e produzindo valor no software de forma mais rápida ao reutilizar fragmentos genéricos.&lt;/p&gt;
+&lt;p&gt;Existe uma técnica bem simples para identificar possíveis violações do &lt;strong&gt;DRY&lt;/strong&gt;: se você usou &lt;code&gt;crtl+c&lt;/code&gt; + &lt;code&gt;crtl+v&lt;/code&gt; em algum momento no seu código, é bem provável que você o esteja violando.&lt;/p&gt;
+&lt;p&gt;Violações do princípio são chamadas de soluções &lt;strong&gt;WET&lt;/strong&gt; (&lt;em&gt;lol&lt;/em&gt;), que podem significar: &lt;code&gt;write every time&lt;/code&gt;, &lt;code&gt;write everything twice&lt;/code&gt;, &lt;code&gt;we enjoy typing&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Existem diversos outros princípios para desenvolvimento de &lt;em&gt;software&lt;/em&gt; importantes, meu objetivo aqui foi somente trazer alguns para discussão e servir de guia para futuras pesquisas sobre o assunto.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Introdução ao versionamento semântico</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/05/04/introdu%C3%A7%C3%A3o-ao-versionamento-sem%C3%A2ntico/</link>
+        <pubDate>Wed, 04 May 2016 13:49:11 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/05/04/introdu%C3%A7%C3%A3o-ao-versionamento-sem%C3%A2ntico/</guid>
+        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://semver.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;SemVer.org 2.0.0&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;sumário&#34;&gt;Sumário&lt;/h3&gt;
+&lt;p&gt;Dado um número de versão &lt;strong&gt;[MAJOR].[MINOR].[PATCH]&lt;/strong&gt;, incremente a:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;versão Maior (&lt;strong&gt;MAJOR&lt;/strong&gt;): quando fizer mudanças incompatíveis na &lt;strong&gt;API&lt;/strong&gt;,&lt;/li&gt;
+&lt;li&gt;versão Menor (&lt;strong&gt;MINOR&lt;/strong&gt;): quando adicionar funcionalidades mantendo compatibilidade, e&lt;/li&gt;
+&lt;li&gt;versão de Correção (&lt;strong&gt;PATCH&lt;/strong&gt;): quando corrigir falhas mantendo compatibilidade.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;especificação-semver&#34;&gt;Especificação (SemVer)&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;palavras-chave definidas &lt;a class=&#34;link&#34; href=&#34;#Palavras-chave-para-utilizacao-em-RFC%e2%80%99s-para-indicar-niveis-de-requisitos&#34; &gt;aqui&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(&amp;hellip;)&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Um número de versão normal &lt;strong&gt;DEVE&lt;/strong&gt; ter o formato de X.Y.Z, onde X, Y, e Z são inteiros não negativos, e &lt;strong&gt;NÃO DEVE&lt;/strong&gt; conter zeros à esquerda. X é a versão Maior, Y é a versão Menor, e Z é a versão de Correção. Cada elemento &lt;strong&gt;DEVE&lt;/strong&gt; aumentar numericamente. Por exemplo: 1.9.0 -&amp;gt; 1.10.0 -&amp;gt; 1.11.0.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uma vez que um pacote versionado foi lançado (&lt;em&gt;released&lt;/em&gt;), o conteúdo desta versão &lt;strong&gt;NÃO DEVE&lt;/strong&gt; ser modificado. Qualquer modificação &lt;strong&gt;DEVE&lt;/strong&gt; ser lançado como uma nova versão.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Versão de Correção Z (x.y.&lt;strong&gt;Z&lt;/strong&gt; | x &amp;gt; 0) &lt;strong&gt;DEVE&lt;/strong&gt; ser incrementado apenas se mantiver compatibilidade e introduzir correção de &lt;em&gt;bugs&lt;/em&gt;. Uma correção de &lt;em&gt;bug&lt;/em&gt; é definida como uma mudança interna que corrige um comportamento incorreto.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Versão Menor Y (x.&lt;strong&gt;Y&lt;/strong&gt;.z | x &amp;gt; 0) &lt;strong&gt;DEVE&lt;/strong&gt; ser incrementada se uma funcionalidade nova e compatível for introduzida na API pública. &lt;strong&gt;DEVE&lt;/strong&gt; ser incrementada se qualquer funcionalidade da API pública for definida como descontinuada. &lt;strong&gt;PODE&lt;/strong&gt; ser incrementada se uma nova funcionalidade ou melhoria substancial for introduzida dentro do código privado. &lt;strong&gt;PODE&lt;/strong&gt; incluir mudanças a nível de correção. A versão de Correção deve ser redefinida para 0(zero) quando a versão Menor for incrementada.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Versão Maior X (&lt;strong&gt;X&lt;/strong&gt;.y.z | X &amp;gt; 0) &lt;strong&gt;DEVE&lt;/strong&gt; ser incrementada se forem introduzidas mudanças incompatíveis na API pública. &lt;strong&gt;PODE&lt;/strong&gt; incluir alterações a nível de versão Menor e de versão de Correção. Versão de Correção e Versão Menor devem ser redefinidas para 0(zero) quando a versão Maior for incrementada.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;por-que-usar-versionamento-semântico&#34;&gt;Por que usar Versionamento Semântico?&lt;/h3&gt;
+&lt;p&gt;Sem a aderência a algum tipo de especificação formal, os números de versão são essencialmente inúteis para gerenciamento de dependências.&lt;/p&gt;
+&lt;p&gt;Dando um nome e definições claras às ideias acima, fica fácil comunicar suas intenções aos usuários de seu software.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Considere uma biblioteca chamada &lt;strong&gt;CaminhaoBombeiros&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;Ela requer um pacote versionado dinamicamente chamado &lt;strong&gt;Escada&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;Quando &lt;strong&gt;CaminhaoBombeiros&lt;/strong&gt; foi criado, &lt;strong&gt;Escada&lt;/strong&gt; estava na versão 3.1.0;&lt;/li&gt;
+&lt;li&gt;Como &lt;strong&gt;CaminhaoBombeiros&lt;/strong&gt; utiliza algumas funcionalidades que foram inicialmente introduzidas na versão 3.1.0, você pode especificar, com segurança, a dependência da &lt;strong&gt;Escada&lt;/strong&gt; como maior ou igual a 3.1.0 porém menor que 4.0.0;&lt;/li&gt;
+&lt;li&gt;Agora, quando &lt;strong&gt;Escada&lt;/strong&gt; versão 3.1.1 e 3.2.0 estiverem disponíveis, você poderá lançá-los ao seu sistema de gerenciamento de pacote e saberá que eles serão compatíveis com os softwares dependentes existentes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Como um desenvolvedor responsável você irá querer certificar-se que qualquer atualização no pacote funcionará como anunciado. O que você pode fazer é deixar o
+&lt;em&gt;Versionamento Semântico&lt;/em&gt; lhe fornecer uma maneira sensata de lançar e atualizar pacotes sem precisar atualizar para novas versões de pacotes dependentes, salvando-lhe tempo e aborrecimento.&lt;/p&gt;
+&lt;h3 id=&#34;faq&#34;&gt;FAQ&lt;/h3&gt;
+&lt;p&gt;Consultas, perguntas e respostas sobre o Versionamento Semântico.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://semver.org/#faq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;FAQ&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;sobre&#34;&gt;Sobre&lt;/h3&gt;
+&lt;p&gt;A Especificação da Semântica de Versionamento é autoria de &lt;a class=&#34;link&#34; href=&#34;http://tom.preston-werner.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Tom Preston-Werner&lt;/strong&gt;&lt;/a&gt;, criador do &lt;strong&gt;Gravatars&lt;/strong&gt; e co-fundador do &lt;strong&gt;GitHub&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;palavras-chave-para-utilização-em-rfcs-para-indicar-níveis-de-requisitos&#34;&gt;Palavras chave para utilização em RFC&amp;rsquo;s para indicar níveis de requisitos&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Request_for_Comments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;RFCs - Request For Comments&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DEVE:&lt;/strong&gt; Esta palavra, ou os termos &lt;strong&gt;OBRIGATÓRIO&lt;/strong&gt; e &lt;strong&gt;DEVERÁ&lt;/strong&gt;, significam que a definição é um requisito absoluto da especificação;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;NÃO DEVE:&lt;/strong&gt; Esta frase, ou os termos &lt;strong&gt;NÃO DEVERÁ&lt;/strong&gt;, significam que a definição é um proibição absoluta da especificação;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PODEM:&lt;/strong&gt; Esta palavra, ou o adjetivo &lt;strong&gt;RECOMENDADO&lt;/strong&gt;, significam que podem existir motivos válidos para ignorar um item em particular, mas as implicações completas devem ser entendidas e cuidadosamente pesadas antes de escolher seguir um curso diferente;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;NÃO PODEM:&lt;/strong&gt; Esta frase, ou a frase &lt;strong&gt;NÃO RECOMENDADO&lt;/strong&gt;, significam que podem existir motivos válidos onde o comportamento particular é aceitável ou até útil, mas as implicações completas devem ser entendidas e cuidadosamente pesadas antes de implementar um comportamento descrito com este rótulo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Guia prático para criação de User Stories</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/03/08/guia-pr%C3%A1tico-para-cria%C3%A7%C3%A3o-de-user-stories/</link>
+        <pubDate>Tue, 08 Mar 2016 23:58:59 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/03/08/guia-pr%C3%A1tico-para-cria%C3%A7%C3%A3o-de-user-stories/</guid>
+        <description>&lt;p&gt;As estórias de usuário, ou &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/User_story&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;User Stories&lt;/strong&gt;&lt;/a&gt;, são utilizadas para organização de requisitos por parte do &lt;strong&gt;PO&lt;/strong&gt; (&lt;a class=&#34;link&#34; href=&#34;https://pt.wikipedia.org/wiki/Scrum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;Product Owner&lt;/em&gt;&lt;/a&gt;) e tem como foco principal o objetivo do usuário.&lt;/p&gt;
+&lt;p&gt;Estórias fracionam os requisitos e facilitam a estimação do esforço gasto para realização do objetivo descrito, sendo curtas, simples e claras. Caso uma estória acabe ficando extensa, isso é um sinal de que ela pode ser divida em outras.&lt;/p&gt;
+&lt;h3 id=&#34;princípio-invest&#34;&gt;Princípio INVEST&lt;/h3&gt;
+&lt;p&gt;O acrônimo &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/INVEST_%28mnemonic%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;INVEST&lt;/strong&gt;&lt;/a&gt; foi criado para definir as características de uma boa estória, como demonstrado a seguir:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Letra&lt;/th&gt;
+&lt;th&gt;Significado&lt;/th&gt;
+&lt;th&gt;Resumo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;I&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Independent&lt;/td&gt;
+&lt;td&gt;Uma boa estória deve ser independente de outras.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;N&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Negotiable&lt;/td&gt;
+&lt;td&gt;Até o dia da implementação, a estória pode ser modificada ou reescrita.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Valuable&lt;/td&gt;
+&lt;td&gt;Deve entregar algum valor para o usuário final.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;E&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Estimable&lt;/td&gt;
+&lt;td&gt;O prazo para entrega deve sempre ser estimável.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;S&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Small&lt;/td&gt;
+&lt;td&gt;Não deve demorar mais do que um &lt;em&gt;Sprint&lt;/em&gt; para ser entregue.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Testable&lt;/td&gt;
+&lt;td&gt;Se não puder testar as alterações entregues, não saberá se funcionam bem, certo?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;definições-e-exemplos&#34;&gt;Definições e exemplos&lt;/h3&gt;
+&lt;p&gt;Para construir uma estória, basta definir o &lt;strong&gt;autor&lt;/strong&gt;, a &lt;strong&gt;ação&lt;/strong&gt;,a funcionalidade desejada, ou seja, o &lt;strong&gt;resultado&lt;/strong&gt;, e a sua &lt;strong&gt;prioridade&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Autor&lt;/strong&gt; - O proprietário da estória, a pessoa interessada na funcionalidade. Recomendado descrição de forma bem clara.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Ação&lt;/strong&gt; - A ação necessária para que o autor possa alcançar seu objetivo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Resultado&lt;/strong&gt; - Resultado que ator espera ao executar a ação, de acordo com sua ótica.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prioridade&lt;/strong&gt; - Estórias com prioridade alta serão incluídas mais cedo nos &lt;em&gt;Sprint&amp;rsquo;s&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Modelo:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Como um [autor], eu quero [ação] para que [resultado].
+Prioridade: [alta, média, baixa].
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo de um sistema de biblioteca:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Como um &amp;quot;vendedor responsável pelo setor de livros&amp;quot;,
+eu quero &amp;quot;procurar por livros filtrando por nome&amp;quot;,
+para que possa &amp;quot;verificar se o livro x está disponível&amp;quot;.
+Prioridade: &amp;quot;alta&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo de sistema de aluguel de filmes:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Como um &amp;quot;cliente&amp;quot;,
+eu quero &amp;quot;ver os filmes disponíveis para locação&amp;quot;,
+para que possa &amp;quot;alugá-lo&amp;quot;.
+Prioridade: &amp;quot;alta&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo de sistema de cadastro de clientes&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Como um &amp;quot;vendedor&amp;quot;,
+eu quero &amp;quot;consultar meus clientes pelo CNPJ&amp;quot;,
+para &amp;quot;negociar descontos para pessoa jurídica&amp;quot;.
+Prioridade: &amp;quot;média&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+        <item>
+        <title>Tipos de teste</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/11/09/tipos-de-teste/</link>
+        <pubDate>Mon, 09 Nov 2015 17:53:41 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/11/09/tipos-de-teste/</guid>
+        <description>&lt;p&gt;A tabela abaixo foi criada para demonstrar alguns &lt;strong&gt;tipos de teste&lt;/strong&gt;, que constituem o conceito de &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Software testing&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O objetivo é prover uma visão geral sobre diferentes possibilidades de análise do &lt;strong&gt;Software&lt;/strong&gt;, a fim de encontrar falhas e determinar a qualidade do mesmo.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Teste&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Resumo&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Referência&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Installation testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;O teste de instalação se concentra nos requisitos necessários para que o cliente possa executar corretamente o &lt;strong&gt;Software&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Installation_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Compatibility testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;O teste de compatibilidade é conduzido à aplicação, a fim de avaliar a compatibilidade do &lt;strong&gt;Software&lt;/strong&gt; com ambiente presente no cliente.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Compatibility_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Smoke Testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste orientado ao &amp;ldquo;&lt;em&gt;Coração&lt;/em&gt;&amp;rdquo; do sistema. Verificação na funcionalidade principal do &lt;strong&gt;Software&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Smoke_testing_%28software%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Regression Testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;O teste de regressão procura descobrir novos &lt;em&gt;Bugs&lt;/em&gt; após alterações feitas no código, incluindo a re-execução de testes efetuados anteriormente à mudança, para comparação com resultados oriundos dos testes atuais.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Regression_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Acceptance testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste formal, respeitando as necessidades do cliente, requisitos e regras de negócio, para determinar se o &lt;strong&gt;Software&lt;/strong&gt; satisfaz, ou não, os critérios acordados com o cliente.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Acceptance_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Alpha testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Ver referência&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_testing#Alpha_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Beta testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Ver referência&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_testing#Beta_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Continuous testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste contínuo é o processo de execução de &lt;strong&gt;Testes Automatizados&lt;/strong&gt;, a fim de obter resultados imediatos referentes aos riscos de negócio associados ao &lt;strong&gt;Software&lt;/strong&gt; &lt;em&gt;Release Candidate&lt;/em&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Continuous_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Destructive testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste destrutivo é a tentativa de fazer com que o &lt;strong&gt;Software&lt;/strong&gt; falhe, passando &lt;em&gt;Inputs&lt;/em&gt; com valores inválidos e, ou, inesperados.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Destructive_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Performance testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Aplicado para determinar como o &lt;strong&gt;Software&lt;/strong&gt; se comporta, em termos de responsividade e estabilidade, para que sejam investigados fragmentos de código onde possam ser aplicadas melhorias na implementação, &lt;em&gt;design&lt;/em&gt; e arquitetura.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_performance_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Usability testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Utilizado para determinar se as interfaces do usuário são fáceis de usar e compreender.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Usability_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Acessibility testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste de acessibilidade é aplicado para verificar as diretrizes de usabilidade, determinadas no início do projeto.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Accessibility&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Security testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste essencial para &lt;strong&gt;Software&amp;rsquo;s&lt;/strong&gt; que processam dados confidenciais, a fim de evitar invasões.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Security_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Internationalization and localization&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste para identificar se há erros na adaptação de tradução do aplicativo para outras linguagens.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Internationalization_and_localization&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Development testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Testes aplicados em sincronia com o processo de desenvolvimento, visando diminuir os riscos, tempo e custo do &lt;strong&gt;Software&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Development_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;A/B testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Basicamente, consiste em comparar duas saídas, quando apenas uma variável foi alterada. Ex: execute um teste, mude alguma variável, execute o teste novamente, compare os resultados.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/A/B_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Concurrent testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;O foco é comparar o desempenho em baterias de teste com rotinas e entradas normais em oposição ao teste com valores não esperados, como o &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Stress_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;stress testing&lt;/a&gt; ,por exemplo.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Concurrent_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Conformance testing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Teste funcional, caixa-preta, no qual uma implementação é testada com relação aos requisitos mencionados explicitamente na sua especificação.&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Conformance_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
+        <title>Estágios para liberação de software</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/</link>
+        <pubDate>Fri, 06 Nov 2015 08:24:41 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/stages.png&#34;
+	width=&#34;708&#34;
+	height=&#34;441&#34;
+	srcset=&#34;https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/stages_hu4bf462fbbb92f43f233e7ddf7c1ca4cf_52938_480x0_resize_box_3.png 480w, https://joaolucasgtr.github.io/posts/2015/11/06/est%C3%A1gios-para-libera%C3%A7%C3%A3o-de-software/stages_hu4bf462fbbb92f43f233e7ddf7c1ca4cf_52938_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;release stages&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;160&#34;
+		data-flex-basis=&#34;385px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;O &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Software_release_life_cycle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Ciclo de vida para liberação de um software&lt;/strong&gt;&lt;/a&gt; consiste na soma dos estágios de desenvolvimento e amadurecimento para um fragmento de &lt;strong&gt;Software&lt;/strong&gt;: abrangendo desde o seu desenvolvimento inicial até o seu lançamento, incluindo versões atualizadas que aplicam melhorias ou correções no &lt;strong&gt;Software.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Os estágios são:&lt;/p&gt;
+&lt;h2 id=&#34;pré-alfa-pre-alpha&#34;&gt;Pré-alfa (Pre-alpha)&lt;/h2&gt;
+&lt;p&gt;Pré-alfa se refere à todas as atividades realizadas no projeto do &lt;strong&gt;Software&lt;/strong&gt;, antes de ser testado, que podem ser: &lt;strong&gt;Análise de requisitos&lt;/strong&gt;, &lt;strong&gt;Design do Software&lt;/strong&gt;, &lt;strong&gt;Testes unitários&lt;/strong&gt;, etc.&lt;/p&gt;
+&lt;h2 id=&#34;alfa-alpha&#34;&gt;Alfa (Alpha)&lt;/h2&gt;
+&lt;p&gt;A fase alfa é a primeira onde se iniciam os testes do &lt;strong&gt;Software&lt;/strong&gt;. Nela, são aplicadas algumas técnicas de teste, como a &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/White-box_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Caixa Branca&lt;/strong&gt;&lt;/a&gt;. Validações adicionais são utilizadas por outra equipe, usando técnicas de &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Gray_box_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Caixa Cinza&lt;/strong&gt;&lt;/a&gt; e &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Black-box_testing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Caixa Preta&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;strong&gt;Software&lt;/strong&gt; alfa pode ser instável, contendo &lt;em&gt;Bugs&lt;/em&gt; e perda de dados, e pode não contar com todos os recursos planejados anteriormente.&lt;/p&gt;
+&lt;h2 id=&#34;beta-beta&#34;&gt;Beta (Beta)&lt;/h2&gt;
+&lt;p&gt;A fase beta, geralmente, começa quando o &lt;strong&gt;Software&lt;/strong&gt; está com os recursos completos, porém ainda suscetível à &lt;em&gt;Bugs&lt;/em&gt;, problemas de performance e perda de dados.&lt;/p&gt;
+&lt;p&gt;O foco desta fase é &lt;strong&gt;reduzir os impactos ao usuário&lt;/strong&gt;, aplicando testes de usabilidade.&lt;/p&gt;
+&lt;p&gt;Geralmente, é nesta fase onde os produtos estarão disponíveis do lado de fora da empresa que os desenvolveu, sendo utilizados em demonstrações, por exemplo.&lt;/p&gt;
+&lt;h2 id=&#34;candidato-à-liberação-release-candidate&#34;&gt;Candidato à Liberação (Release Candidate)&lt;/h2&gt;
+&lt;p&gt;Nessa fase, o &lt;strong&gt;Software&lt;/strong&gt; está em uma versão beta, mas com potencial para se tornar um produto final. Todos os recursos já foram planejados, implementados e testados sem reportar algum &lt;em&gt;Bug&lt;/em&gt; significativo.&lt;/p&gt;
+&lt;p&gt;Ainda poderá haver alteração no código para consertar defeitos, mudanças na documentação e arquivos, e código externos para casos de teste.&lt;/p&gt;
+&lt;p&gt;Os testadores receberão essa versão para utilizá-la como produto final e a conduzirão para clientes, onde serão efetuados testes a partir de suas perspectivas.&lt;/p&gt;
+&lt;h2 id=&#34;liberação-ao-mercado-release-to-marketing&#34;&gt;Liberação ao Mercado (Release to Marketing)&lt;/h2&gt;
+&lt;p&gt;O produto está pronto para ser entregue para os clientes, contendo uma assinatura digital que garanta sua autenticidade.&lt;/p&gt;
+&lt;p&gt;Pode significar também, em outro contexto, que o &lt;strong&gt;Software&lt;/strong&gt; já foi entregue para um cliente para instalação em seu respectivo &lt;em&gt;Hardware&lt;/em&gt; de usuário final. O termo não define o mecanismo de entrega, mas apenas o estado de qualidade, que é suficiente para distribuição em massa.&lt;/p&gt;
+&lt;h2 id=&#34;disponibilidade-geral-general-availability&#34;&gt;Disponibilidade Geral (General Availability)&lt;/h2&gt;
+&lt;p&gt;Disponibilidade Geral é o estágio onde todas as atividades de comercialização necessárias já foram completadas e o produto está disponível no mercado.&lt;/p&gt;
+&lt;p&gt;Atividades de comercialização podem incluir testes de compilação e segurança, assim como localização e disponibilidade em escala global.&lt;/p&gt;
+&lt;p&gt;O tempo entre &lt;a class=&#34;link&#34; href=&#34;#rtm&#34; &gt;&lt;strong&gt;Liberação ao Mercado&lt;/strong&gt;&lt;/a&gt; e &lt;a class=&#34;link&#34; href=&#34;#ga&#34; &gt;&lt;strong&gt;Disponibilidade Geral&lt;/strong&gt;&lt;/a&gt; pode durar de uma semana a meses, em caso de atraso nas atividades de comercialização.&lt;/p&gt;
+&lt;h2 id=&#34;gold&#34;&gt;Gold&lt;/h2&gt;
+&lt;p&gt;O termo Gold se refere à versão mais atual do &lt;strong&gt;Software&lt;/strong&gt; e pode incluir alguns &lt;em&gt;Patches&lt;/em&gt;, ou até mesmo pacotes de serviços, que os usuários das versões &lt;a class=&#34;link&#34; href=&#34;#rtm&#34; &gt;&lt;strong&gt;Liberação ao Mercado&lt;/strong&gt;&lt;/a&gt; e &lt;a class=&#34;link&#34; href=&#34;#ga&#34; &gt;&lt;strong&gt;Disponibilidade Geral&lt;/strong&gt;&lt;/a&gt; teriam que baixar individualmente.&lt;/p&gt;
+&lt;p&gt;Pode incluir também alguns recursos extras ou &lt;em&gt;Addons&lt;/em&gt; criados após as liberações anteriores.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Estrutura de diretórios Linux</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/08/10/estrutura-de-diret%C3%B3rios-linux/</link>
+        <pubDate>Mon, 10 Aug 2015 14:17:50 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/08/10/estrutura-de-diret%C3%B3rios-linux/</guid>
+        <description>&lt;p&gt;O &lt;strong&gt;FHS&lt;/strong&gt;, ou (File Hierarchy Standard - &lt;em&gt;padrão hierárquico de arquivos&lt;/em&gt;), define os principais diretórios para sistemas operacionais Linux ou baseados em &lt;em&gt;Unix&lt;/em&gt;. O que difere bastante do padrão utilizado pelo &lt;em&gt;Windows&lt;/em&gt;, onde cada partição do disco rígido recebe uma letra para representá-lo, e pastas do sistema possuem nomes específicos de acordo com seu conteúdo.&lt;/p&gt;
+&lt;p&gt;No &lt;strong&gt;FHS&lt;/strong&gt;, são utilizadas palavras abreviadas, a maioria contendo três letras, o que pode causar estranheza num primeiro contato e dificultar o entendimento do propósito do diretório.&lt;/p&gt;
+&lt;p&gt;Os principais são:&lt;/p&gt;
+&lt;h2 id=&#34;---a-raíz&#34;&gt;&amp;ldquo;/&amp;rdquo; - A raíz&lt;/h2&gt;
+&lt;p&gt;Tudo no Linux está localizado abaixo do diretório &lt;code&gt;/&lt;/code&gt;, conhecido como diretório raiz. Mesmo ao montar outras partições, estas estarão abaixo do diretório raiz, diferente do &lt;em&gt;Windows&lt;/em&gt;, onde outra partição seria montada no caminho &lt;code&gt;D:&lt;/code&gt; provavelmente.&lt;/p&gt;
+&lt;h2 id=&#34;bin---binários-essenciais&#34;&gt;/bin - Binários essenciais&lt;/h2&gt;
+&lt;p&gt;Neste diretório estão mantidos todos os binários essenciais para utilização por parte de um usuário. Programas como bash (&lt;code&gt;sh&lt;/code&gt;), copy (&lt;code&gt;cp&lt;/code&gt;), VI (&lt;code&gt;vi&lt;/code&gt;), Process Status (&lt;code&gt;ps&lt;/code&gt;), entre outros&amp;hellip;, estão mantidos aqui. Colocar binários neste diretório garante que o sistema terá esses utilitários mesmo que outros diretórios não sejam montados.&lt;/p&gt;
+&lt;p&gt;O diretório &lt;code&gt;/sbin&lt;/code&gt; funciona da mesma maneira, porém contendo utilitários essenciais para administração do sistema. Exemplos: &lt;code&gt;adduser&lt;/code&gt;, &lt;code&gt;fdisk&lt;/code&gt;, &lt;code&gt;iptables&lt;/code&gt;, &lt;code&gt;reboot&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;h2 id=&#34;sbin--binários-de-administração&#34;&gt;/sbin – Binários de administração&lt;/h2&gt;
+&lt;p&gt;Contém binários de forma similar ao diretório &lt;code&gt;/bin&lt;/code&gt;, porém os que estão contidos aqui foram criados com a intenção de serem executados por usuários com privilégios de administrador do sistema.&lt;/p&gt;
+&lt;h2 id=&#34;boot--arquivos-de-boot&#34;&gt;/boot – Arquivos de Boot&lt;/h2&gt;
+&lt;p&gt;Este diretório contém os arquivos necessários para inicialização do sistema. Por exemplo, os arquivos da ferramenta &lt;strong&gt;GRUB&lt;/strong&gt; e os &lt;code&gt;kernels&lt;/code&gt; estão armazenados aqui.&lt;/p&gt;
+&lt;h2 id=&#34;dev--devices&#34;&gt;/dev – Devices&lt;/h2&gt;
+&lt;p&gt;Distribuições Linux expõem dispositivos como arquivos neste diretório. Embora não sejam realmente arquivos, são exibidos como tal, por exemplo &lt;code&gt;sda&lt;/code&gt; é exibido como um arquivo mas representa o primeiro drive &lt;em&gt;SATA&lt;/em&gt; no sistema.&lt;/p&gt;
+&lt;p&gt;Aqui também são mantidos &lt;em&gt;pseudo-dispositivos&lt;/em&gt; que não representam de verdade um hardware, como por exemplo o &lt;code&gt;/dev/null&lt;/code&gt;, que representa um dispositivo especial que não produz dados de saída e nem de entrada, sendo útil para o caso onde é necessário descartar a saída de programas, bastando utilizar o pipe para este dispositivo.&lt;/p&gt;
+&lt;h2 id=&#34;etc--arquivos-de-configuração&#34;&gt;/etc – Arquivos de configuração&lt;/h2&gt;
+&lt;p&gt;Diretório responsável por manter arquivos de configuração do sistema como um todo. Configurações pessoais de um usuário devem ser mantidos em seu respectivo diretório &lt;code&gt;/home&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;home---lar&#34;&gt;/home - Lar&lt;/h2&gt;
+&lt;p&gt;Contém os diretórios base de cada usuário criado no sistema e é responsável por manter os dados deste usuário, além de seu arquivos específicos de configuração. Caso um usuário queira alterar dados na pasta &lt;code&gt;/home&lt;/code&gt; de outro, é necessário obter privilégios de administrador.&lt;/p&gt;
+&lt;h2 id=&#34;lib--bibliotecas-essenciais&#34;&gt;/lib – Bibliotecas essenciais&lt;/h2&gt;
+&lt;p&gt;Aqui estão mantidas as bibliotecas (&lt;em&gt;libraries&lt;/em&gt;) essenciais para os programas contidos nos diretórios &lt;code&gt;/bin&lt;/code&gt; e &lt;code&gt;/sbin&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;lostfound--arquivos-recuperados&#34;&gt;/lost+found – Arquivos recuperados&lt;/h2&gt;
+&lt;p&gt;Diretório de &amp;ldquo;achados e perdidos&amp;rdquo;. Caso o sistema quebre, uma checagem de arquivos será realizada no próximo &lt;em&gt;boot&lt;/em&gt; e quaisquer arquivos corrompidos serão colocados neste diretório para que seja possível analisar e recuperar dados destes arquivos.&lt;/p&gt;
+&lt;h2 id=&#34;media--mídia-removível&#34;&gt;/media – Mídia removível&lt;/h2&gt;
+&lt;p&gt;Responsável por criar sub-diretórios correspondentes à dispositivos de mídia removível conectados ao computador.&lt;/p&gt;
+&lt;h2 id=&#34;mnt--pontos-de-montagem&#34;&gt;/mnt – Pontos de montagem&lt;/h2&gt;
+&lt;p&gt;Por convenção, é utilizado para montar temporariamente outros discos disponíveis ou partições. Porém, esta operação é possível de ser feita em qualquer outro diretório.&lt;/p&gt;
+&lt;h2 id=&#34;opt--pacotes-opcionais&#34;&gt;/opt – Pacotes opcionais&lt;/h2&gt;
+&lt;p&gt;Contém sub-diretórios para pacotes de software opcionais. É comumente utilizada por softwares de terceiros e proprietários.&lt;/p&gt;
+&lt;h2 id=&#34;proc--processos&#34;&gt;/proc – Processos&lt;/h2&gt;
+&lt;p&gt;Contém diretórios virtuais que representam os processos em execução no sistema. Cada diretório é nomeado de acordo com o &lt;em&gt;ID&lt;/em&gt; do processo e quando o mesmo é encerrado, automaticamente seu diretório irá desaparecer.&lt;/p&gt;
+&lt;h2 id=&#34;root--root-home&#34;&gt;/root – Root home&lt;/h2&gt;
+&lt;p&gt;Este é o diretório &lt;code&gt;home&lt;/code&gt; do usuário &lt;code&gt;root&lt;/code&gt;. Como este usuário é diferente dos demais, seu diretório base não fica localizado em &lt;code&gt;/home/root&lt;/code&gt; mas apenas em &lt;code&gt;/root&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;run--estado-de-aplicações&#34;&gt;/run – Estado de aplicações&lt;/h2&gt;
+&lt;p&gt;Este diretório fornece um local padrão para as aplicações armazenarem dados sobre seu estado que não podem ser armazenadas no diretório &lt;code&gt;/tmp&lt;/code&gt;, uma vez que estando lá, os dados poderão ser descartados em algum momento.&lt;/p&gt;
+&lt;h2 id=&#34;tmp--temporários&#34;&gt;/tmp – Temporários&lt;/h2&gt;
+&lt;p&gt;As aplicações irão armazenar neste diretórios arquivos temporários. Geralmente, estes arquivos serão apagados ao reiniciar o sistema e podem ser deletados ao executar algum utilitário de limpeza do sistema.&lt;/p&gt;
+&lt;h2 id=&#34;usr--binários-de-usuários&#34;&gt;/usr – Binários de usuários&lt;/h2&gt;
+&lt;p&gt;O diretório &lt;code&gt;/usr&lt;/code&gt; contém aplicações e arquivos utilizados por usuários de forma isolada do resto do sistema. Por exemplo, aplicações que não são essenciais estarão mantidas em &lt;code&gt;/usr/bin&lt;/code&gt; e não em &lt;code&gt;/bin&lt;/code&gt;. Comandos que necessitam de privélgio de administrador estarão em &lt;code&gt;/usr/sbin&lt;/code&gt; e não em &lt;code&gt;/sbin&lt;/code&gt;. Bibliotecas necessárias para estes programas estarão em &lt;code&gt;/usr/lib&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;var--arquivos-variáveis&#34;&gt;/var – Arquivos variáveis&lt;/h2&gt;
+&lt;p&gt;O diretório &lt;code&gt;/var&lt;/code&gt; contém arquivos que podem ser alterados por aplicações, durante o tempo de execução. Um exemplo claro é o sub-diretório &lt;code&gt;/var/log&lt;/code&gt;, que mantém os &lt;em&gt;logs&lt;/em&gt; de execução de aplicações e do sistema operacional.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Para visualizar a documentação completa, acesse: &lt;a class=&#34;link&#34; href=&#34;http://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FHS-3.0&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>O que é Markdown?</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/03/04/o-que-%C3%A9-markdown/</link>
+        <pubDate>Wed, 04 Mar 2015 11:52:32 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/03/04/o-que-%C3%A9-markdown/</guid>
+        <description>&lt;p&gt;&lt;strong&gt;Markdown&lt;/strong&gt; é uma &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Lightweight_markup_language&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;linguagem de marcação leve&lt;/a&gt; com sintaxe de texto puro. Seu &lt;em&gt;design&lt;/em&gt; permite que seja convertida para muitos formatos, incluindo &lt;code&gt;.html&lt;/code&gt;, &lt;code&gt;.pdf&lt;/code&gt;, &lt;code&gt;.docx&lt;/code&gt;, entre outros.&lt;/p&gt;
+&lt;p&gt;O propósito principal por trás do &lt;strong&gt;Markdown&lt;/strong&gt; é fazer com que o texto seja o mais limpo e legível possível, não contendo &lt;em&gt;tags&lt;/em&gt; ou instruções de formatação, ou seja, com &lt;strong&gt;Markdown&lt;/strong&gt; você escreve tendo o foco principal no conteúdo e não em código.&lt;/p&gt;
+&lt;p&gt;Embora criado há bastante tempo, em 2004, o &lt;strong&gt;Markdown&lt;/strong&gt; é uma prova de futuro (&lt;strong&gt;Future proof&lt;/strong&gt;), pois simplesmente representa texto simples, ao contrário de outras maneiras de escrita &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/WYSIWYG&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;WYSIWYG&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Sendo simplesmente texto, você está livre para usar qualquer editor simples para utilizá-lo, diferentemente do &lt;em&gt;Microsoft Word&lt;/em&gt;, por exemplo, que possui mais de 10 tipos diferentes de extensão para escrita.&lt;/p&gt;
+&lt;h2 id=&#34;por-que-utilizar&#34;&gt;Por que utilizar?&lt;/h2&gt;
+&lt;p&gt;Devido a sua simplicidade de escrita e interpretação, sua adoção foi massiva e tornou-se uma espécie de padrão, não oficial, para escrita de documentações e aplicativos de chat.&lt;/p&gt;
+&lt;p&gt;O &lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;/a&gt; utiliza o &lt;strong&gt;Markdown&lt;/strong&gt; com alguns recursos extras em seu site para simplificar a escrita de &lt;strong&gt;Issues&lt;/strong&gt; ou arquivos &lt;strong&gt;README&lt;/strong&gt;; &lt;a class=&#34;link&#34; href=&#34;https://trello.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Trello&lt;/strong&gt;&lt;/a&gt; na escrita de seus populares &lt;strong&gt;cards&lt;/strong&gt;; &lt;a class=&#34;link&#34; href=&#34;https://slack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Slack&lt;/strong&gt;&lt;/a&gt; para formatação de mensagens; além de diversas ferramentas para geração de sites estáticos que adotaram a escrita em &lt;strong&gt;Markdown&lt;/strong&gt; como padrão de publicação de conteúdo.&lt;/p&gt;
+&lt;p&gt;A propósito, todo o conteúdo deste blog é escrito utlizando &lt;strong&gt;Markdown&lt;/strong&gt;. =)&lt;/p&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://daringfireball.net/projects/markdown/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Daring Fireball&lt;/a&gt;, by John Gruber;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.github.com/gfm/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github Flavored Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Markdown&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Markdown on Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;exemplos&#34;&gt;Exemplos&lt;/h2&gt;
+&lt;p&gt;A seguir, alguns exemplos básicos para demonstração da marcação:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Títulos:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# h1 Heading
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## h2 Heading
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;### h3 Heading
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;#### h4 Heading
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;##### h5 Heading
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;###### h6 Heading
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;h1-heading&#34;&gt;h1 Heading&lt;/h1&gt;
+&lt;h2 id=&#34;h2-heading&#34;&gt;h2 Heading&lt;/h2&gt;
+&lt;h3 id=&#34;h3-heading&#34;&gt;h3 Heading&lt;/h3&gt;
+&lt;h4 id=&#34;h4-heading&#34;&gt;h4 Heading&lt;/h4&gt;
+&lt;h5 id=&#34;h5-heading&#34;&gt;h5 Heading&lt;/h5&gt;
+&lt;h6 id=&#34;h6-heading&#34;&gt;h6 Heading&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ênfase:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Este texto está em negrito**
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gs&#34;&gt;__Este texto está em negrito__&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;ge&#34;&gt;*Este texto está em itálico*&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;ge&#34;&gt;_Este texto está em itálico_&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;~~RASURADO~~&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Este texto está em negrito&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Este texto está em negrito&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Este texto está em itálico&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Este texto está em itálico&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;RASURADO&lt;/del&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Blockquotes:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&#34;ge&#34;&gt;Blockquotes também podem ser aninhados...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;ge&#34;&gt;&lt;/span&gt;&amp;gt;&amp;gt; ...utilizando outro sinal de &lt;span class=&#34;gs&#34;&gt;**maior que**&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&#34;ge&#34;&gt;&amp;gt; &amp;gt; ...ou com espaço entre os sinais.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Blockquotes também podem ser aninhados&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;hellip;utilizando outro sinal de &lt;strong&gt;maior que&lt;/strong&gt;&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;hellip;ou com espaço entre os sinais.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Listas:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Não ordenadas:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;+ Crie listas iniciando a linha com &lt;span class=&#34;sb&#34;&gt;`+`&lt;/span&gt;, &lt;span class=&#34;sb&#34;&gt;`-`&lt;/span&gt;, or &lt;span class=&#34;sb&#34;&gt;`*`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;+ Sub-listas são feitas indentando por 2 espaços:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Alterar o caractere de marcação força a criação de nova lista:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Ac tristique libero volutpat at
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    + Facilisis in pretium nisl aliquet
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Nulla volutpat aliquam velit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;+ Simples!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Crie listas iniciando a linha com &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, or &lt;code&gt;*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sub-listas são feitas indentando por 2 espaços:
+&lt;ul&gt;
+&lt;li&gt;Alterar o caractere de marcação força a criação de nova lista:
+&lt;ul&gt;
+&lt;li&gt;Ac tristique libero volutpat at&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Facilisis in pretium nisl aliquet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Nulla volutpat aliquam velit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Simples!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ordenadas:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;1.&lt;/span&gt; Lorem ipsum dolor sit amet
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;2.&lt;/span&gt; Consectetur adipiscing elit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;3.&lt;/span&gt; Integer molestie lorem at massa
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;4.&lt;/span&gt; Você pode usar números sequenciais...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;5.&lt;/span&gt; ...ou manter todos os números como &lt;span class=&#34;sb&#34;&gt;`1.`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Consectetur adipiscing elit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Integer molestie lorem at massa&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Você pode usar números sequenciais&amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;hellip;ou manter todos os números como &lt;code&gt;1.&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Código:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Código em &lt;span class=&#34;sb&#34;&gt;`linha`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Código em &lt;code&gt;linha&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Código indentado:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    // comentários...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    linha 1 de código
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    linha 2 de código
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    linha 3 de código
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Código indentado:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// comentários...
+linha 1 de código
+linha 2 de código
+linha 3 de código
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Links:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[&lt;span class=&#34;nt&#34;&gt;link com texto&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;http://joaolucasgtr.gitlab.io/&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://joaolucasgtr.gitlab.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;link com texto&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[&lt;span class=&#34;nt&#34;&gt;link com título&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;http://joaolucasgtr.gitlab.io/ &amp;#34;texto do título!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://joaolucasgtr.gitlab.io/&#34;  title=&#34;texto do título!&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;link com título&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Imagens:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;Minion&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;https://octodex.github.com/images/minion.png&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;Stormtroopocat&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;https://octodex.github.com/images/stormtroopocat.jpg &amp;#34;The Stormtroopocat&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://octodex.github.com/images/minion.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Minion&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://octodex.github.com/images/stormtroopocat.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Stormtroopocat&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&amp;hellip;para a especificação completa de recursos, visite os links referenciados.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Guia básico de comandos do Terminal</title>
+        <link>https://joaolucasgtr.github.io/posts/2015/03/03/guia-b%C3%A1sico-de-comandos-do-terminal/</link>
+        <pubDate>Tue, 03 Mar 2015 14:00:18 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2015/03/03/guia-b%C3%A1sico-de-comandos-do-terminal/</guid>
+        <description>&lt;p&gt;Utilizar o &lt;strong&gt;Terminal&lt;/strong&gt; de comandos pode parecer uma tarefa complexa, limitada e
+intimidadora para usuários não ambientados. Porém, com a enorme adoção de sistemas
+operacionais &lt;em&gt;Linux&lt;/em&gt; por parte de servidores, e &lt;em&gt;Mac&lt;/em&gt; por desenvolvedores, é
+necessário pelo menos um pouco de familiaridade com a ferramenta.&lt;/p&gt;
+&lt;p&gt;Além disso, a maioria das linguagens e frameworks disponibilizam seus recursos
+por meio de &lt;em&gt;CLI&lt;/em&gt;, que significa &lt;em&gt;C&lt;/em&gt;ommand &lt;em&gt;L&lt;/em&gt;ine &lt;em&gt;I&lt;/em&gt;nterface (&lt;em&gt;interface de linha
+de comando&lt;/em&gt;), mesma prática adotada por ferramentas de outras áreas como banco de
+dados e sistemas de controle de versão.&lt;/p&gt;
+&lt;p&gt;Exemplos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;nodejs (node e npm)&lt;/li&gt;
+&lt;li&gt;emberjs e angular&lt;/li&gt;
+&lt;li&gt;php&lt;/li&gt;
+&lt;li&gt;ruby&lt;/li&gt;
+&lt;li&gt;python&lt;/li&gt;
+&lt;li&gt;git e svn&lt;/li&gt;
+&lt;li&gt;mysql e postgres&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;hellip;entre outras.&lt;/p&gt;
+&lt;p&gt;Ou seja, é praticamente impossível pensar num ambiente de desenvolvimento que não
+necessite de nenhuma interação com a linha de comando.&lt;/p&gt;
+&lt;p&gt;E com o passar do tempo é provável que você adquira mais habilidade e
+produtividade utilizando ferramentas do &lt;strong&gt;Terminal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;catálogo&#34;&gt;Catálogo&lt;/h2&gt;
+&lt;p&gt;A seguir, um catálogo simplificado para servir como ponto de partida para adaptação
+à linha de comando de sistemas baseados em &lt;em&gt;Unix&lt;/em&gt;, por categoria.&lt;/p&gt;
+&lt;h3 id=&#34;navegação&#34;&gt;Navegação&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pwd&lt;/code&gt;: imprime o caminho completo do diretório atual.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ls [path]&lt;/code&gt;: lista os arquivos publicos informados no parâmetro &lt;code&gt;path&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cd [path]&lt;/code&gt;: navegar para o diretório informado no parâmetro &lt;code&gt;path&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ajuda&#34;&gt;Ajuda&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;man [command]&lt;/code&gt;: exibe o manual do comando informado no parâmetro &lt;code&gt;command&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command] --help&lt;/code&gt; ou &lt;code&gt;[command] -h&lt;/code&gt;: geralmente, ferramentas da linha de comando
+irão exibir um menu de opções disponíveis e informações de utilização do comando
+informado no parâmetro &lt;code&gt;command&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;manipulação-de-arquivos&#34;&gt;Manipulação de arquivos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cp [source] [destination]&lt;/code&gt;: copiar o arquivo informado no parâmetro &lt;code&gt;source&lt;/code&gt;
+para o caminho no parâmetro &lt;code&gt;destination&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mv [source] [destination]&lt;/code&gt;: mover arquivo ou pasta do parâmetro &lt;code&gt;source&lt;/code&gt; para
+o caminho informado em &lt;code&gt;destination&lt;/code&gt;, ou renomear caso o destino seja o mesmo
+diretório.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;touch [filename]&lt;/code&gt;: cria um arquivo com o nome informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mkdir [fullpath]&lt;/code&gt;: cria um diretório com o caminho completo informado no parâmetro &lt;code&gt;fullpath&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rm [filename]&lt;/code&gt;: excluir o arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rm -r [path]&lt;/code&gt;: exclui um diretório informado no parâmetro &lt;code&gt;path&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ln -s [source] [destination]&lt;/code&gt;: cria um link simbólico entre o arquivo informado
+no parâmetro &lt;code&gt;source&lt;/code&gt; e o destino informado no &lt;code&gt;destination&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;visualização-de-arquivos&#34;&gt;Visualização de arquivos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;echo [text]&lt;/code&gt;: imprime o texto informado no parâmetro &lt;code&gt;text&lt;/code&gt; no terminal.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;echo $[varname]&lt;/code&gt;: exibe o conteúdo presente na variável informada no parâmetro &lt;code&gt;varname&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cat [filename]&lt;/code&gt;: imprime o conteúdo presente no arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;head [filename]&lt;/code&gt;: imprime as dez primeiras linhas do arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tail [filename]&lt;/code&gt;: imprime as dez últimas linhas do arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grep [pattern] [filename]&lt;/code&gt;: imprime as linhas do arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt; que satisfazem o padrão (&lt;em&gt;Regex&lt;/em&gt;) informado no parâmetro &lt;code&gt;pattern&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;administração&#34;&gt;Administração&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo [command]&lt;/code&gt;: executa o comando informado no parâmetro &lt;code&gt;command&lt;/code&gt; como super usuário.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command1] &amp;amp;&amp;amp; [command2]&lt;/code&gt;: o operador &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; permite que vários comandos sejam executados em sequência.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command] &amp;amp;&lt;/code&gt;: executa o comando informado no parâmetro &lt;code&gt;command&lt;/code&gt; em segundo plano.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bash [script.sh]&lt;/code&gt;: utiliza o &lt;em&gt;bash&lt;/em&gt; para executar o script informado no parâmetro &lt;code&gt;script.sh&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command1] | [command2]&lt;/code&gt;: redireciona a saída do comando &lt;code&gt;command1&lt;/code&gt; para a entrada do
+comando &lt;code&gt;command2&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command] &amp;gt; [filename]&lt;/code&gt;: redireciona a saída do comando &lt;code&gt;command1&lt;/code&gt; para um
+arquivo criado com o nome informado em &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[command] &amp;gt;&amp;gt; [filename]&lt;/code&gt;: adiciona a saída do comando &lt;code&gt;command1&lt;/code&gt; no final do
+arquivo informado no parâmetro &lt;code&gt;filename&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;processos&#34;&gt;Processos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ps&lt;/code&gt;: exibe uma lista de processos em execução do usuário atual no terminal atual.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ps -e&lt;/code&gt;: exibe todos os processos em execução.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pstree&lt;/code&gt;: exibe a lista de processos em execução, em forma de árvore.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pgrep [name]&lt;/code&gt;: exibe o PID do processo informado no parâmetro &lt;code&gt;name&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kill -9 [PID]&lt;/code&gt;: envia o sinal de encerramento para o processo que possui o PID
+informado no parâmetro &lt;code&gt;PID&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;permissões&#34;&gt;Permissões&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;chmod [code] [filename]&lt;/code&gt;: altera a permissão do arquivo informado em &lt;code&gt;filename&lt;/code&gt;
+de acordo com o código informado no parâmetro &lt;code&gt;code&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chmod +x [filename]&lt;/code&gt;: torna o arquivo &lt;code&gt;filename&lt;/code&gt; um executável.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chwon [path]&lt;/code&gt;: altera o dono do arquivo ou diretório informado no parâmetro &lt;code&gt;path&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;commando-find&#34;&gt;Commando &amp;ldquo;find&amp;rdquo;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;find .&lt;/code&gt;: procura arquivos e diretórios recursivamente a partir do atual.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;find . -name *.png -exec cp &#39;{}&#39; ~/images \;&lt;/code&gt;: copia todos os arquivos PNG para a pasta &lt;code&gt;~/images&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;find . -name .svn -prune -exec rm -r &#39;{}&#39; \;&lt;/code&gt;: exclui todos os diretórios com nome &lt;code&gt;.svn&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;find . -type f -exec file &#39;{}&#39; \;&lt;/code&gt;: executa os arquivos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;net&#34;&gt;Net&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ssh user@server&lt;/code&gt;: acessar um servidor via &lt;strong&gt;SSH&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scp user@host:[remotefile] [localpath]&lt;/code&gt;: Copia o arquivo remoto para uma pasta local.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scp [localfile] user@host:[remotepath]&lt;/code&gt;: Copia um arquivo local para o servidor remoto.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget [url]&lt;/code&gt;: efetua o download do arquivo informado em &lt;code&gt;url&lt;/code&gt; a partir da web.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Como paginar resultados no MSSQL</title>
+        <link>https://joaolucasgtr.github.io/posts/1/01/01/como-paginar-resultados-no-mssql/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/1/01/01/como-paginar-resultados-no-mssql/</guid>
+        <description>&lt;p&gt;&lt;em&gt;Revisado em 01/2016&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Este documento tem como objetivo exemplificar duas maneiras distintas de se aplicar paginação utilizando o MSSQL Server.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Objetivo:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Reproduzir as operações de paginação corretas, de acordo com a tabela a seguir:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Limite&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Página 1&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Página 2&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Página 3&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;de 1 até 20&lt;/td&gt;
+&lt;td&gt;de 21 até 40&lt;/td&gt;
+&lt;td&gt;de 41 até 60&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;de 1 até 30&lt;/td&gt;
+&lt;td&gt;de 31 até 60&lt;/td&gt;
+&lt;td&gt;de 61 até 90&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Onde &lt;strong&gt;Limite&lt;/strong&gt; é a quantidade de itens exibidos por página.&lt;/p&gt;
+&lt;h3 id=&#34;calculando-número-de-linhas&#34;&gt;Calculando número de linhas&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Sintaxe:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ROW_NUMBER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OVER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* [ordenação] */&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;     &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* [tabela] */&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linhas&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* [linha inicial] */&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* [linha final] */&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Desta maneira, o número atual da linha é retornado como uma coluna na tabela de resultados obtidos da &lt;em&gt;sub-query&lt;/em&gt;. Isso permite a utilização dessa coluna para limitar os índices de início e fim dos resultados desejados.&lt;/p&gt;
+&lt;p&gt;Porém, utilizando essa abordagem, ainda é necessária a implementação de lógica para determinar esses valores, como demonstrado a seguir:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;DECLARE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DECLARE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_inicial&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;IF&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_inicial&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;END&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ELSE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_inicial&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;END&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_inicial&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inicio&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fim&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;   - Tratando e obtendo valores para os índices;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;   - Obtendo um resultado paginado da tabela de usuários ordenados
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     pelo Id de forma decrescente;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;*/&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DECLARE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DECLARE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_inicial&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;IF&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_inicial&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;END&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ELSE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_inicial&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;END&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ROW_NUMBER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OVER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ORDER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DESC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Usuario&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linhas&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_inicial&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linha_final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;uma-nova-abordagem&#34;&gt;Uma &amp;ldquo;nova&amp;rdquo; abordagem&lt;/h3&gt;
+&lt;p&gt;A &amp;ldquo;nova&amp;rdquo; abordagem se assemelha aos recursos já presentes em outros &lt;em&gt;SGBDs&lt;/em&gt; há mais tempo, como &lt;strong&gt;MySql&lt;/strong&gt; ou &lt;strong&gt;Postgres&lt;/strong&gt;, onde é necessário apenas a utilização de um valor para o &lt;strong&gt;OFFSET&lt;/strong&gt; (índice inicial de obtenção dos resultados) e &lt;strong&gt;LIMIT&lt;/strong&gt; (quantidade de resultados obtidos por página).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sintaxe:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* [tabela] */&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* ordenação */&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;OFFSET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* offset */&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ROWS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FETCH&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;NEXT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/* limit */&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ROWS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ONLY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Embora ainda seja necessária a utilização de lógica para obtenção dos valores de &lt;strong&gt;OFFSET&lt;/strong&gt; e &lt;strong&gt;LIMIT&lt;/strong&gt;, a sintaxe dessa abordagem é muito mais limpa e intuitiva, otimizando o tempo gasto em futuras refatorações.&lt;/p&gt;
+&lt;p&gt;Porém, esse recurso só está disponível na versão 12 ou posteriores do &lt;strong&gt;MSSQL&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A seguir, uma implementação do exemplo dado anteriormente utilizando a nova sintaxe.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DECLARE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;       &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;INT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Usuario&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ORDER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ErpId&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DESC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;OFFSET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pagina2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ROWS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FETCH&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;NEXT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;limite2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ROWS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ONLY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h3&gt;
+&lt;p&gt;Os resultados obtidos nas duas &lt;em&gt;queries&lt;/em&gt; de exemplo são equivalentes, exceto pelo fato de que na abordagem utilizando &lt;strong&gt;ROW_NUMBER()&lt;/strong&gt; o número da linha é retornado como uma coluna extra na tabela de resultados.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

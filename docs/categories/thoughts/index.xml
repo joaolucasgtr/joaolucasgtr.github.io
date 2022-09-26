@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>thoughts on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/categories/thoughts/</link>
+        <description>Recent content in thoughts on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Fri, 26 Jan 2018 13:13:13 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/categories/thoughts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Checklist Ambiente</title>
+        <link>https://joaolucasgtr.github.io/posts/2018/01/26/checklist-ambiente/</link>
+        <pubDate>Fri, 26 Jan 2018 13:13:13 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2018/01/26/checklist-ambiente/</guid>
+        <description>&lt;p&gt;Se você é como eu e utiliza vários ambientes de trabalho, como máquinas virtuais, servidores, mais de um sistema operacional, etc&amp;hellip;, é sempre útil manter uma lista de aplicações para te ajudar a agilizar o processo de preparação do ambiente.&lt;/p&gt;
+&lt;p&gt;Este é o meu &lt;em&gt;setup&lt;/em&gt;, separado por categorias, com as minhas opções padrão e observações.&lt;/p&gt;
+&lt;h2 id=&#34;sdks&#34;&gt;SDKs&lt;/h2&gt;
+&lt;p&gt;São os kits de desenvolvimento, providos pelos próprios proprietários:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dotnet.microsoft.com/download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;.NET core&lt;/strong&gt;&lt;/a&gt; - A versão multiplataforma pra desenvolvimento em &lt;strong&gt;C#&lt;/strong&gt;, livre e de código aberto da &lt;strong&gt;Microsoft&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://nodejs.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Node.js&lt;/strong&gt;&lt;/a&gt; - O runtime de javascript mais popular do mundo, construído com o motor V8 do Chrome.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.java.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Java&lt;/strong&gt;&lt;/a&gt; - O &lt;strong&gt;JDK&lt;/strong&gt; é kit de desenvolvimento, utilizado para apicações &lt;em&gt;Web&lt;/em&gt;, &lt;em&gt;Mobile&lt;/em&gt; e &lt;em&gt;Desktop&lt;/em&gt; em java.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;editores-de-texto&#34;&gt;Editores de texto&lt;/h2&gt;
+&lt;p&gt;Aplicações utilitárias e leves para edição avançada de arquivos de texto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://code.visualstudio.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Visual Studio Code&lt;/strong&gt;&lt;/a&gt; - Editor gratuito e de código aberto da &lt;strong&gt;Microsoft&lt;/strong&gt;, que vêm se tornando o editor padrão para a maioria das linguagens.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://notepad-plus-plus.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Notepad++&lt;/strong&gt;&lt;/a&gt; - Como o editor de texto padrão do &lt;strong&gt;Windows&lt;/strong&gt; (&lt;em&gt;Bloco de Notas&lt;/em&gt;) é extremamente simplista e limitado, para mim, o Notepad++ se torna uma opção indispensável para o sistema operacional.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ides&#34;&gt;IDEs&lt;/h2&gt;
+&lt;p&gt;Os ambientes de desenvolvimento integrado (&lt;em&gt;integrated development environment&lt;/em&gt;), são as aplicações mais robustas para desenvolvimento de software, contendo vários facilitadores para escrita, análise de código, correção de falhas, testes, entre outros.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://visualstudio.microsoft.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Visual Studio&lt;/strong&gt;&lt;/a&gt; - A ferramenta principal da &lt;strong&gt;Microsoft&lt;/strong&gt; oferece uma excelente experiência para os desenvolvedores.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.monodevelop.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;MonoDevelop&lt;/strong&gt;&lt;/a&gt; - Grande experiência no sistema operacional &lt;strong&gt;Linux&lt;/strong&gt; e alta compatibilidade com soluções produzidas no &lt;em&gt;Visual Studio&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jetbrains.com/rider/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;JetBrains Rider&lt;/strong&gt;&lt;/a&gt; - &lt;strong&gt;IDE&lt;/strong&gt; multiplataforma, combinando a base do &lt;em&gt;IntelliJ&lt;/em&gt; com o poder do &lt;em&gt;ReSharper&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jetbrains.com/idea/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;JetBrains IntelliJ&lt;/strong&gt;&lt;/a&gt; - Ferramenta &lt;del&gt;mais&lt;/del&gt; inteligente e produtiva para desenvolvimento em &lt;em&gt;Java&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developer.android.com/studio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Android Studio&lt;/strong&gt;&lt;/a&gt; - A escolha padrão para desenvolvimento nativo de aplicativos para &lt;em&gt;Android&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;sgbds&#34;&gt;SGBDs&lt;/h2&gt;
+&lt;p&gt;Aplicações amigáveis para gerenciamento de banco de dados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.microsoft.com/pt-br/sql-server/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;SQL Server Managment Studio&lt;/strong&gt;&lt;/a&gt; - Nível empresarial para gerenciamento de bancos de dados da &lt;strong&gt;Microsoft&lt;/strong&gt; (MSSQL).&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.microsoft.com/pt-br/sql/azure-data-studio/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Azure Data Studio&lt;/strong&gt;&lt;/a&gt; - Um VsCode modificado para bancos de dados da microsoft.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.pgadmin.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;PgAdmin 3&lt;/strong&gt;&lt;/a&gt; - PgAdmin é a ferramenta de gerenciamento de bancos &lt;em&gt;PostgreSQL&lt;/em&gt; mais popular do mercado. Coloquei a versão 3 porque a 4 ainda não me agrada completamente, mas com certeza no futuro irá.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://robomongo.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Robo 3T&lt;/strong&gt;&lt;/a&gt; - Simples, gratuita e competente no gerenciamento de coleções de dados do &lt;em&gt;MongoDB&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.linqpad.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;LINQ Pad&lt;/strong&gt;&lt;/a&gt; - Apesar de possuir inúmeras outras utilidades, esta ferramenta me ajuda no desenvolvimento de aplicações com banco de dados SQLCe.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.valentina-db.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Valentina Studio&lt;/strong&gt;&lt;/a&gt; - Esta ferramenta me surpreendeu pela sua qualidade e compatibilidade, e foi a que me ofereceu a melhor experiência no &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chat&#34;&gt;Chat&lt;/h2&gt;
+&lt;p&gt;Aplicações para comunicação:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://slack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Slack&lt;/strong&gt;&lt;/a&gt; - A ferramenta líder em comunicação de times.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.pidgin.im/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Pidgin&lt;/strong&gt;&lt;/a&gt; - Com a finalidade de utilizar o protocolo XMPP.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;vcs&#34;&gt;VCS&lt;/h2&gt;
+&lt;p&gt;Clientes para sistemas de controle de versão:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Git&lt;/strong&gt;&lt;/a&gt; - Gerenciamento distribuído de repositórios.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://subversion.apache.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Subversion&lt;/strong&gt;&lt;/a&gt; - Gerenciamento centralizado de repositórios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outras&#34;&gt;Outras&lt;/h2&gt;
+&lt;p&gt;Outras aplicações úteis:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://inkscape.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Inkscape&lt;/strong&gt;&lt;/a&gt; - Ferramenta gratuita incrível para criação de vetores.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.gimp.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Gimp&lt;/strong&gt;&lt;/a&gt; - Outra ferramenta gratuita e incrível, para edição de imagens.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://meldmerge.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Meld&lt;/strong&gt;&lt;/a&gt; - Comparação entre arquivos de maneira simples e efetiva.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.libreoffice.org/discover/libreoffice/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Libre Office&lt;/strong&gt;&lt;/a&gt; - Pacote de aplicações de escritório extremamente competentes e gratuitas.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.postman.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Postman&lt;/strong&gt;&lt;/a&gt; - Cliente para testes de &lt;em&gt;Api&lt;/em&gt;s bem performático e intuitivo.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.virtualbox.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;VirtualBox&lt;/strong&gt;&lt;/a&gt; - Gerenciador de máquinas virtuais gratuito e multiplataforma.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://gnuwin32.sourceforge.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;GNU Win32&lt;/strong&gt;&lt;/a&gt; - Ferramentas da linha de comando GNU para &lt;em&gt;Windows&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://winscp.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;WinSCP&lt;/strong&gt;&lt;/a&gt; - Cliente SFTP, SCP, S3 e FTP para &lt;em&gt;Windows&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://remmina.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Remmina&lt;/strong&gt;&lt;/a&gt; - Excelente cliente de acesso remoto à &lt;em&gt;Desktops&lt;/em&gt;, gratuito e open source.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Este é o meu &lt;em&gt;setup&lt;/em&gt; inicial feito com o intuito de preparar uma máquina para desenvolvimento. A maioria das ferramentas listadas são gratuitas e multiplataforma, o que me permite trabalhar de forme uniforme em basicamente qualquer sistema operacional.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Por que utilizar Linux na sua empresa?</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/09/03/por-que-utilizar-linux-na-sua-empresa/</link>
+        <pubDate>Sun, 03 Sep 2017 20:39:33 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/09/03/por-que-utilizar-linux-na-sua-empresa/</guid>
+        <description>&lt;p&gt;Dias atrás, uma notícia muito séria foi divulgada sobre má utilização de software proprietário: A universidade Cândido Mendes, do Rio de Janeiro, vai ter sua sede leiloada pela Justiça para quitar uma dívida adquirida após ter perdido um processo milionário para a &lt;strong&gt;Microsoft&lt;/strong&gt;, por utilização de versões piratas do &lt;strong&gt;Windows&lt;/strong&gt;. Triste.&lt;/p&gt;
+&lt;p&gt;Embora exista uma parcela da população que ainda não saiba, o &lt;strong&gt;Windows&lt;/strong&gt; é um software privado e você precisa comprar sua licença de uso. Caso não adquira uma, você não poderá utilizar todos os recursos do sistema, terá atrasos no recebimento de atualizações de segurança e será notificado todo dia sobre a necessidade de ativação, entre outros.&lt;/p&gt;
+&lt;h2 id=&#34;a-boa-notícia&#34;&gt;A boa notícia&lt;/h2&gt;
+&lt;p&gt;Provavelmente, você como empresário não deseja ser multado por utilização indevida de software proprietário também, ou, como um funcionário comprometido, não deseja que sua empresa empregadora passe por tal situação, certo?&lt;/p&gt;
+&lt;p&gt;A boa notícia é que existe uma alternativa gratuita, capaz de atender a maioria absoluta das demandas empresariais de software e com desempenho e confiabilidades excelentes: o sistema operacional do pinguim, &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Principais vantagens para você implementar a utilização de &lt;strong&gt;Linux&lt;/strong&gt; no seu ambiente de trabalho:&lt;/p&gt;
+&lt;h3 id=&#34;redução-de-custo-desnecessário&#34;&gt;Redução de custo desnecessário&lt;/h3&gt;
+&lt;p&gt;Não existe disputa neste quesito. Com &lt;strong&gt;Linux&lt;/strong&gt; você não precisará se preocupar com problemas de fiscalização e compras de licenças comerciais, visto que é um sistema operacional completo distribuído de forma gratuita e possui código aberto. Saiba que todos os computadores da sua empresa necessitam de licenças originais para funcionamento, inclusive aquelas máquinas sub-utilizadas.&lt;/p&gt;
+&lt;h3 id=&#34;desempenho-em-hardware-antigo&#34;&gt;Desempenho em hardware antigo&lt;/h3&gt;
+&lt;p&gt;Ainda falando sobre aquelas máquinas sub-utilizadas, provavelmente possuem hardware mais antigo ou menor poder de processamento. Se este for o caso, instalar o &lt;strong&gt;Windows 10&lt;/strong&gt; nela não será uma boa opção, visto que os requisitos para sua execução de forma satisfatória são altos.&lt;/p&gt;
+&lt;p&gt;Por outro lado, algumas distribuições de &lt;strong&gt;Linux&lt;/strong&gt; são focadas em &lt;em&gt;Hardware&lt;/em&gt; menos potentes. Ainda assim, mesmo as distribuições mais potentes possuem requisitos menos exigentes que seu rival da &lt;strong&gt;Microsoft&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Versões mais antigas de &lt;strong&gt;Windows&lt;/strong&gt;, como &lt;strong&gt;Windows 7&lt;/strong&gt; ou &lt;strong&gt;Windows XP&lt;/strong&gt;, irão funcionar bem, porém não receberão atualizações de segurança. Pensando de forma empresarial, esta nem pode ser considerada uma opção.&lt;/p&gt;
+&lt;p&gt;Resta-lhe duas opções: migrar para &lt;strong&gt;Linux&lt;/strong&gt; ou gastar mais dinheiro comprando mais computadores e licenças de &lt;strong&gt;Windows 10&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;segurança&#34;&gt;Segurança&lt;/h3&gt;
+&lt;p&gt;Devido sua adoção massiva, o &lt;strong&gt;Windows&lt;/strong&gt; possui fatia de mercado superior à soma de todos seus concorrentes. Apesar de ser um dado extremamente positivo para a &lt;strong&gt;Microsoft&lt;/strong&gt;, isto faz com que seja o sistema mais visado por usuários mal-intencionados, visando encontrar falhas no sistema para extrair dados sensíveis.&lt;/p&gt;
+&lt;p&gt;Já no mundo &lt;strong&gt;Linux&lt;/strong&gt;, a maioria de usuários nem sequer utiliza programas &lt;em&gt;anti-virus&lt;/em&gt;, já que o código aberto do sistema garante que correções de segurança sejam mais frequentes e possíveis de ser aplicados por uma quantidade muito maior de desenvolvedores do que os da &lt;strong&gt;Microsoft&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Outro fator importante para garantir a segurança de seu &lt;strong&gt;Linux&lt;/strong&gt; é utilizar as lojas de softwares e repositórios oficiais para instalação de aplicativos. Você pode obter aplicativos direto da loja de forma similar à feita em &lt;em&gt;smartphones&lt;/em&gt;, sem comprometer o sistema.&lt;/p&gt;
+&lt;h3 id=&#34;softwares&#34;&gt;Softwares&lt;/h3&gt;
+&lt;p&gt;Como o &lt;strong&gt;Windows&lt;/strong&gt; é o campeão em popularidade ao redor do mundo, isto reflete a quantidade de software disponível para instalação. No quesito jogos, o sistema possui uma gama muito maior de opções que os concorrentes e até desempenho melhor, visto que a integração das empresas de &lt;em&gt;Hardware&lt;/em&gt; são feitas com o &lt;strong&gt;Windows&lt;/strong&gt; em vista.&lt;/p&gt;
+&lt;p&gt;Porém, o ambiente empresarial é diferente e muito menos exigente. É bem provável que você encontre alternativas grátis e compatíveis com &lt;strong&gt;Linux&lt;/strong&gt; para as principais categorias de software, como: suítes de escritório, editores de texto, editores de imagens, editores de vídeo, gerenciadores de e-mail, aplicativos de calendários, entre outros.&lt;/p&gt;
+&lt;p&gt;Apesar da alta compatibilidade, isto pode ser irrelevante se seu ambiente funciona fortemente em relação com a nuvem. Isto porque todos os principais navegadores são compatíveis com qualquer sistema operacional.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dica:&lt;/strong&gt; O site &lt;a class=&#34;link&#34; href=&#34;https://alternativeto.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AlternativeTo&lt;/a&gt; oferece uma busca extremamente simplificada por softwares similares ao solicitado, com resultados categorizados pela comunidade.&lt;/p&gt;
+&lt;h3 id=&#34;visual&#34;&gt;Visual&lt;/h3&gt;
+&lt;p&gt;Usuários de &lt;strong&gt;Windows&lt;/strong&gt; e &lt;strong&gt;MacOS&lt;/strong&gt; são obrigados a concordarem com todas as decisões de &lt;em&gt;design&lt;/em&gt; tomadas por seus fabricantes. No caso do &lt;strong&gt;MacOs&lt;/strong&gt;, todas as interfaces do sistema funcionam de forma coesa e padronizada, porém no sistema da &lt;strong&gt;Microsoft&lt;/strong&gt; a situação é diferente, tendo aplicações com visual do &lt;strong&gt;Windows 2000&lt;/strong&gt;, &lt;em&gt;Aero&lt;/em&gt;, &lt;strong&gt;Windows XP&lt;/strong&gt;, &lt;strong&gt;Windows 10&lt;/strong&gt;, etc.&lt;/p&gt;
+&lt;p&gt;O &lt;strong&gt;Linux&lt;/strong&gt; oferece um catálogo extenso de ambientes gráficos para todos os gostos, sendo possível customizar até os mínimos detalhes. Ainda assim, existem ambientes focados em usuários finais, com filosofia minimalista e que oferecem uma experiência bem satisfatória sem precisar de configurações. Sugestões interessantes: &lt;a class=&#34;link&#34; href=&#34;https://elementary.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;elementaryOs&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://www.deepin.org/en/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;deepinOs&lt;/a&gt; e &lt;a class=&#34;link&#34; href=&#34;https://zorinos.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;zorinOs&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h3&gt;
+&lt;p&gt;Este artigo não visa menosprezar um sistema sobre o outro, mas sim oferecer um novo ponto de vista racional sobre o assunto. Pensando de forma empreendedora, qualquer custo desnecessário deve ser avaliado, ainda mais se houverem mais benefícios embutidos.&lt;/p&gt;
+&lt;h2 id=&#34;referência&#34;&gt;Referência&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.tecmundo.com.br/mercado/121539-universidade-rio-tem-predio-leiloado-ter-usado-windows-pirata.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Artigo Tecmundo sobre universidade Cândido Mendes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Features essenciais para sites úteis</title>
+        <link>https://joaolucasgtr.github.io/posts/2016/06/21/features-essenciais-para-sites-%C3%BAteis/</link>
+        <pubDate>Tue, 21 Jun 2016 20:35:12 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2016/06/21/features-essenciais-para-sites-%C3%BAteis/</guid>
+        <description>&lt;p&gt;Este artigo possui um compilado de dicas importantes para você que quer criar um site para seu negócio, ou refazê-lo, de forma a modernizar a imagem da sua empresa.&lt;/p&gt;
+&lt;h2 id=&#34;componentes-vitais&#34;&gt;Componentes vitais&lt;/h2&gt;
+&lt;p&gt;A página inicial é responsável pela primeira impressão, ela deve explicar quem você é, o que faz e o que os visitantes podem fazer no site. Design simples vencerá sobre páginas repletas de componentes.&lt;/p&gt;
+&lt;h2 id=&#34;pontos-de-comunicação&#34;&gt;Pontos de comunicação&lt;/h2&gt;
+&lt;p&gt;Para alguns modelos de negócio, apenas a visita do cliente não significa nada. Então, o negócio deveria conter ao menos um ponto de conversão da visita em valor.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Campo para cadastro de e-mail.&lt;/p&gt;
+&lt;p&gt;E-mails cadastrados indicam clientes em alto potencial, porém seria necessário também um sistema de envio de informações, oportunidades e ofertas.&lt;/p&gt;
+&lt;h2 id=&#34;ações-de-conversão-claras&#34;&gt;Ações de conversão claras&lt;/h2&gt;
+&lt;p&gt;Converter visitantes em clientes é o objetivo. Logo, é necessário oferecer ações limpas e específicas que guiarão o visitante através do site até o local de vendas. Para isso, é importante manter o visitante certo do que está fazendo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplos:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Assinar&lt;/li&gt;
+&lt;li&gt;Ver mais&lt;/li&gt;
+&lt;li&gt;Comprar&lt;/li&gt;
+&lt;li&gt;Compartilhe com seus amigos&lt;/li&gt;
+&lt;li&gt;Download, etc&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;página-sobre&#34;&gt;Página &amp;ldquo;Sobre&amp;rdquo;&lt;/h2&gt;
+&lt;p&gt;A página &amp;ldquo;Sobre&amp;rdquo; é geralmente a página mais visitada do site. Fazê-la mais pessoal e contar alguma história são sugestões. Um jeito efetivo de contar uma história seria explicar como e por quê decidiu iniciar esse tipo de negócio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplos:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Apresentação pessoal: (Olá, meu nome é &amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Apresentar um problema pelo qual já passou: (Quando quis desenvolver meu primeiro site, não tinha ideia de onde começar&amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Identificação com cliente: (Todos nós já passamos por esse problema antes e é extremamente frustrante&amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Descrição da volta por cima: (Então percebi que não precisava ser difícil. Descobri que poderia desenvolver meu site com&amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Explicação do valor ímpar da sua proposta: (&amp;hellip;utilizando métodos que tornam a criação de sites em um processo mais acessível e prazeroso.)&lt;/li&gt;
+&lt;li&gt;Introdução da situação atual do negócio: (Agora, temos uma equipe de 25 colaboradores trabalhando com dúzias de empreendedores, ajudando-os a criar lindos websites)&lt;/li&gt;
+&lt;li&gt;Missão: (Ajudar o máximo de pessoas a tirarem seus sonhos do papel)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;depoimentos&#34;&gt;Depoimentos&lt;/h2&gt;
+&lt;p&gt;De acordo com uma pesquisa da BrightLocal, 88% dos clientes dizem que confiam em depoimentos online tanto quanto em recomendações pessoais. A mesma pesquisa afirma que:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;aproximadamente 9 em cada 10 clientes olharam análises online para tomar decisões de compras nos últimos 12 meses&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;google-analytics&#34;&gt;Google Analytics&lt;/h2&gt;
+&lt;p&gt;A utilização deste serviço ajudará a responder às seguintes perguntas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quantas pessoas visitaram meu site?&lt;/li&gt;
+&lt;li&gt;Quanto tempo gastaram visualizando meu site?&lt;/li&gt;
+&lt;li&gt;Quantos visitantes eram novos?&lt;/li&gt;
+&lt;li&gt;Onde encontraram meu site?&lt;/li&gt;
+&lt;li&gt;Quais páginas são mais visitadas no meu site?&lt;/li&gt;
+&lt;li&gt;Qual a última página visualizada antes de saírem?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;definições-antes-de-iniciar-o-projeto&#34;&gt;Definições antes de iniciar o projeto&lt;/h2&gt;
+&lt;p&gt;Antes de iniciar o projeto, considere os seguintes tópicos.&lt;/p&gt;
+&lt;h3 id=&#34;juntar-informações-vitais-do-seu-business&#34;&gt;Juntar informações vitais do seu Business&lt;/h3&gt;
+&lt;p&gt;Seu webdesigner será muito mais efetivo e eficiente se puder prover as informações vitais sobre o seu negócio no começo do projeto, economizando tempo (&lt;em&gt;dinheiro&lt;/em&gt;) sem a necessidade de revisitar tarefas anteriores para adicionar informações esquecidas.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Definir:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lista de páginas necessárias;&lt;/li&gt;
+&lt;li&gt;Lista de explicações dos serviços e benefícios de cada um, ilustradas com fotos, descrições, preços, missão&amp;hellip;&lt;/li&gt;
+&lt;li&gt;Lista de formas de contato bem localizadas na página;&lt;/li&gt;
+&lt;li&gt;Ordem de prioridade sobre informações no site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;criação-de-logo-de-alta-resolução&#34;&gt;Criação de logo de alta resolução&lt;/h3&gt;
+&lt;p&gt;Definir um logo que realmente representa a marca para utilização de mesmo padrão de estilo no site.&lt;/p&gt;
+&lt;h3 id=&#34;utilização-de-fotos-profissionais&#34;&gt;Utilização de fotos profissionais&lt;/h3&gt;
+&lt;p&gt;Conteúdo visual é processado 60.000 vezes mais rápido do que texto. Por isso é extremamente recomendado a utilização de boas imagens condizentes com o tom da marca. O ideal seriam fotos reais da localização da empresa, construindo assim conexões mais fortes entre o negócio e o cliente.&lt;/p&gt;
+&lt;h3 id=&#34;compilação-de-ideias-de-acordo-com-o-seu-gosto&#34;&gt;Compilação de ideias de acordo com o seu gosto&lt;/h3&gt;
+&lt;p&gt;Se deseja um produto que te agrade, deixe o desenvolvedor saber o que você gosta antes do começo do desenvolvimento. Levante outros sites e anote detalhes que contenham elementos que atraiam o seu gosto, como por exemplo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fonte;&lt;/li&gt;
+&lt;li&gt;Esquema de cores;&lt;/li&gt;
+&lt;li&gt;Layout;&lt;/li&gt;
+&lt;li&gt;Imagens, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referência&#34;&gt;Referência&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.brightlocal.com/learn/local-consumer-review-survey-2014&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bright Local, Pesquisa de 2014&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

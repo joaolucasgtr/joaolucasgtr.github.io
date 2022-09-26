@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Se você é como eu e utiliza vários ambientes de trabalho, como máquinas virtuais, servidores, mais de um sistema operacional, etc&amp;hellip;, é sempre útil manter uma lista de aplicações para te ajudar a agilizar o processo de preparação do ambiente.
+Este é o meu setup, separado por categorias, com as minhas opções padrão e observações.
+SDKs São os kits de desenvolvimento, providos pelos próprios proprietários:
+.NET core - A versão multiplataforma pra desenvolvimento em C#, livre e de código aberto da Microsoft.'><title>Checklist Ambiente</title>
+
+<link rel='canonical' href='https://joaolucasgtr.github.io/posts/2018/01/26/checklist-ambiente/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Checklist Ambiente'>
+<meta property='og:description' content='Se você é como eu e utiliza vários ambientes de trabalho, como máquinas virtuais, servidores, mais de um sistema operacional, etc&amp;hellip;, é sempre útil manter uma lista de aplicações para te ajudar a agilizar o processo de preparação do ambiente.
+Este é o meu setup, separado por categorias, com as minhas opções padrão e observações.
+SDKs São os kits de desenvolvimento, providos pelos próprios proprietários:
+.NET core - A versão multiplataforma pra desenvolvimento em C#, livre e de código aberto da Microsoft.'>
+<meta property='og:url' content='https://joaolucasgtr.github.io/posts/2018/01/26/checklist-ambiente/'>
+<meta property='og:site_name' content='@joaolucasgtr'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2018-01-26T13:13:13&#43;00:00'/><meta property='article:modified_time' content='2018-01-26T13:13:13&#43;00:00'/>
+<meta name="twitter:site" content="@_joaolucasgtr">
+    <meta name="twitter:creator" content="@_joaolucasgtr"><meta name="twitter:title" content="Checklist Ambiente">
+<meta name="twitter:description" content="Se você é como eu e utiliza vários ambientes de trabalho, como máquinas virtuais, servidores, mais de um sistema operacional, etc&amp;hellip;, é sempre útil manter uma lista de aplicações para te ajudar a agilizar o processo de preparação do ambiente.
+Este é o meu setup, separado por categorias, com as minhas opções padrão e observações.
+SDKs São os kits de desenvolvimento, providos pelos próprios proprietários:
+.NET core - A versão multiplataforma pra desenvolvimento em C#, livre e de código aberto da Microsoft.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Alternar Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://avatars.githubusercontent.com/u/13789716?v=4" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">@joaolucasgtr</a></h1>
+            <h2 class="site-description">Hi, my name is João Lucas and I&#39;m a passionate fullstack developer.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:joaolucasgtr@gmail.com'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://gitlab.com/joaolucasgtr'
+                        target="_blank"
+                        title="GitLab"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://br.linkedin.com/in/joaolucasgtr'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/_joaolucasgtr'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/channel/UCmLqk_keqMDtbwuMDPuDOzQ'
+                        target="_blank"
+                        title="Youtube"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="4" />
+  <path d="M10 9l5 3l-5 3z" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/sobre/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Sobre</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Arquivo</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Busca</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo Escuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/thoughts/" >
+                thoughts
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2018/01/26/checklist-ambiente/">Checklist Ambiente</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 26, 2018</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minutos de leitura
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Se você é como eu e utiliza vários ambientes de trabalho, como máquinas virtuais, servidores, mais de um sistema operacional, etc&hellip;, é sempre útil manter uma lista de aplicações para te ajudar a agilizar o processo de preparação do ambiente.</p>
+<p>Este é o meu <em>setup</em>, separado por categorias, com as minhas opções padrão e observações.</p>
+<h2 id="sdks">SDKs</h2>
+<p>São os kits de desenvolvimento, providos pelos próprios proprietários:</p>
+<ul>
+<li><a class="link" href="https://dotnet.microsoft.com/download"  target="_blank" rel="noopener"
+    ><strong>.NET core</strong></a> - A versão multiplataforma pra desenvolvimento em <strong>C#</strong>, livre e de código aberto da <strong>Microsoft</strong>.</li>
+<li><a class="link" href="https://nodejs.org/"  target="_blank" rel="noopener"
+    ><strong>Node.js</strong></a> - O runtime de javascript mais popular do mundo, construído com o motor V8 do Chrome.</li>
+<li><a class="link" href="https://www.java.com/"  target="_blank" rel="noopener"
+    ><strong>Java</strong></a> - O <strong>JDK</strong> é kit de desenvolvimento, utilizado para apicações <em>Web</em>, <em>Mobile</em> e <em>Desktop</em> em java.</li>
+</ul>
+<h2 id="editores-de-texto">Editores de texto</h2>
+<p>Aplicações utilitárias e leves para edição avançada de arquivos de texto:</p>
+<ul>
+<li><a class="link" href="https://code.visualstudio.com/"  target="_blank" rel="noopener"
+    ><strong>Visual Studio Code</strong></a> - Editor gratuito e de código aberto da <strong>Microsoft</strong>, que vêm se tornando o editor padrão para a maioria das linguagens.</li>
+<li><a class="link" href="https://notepad-plus-plus.org/"  target="_blank" rel="noopener"
+    ><strong>Notepad++</strong></a> - Como o editor de texto padrão do <strong>Windows</strong> (<em>Bloco de Notas</em>) é extremamente simplista e limitado, para mim, o Notepad++ se torna uma opção indispensável para o sistema operacional.</li>
+</ul>
+<h2 id="ides">IDEs</h2>
+<p>Os ambientes de desenvolvimento integrado (<em>integrated development environment</em>), são as aplicações mais robustas para desenvolvimento de software, contendo vários facilitadores para escrita, análise de código, correção de falhas, testes, entre outros.</p>
+<ul>
+<li><a class="link" href="https://visualstudio.microsoft.com"  target="_blank" rel="noopener"
+    ><strong>Visual Studio</strong></a> - A ferramenta principal da <strong>Microsoft</strong> oferece uma excelente experiência para os desenvolvedores.</li>
+<li><a class="link" href="https://www.monodevelop.com/"  target="_blank" rel="noopener"
+    ><strong>MonoDevelop</strong></a> - Grande experiência no sistema operacional <strong>Linux</strong> e alta compatibilidade com soluções produzidas no <em>Visual Studio</em>.</li>
+<li><a class="link" href="https://www.jetbrains.com/rider/"  target="_blank" rel="noopener"
+    ><strong>JetBrains Rider</strong></a> - <strong>IDE</strong> multiplataforma, combinando a base do <em>IntelliJ</em> com o poder do <em>ReSharper</em>.</li>
+<li><a class="link" href="https://www.jetbrains.com/idea/"  target="_blank" rel="noopener"
+    ><strong>JetBrains IntelliJ</strong></a> - Ferramenta <del>mais</del> inteligente e produtiva para desenvolvimento em <em>Java</em>.</li>
+<li><a class="link" href="https://developer.android.com/studio"  target="_blank" rel="noopener"
+    ><strong>Android Studio</strong></a> - A escolha padrão para desenvolvimento nativo de aplicativos para <em>Android</em>.</li>
+</ul>
+<h2 id="sgbds">SGBDs</h2>
+<p>Aplicações amigáveis para gerenciamento de banco de dados:</p>
+<ul>
+<li><a class="link" href="https://www.microsoft.com/pt-br/sql-server/"  target="_blank" rel="noopener"
+    ><strong>SQL Server Managment Studio</strong></a> - Nível empresarial para gerenciamento de bancos de dados da <strong>Microsoft</strong> (MSSQL).</li>
+<li><a class="link" href="https://docs.microsoft.com/pt-br/sql/azure-data-studio/"  target="_blank" rel="noopener"
+    ><strong>Azure Data Studio</strong></a> - Um VsCode modificado para bancos de dados da microsoft.</li>
+<li><a class="link" href="https://www.pgadmin.org/"  target="_blank" rel="noopener"
+    ><strong>PgAdmin 3</strong></a> - PgAdmin é a ferramenta de gerenciamento de bancos <em>PostgreSQL</em> mais popular do mercado. Coloquei a versão 3 porque a 4 ainda não me agrada completamente, mas com certeza no futuro irá.</li>
+<li><a class="link" href="https://robomongo.org/"  target="_blank" rel="noopener"
+    ><strong>Robo 3T</strong></a> - Simples, gratuita e competente no gerenciamento de coleções de dados do <em>MongoDB</em>.</li>
+<li><a class="link" href="https://www.linqpad.net/"  target="_blank" rel="noopener"
+    ><strong>LINQ Pad</strong></a> - Apesar de possuir inúmeras outras utilidades, esta ferramenta me ajuda no desenvolvimento de aplicações com banco de dados SQLCe.</li>
+</ul>
+<p><strong>update:</strong></p>
+<ul>
+<li><a class="link" href="https://www.valentina-db.com/"  target="_blank" rel="noopener"
+    ><strong>Valentina Studio</strong></a> - Esta ferramenta me surpreendeu pela sua qualidade e compatibilidade, e foi a que me ofereceu a melhor experiência no <strong>Linux</strong>.</li>
+</ul>
+<h2 id="chat">Chat</h2>
+<p>Aplicações para comunicação:</p>
+<ul>
+<li><a class="link" href="https://slack.com/"  target="_blank" rel="noopener"
+    ><strong>Slack</strong></a> - A ferramenta líder em comunicação de times.</li>
+<li><a class="link" href="https://www.pidgin.im/"  target="_blank" rel="noopener"
+    ><strong>Pidgin</strong></a> - Com a finalidade de utilizar o protocolo XMPP.</li>
+</ul>
+<h2 id="vcs">VCS</h2>
+<p>Clientes para sistemas de controle de versão:</p>
+<ul>
+<li><a class="link" href="https://git-scm.com/"  target="_blank" rel="noopener"
+    ><strong>Git</strong></a> - Gerenciamento distribuído de repositórios.</li>
+<li><a class="link" href="https://subversion.apache.org/"  target="_blank" rel="noopener"
+    ><strong>Subversion</strong></a> - Gerenciamento centralizado de repositórios.</li>
+</ul>
+<h2 id="outras">Outras</h2>
+<p>Outras aplicações úteis:</p>
+<ul>
+<li><a class="link" href="https://inkscape.org/"  target="_blank" rel="noopener"
+    ><strong>Inkscape</strong></a> - Ferramenta gratuita incrível para criação de vetores.</li>
+<li><a class="link" href="https://www.gimp.org/"  target="_blank" rel="noopener"
+    ><strong>Gimp</strong></a> - Outra ferramenta gratuita e incrível, para edição de imagens.</li>
+<li><a class="link" href="https://meldmerge.org/"  target="_blank" rel="noopener"
+    ><strong>Meld</strong></a> - Comparação entre arquivos de maneira simples e efetiva.</li>
+<li><a class="link" href="https://www.libreoffice.org/discover/libreoffice/"  target="_blank" rel="noopener"
+    ><strong>Libre Office</strong></a> - Pacote de aplicações de escritório extremamente competentes e gratuitas.</li>
+<li><a class="link" href="https://www.postman.com/"  target="_blank" rel="noopener"
+    ><strong>Postman</strong></a> - Cliente para testes de <em>Api</em>s bem performático e intuitivo.</li>
+<li><a class="link" href="https://www.virtualbox.org/"  target="_blank" rel="noopener"
+    ><strong>VirtualBox</strong></a> - Gerenciador de máquinas virtuais gratuito e multiplataforma.</li>
+<li><a class="link" href="http://gnuwin32.sourceforge.net/"  target="_blank" rel="noopener"
+    ><strong>GNU Win32</strong></a> - Ferramentas da linha de comando GNU para <em>Windows</em>.</li>
+<li><a class="link" href="https://winscp.net/"  target="_blank" rel="noopener"
+    ><strong>WinSCP</strong></a> - Cliente SFTP, SCP, S3 e FTP para <em>Windows</em>.</li>
+<li><a class="link" href="https://remmina.org/"  target="_blank" rel="noopener"
+    ><strong>Remmina</strong></a> - Excelente cliente de acesso remoto à <em>Desktops</em>, gratuito e open source.</li>
+</ul>
+<h2 id="conclusão">Conclusão</h2>
+<p>Este é o meu <em>setup</em> inicial feito com o intuito de preparar uma máquina para desenvolvimento. A maioria das ferramentas listadas são gratuitas e multiplataforma, o que me permite trabalhar de forme uniforme em basicamente qualquer sistema operacional.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">linux</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Conteúdo relacionado</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2017/09/03/por-que-utilizar-linux-na-sua-empresa/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Por que utilizar Linux na sua empresa?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2016/06/21/features-essenciais-para-sites-%C3%BAteis/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Features essenciais para sites úteis</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "joaolucasgtr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2022 @joaolucasgtr
+    </section>
+    
+    <section class="powerby">
+        Criado com <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> desenvolvido por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Índice</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#sdks">SDKs</a></li>
+    <li><a href="#editores-de-texto">Editores de texto</a></li>
+    <li><a href="#ides">IDEs</a></li>
+    <li><a href="#sgbds">SGBDs</a></li>
+    <li><a href="#chat">Chat</a></li>
+    <li><a href="#vcs">VCS</a></li>
+    <li><a href="#outras">Outras</a></li>
+    <li><a href="#conclusão">Conclusão</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

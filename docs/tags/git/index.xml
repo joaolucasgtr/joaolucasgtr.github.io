@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>git on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/git/</link>
+        <description>Recent content in git on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Thu, 15 Jun 2017 19:34:43 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Introdução ao Git</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/06/15/introdu%C3%A7%C3%A3o-ao-git/</link>
+        <pubDate>Thu, 15 Jun 2017 19:34:43 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/06/15/introdu%C3%A7%C3%A3o-ao-git/</guid>
+        <description>&lt;p&gt;Como a grande maioria das IDEs e Editores de código já possuem ferramentas gráficas
+para gerenciar o versionamento de código, você pode acabar se acomodando à esses
+recursos simplificados e não se preocupar em aprender outras maneiras de fazê-lo.&lt;/p&gt;
+&lt;p&gt;Pode ser que você se veja numa situação onde a sua ferramenta favorita não
+esteja disponível (&lt;em&gt;como numa prova, por exemplo&lt;/em&gt;) ou em outra onde a única ferramenta
+disponível para manipulação do sistema operacional seja o tão temido &lt;strong&gt;Terminal&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Com o domínio absoluto de sistemas operacionais baseados em &lt;strong&gt;Linux&lt;/strong&gt; no mercado de
+servidores*, é bem provável que você  passe por algo parecido um dia, caso não tenha ainda.&lt;/p&gt;
+&lt;p&gt;Sendo assim, separei alguns comandos essenciais para o fluxo de trabalho do
+dia a dia, agrupados por estágio de utilização para facilitar o entendimento.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://hostingtribunal.com/blog/linux-statistics&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;* fonte&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;configuração&#34;&gt;Configuração&lt;/h2&gt;
+&lt;p&gt;Configurações iniciais:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.name &amp;quot;John Doe&amp;quot;&lt;/code&gt; - denifir nome global do usuário.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.email &amp;quot;john_doe@gitlab.com&amp;quot;&lt;/code&gt; - definir email global do usuário.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;início&#34;&gt;Início&lt;/h2&gt;
+&lt;p&gt;Duas maneiras simples para iniciar um repositório &lt;strong&gt;git&lt;/strong&gt; local em seu HD:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git clone [url do repositório]&lt;/code&gt; - caso o repositório já exista no servidor
+remoto e você quer criar um repositório local exatamente igual ao remoto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git init&lt;/code&gt; - caso você queira transformar a pasta atual em um repositório &lt;strong&gt;git&lt;/strong&gt;.
+Após a criação, é necessário adicionar o endereço do servidor remoto para que possa
+enviar ao servidor as alterações realizadas localmente: &lt;code&gt;git remote add origin [url do repositório]&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Feito isso, você já está pronto para utilizar o versionamento de forma local.&lt;/p&gt;
+&lt;h2 id=&#34;branches&#34;&gt;Branches&lt;/h2&gt;
+&lt;p&gt;Após o passo anterior, você automaticamente estará trabalhando na &lt;em&gt;branch&lt;/em&gt; &lt;em&gt;&lt;strong&gt;master&lt;/strong&gt;&lt;/em&gt;,
+o que pode não ser considerado uma boa prática por parte da equipe. Geralmente você
+vai querer criar uma &lt;em&gt;branch&lt;/em&gt; para desenvolvimento e, depois das implementações concluídas,
+aplicá-las à &lt;em&gt;branch&lt;/em&gt; &lt;em&gt;&lt;strong&gt;master&lt;/strong&gt;&lt;/em&gt; como conclusão de suas tarefas.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git checkout -b [nome da branch]&lt;/code&gt; - cria a &lt;em&gt;branch&lt;/em&gt; localmente e já altera
+a cópia de trabalho atual.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git push -u&lt;/code&gt; - envia as alterações locais para o servidor remoto, já criando
+uma &lt;em&gt;branch&lt;/em&gt; com o mesmo nome da local.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;gerenciamento&#34;&gt;Gerenciamento&lt;/h2&gt;
+&lt;p&gt;Comandos utilizados com maior frequência, após as fases de configuração anteriores:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git pull&lt;/code&gt; - sincroniza a versão local com as alterações persistidas no servidor
+remoto, enviadas desde a última vez que este comando foi executado. O servidor irá
+bloquear suas alterações caso a sua versão local esteja desatualizada.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git add [arquivo ou caminho]&lt;/code&gt; - coloca o arquivo, ou arquivos no caminho, na fila para
+o próximo envio de dados ao servidor.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git status&lt;/code&gt; - exibe um relatório de alterações realizadas localmente para conferência.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git reset HEAD [arquivo]&lt;/code&gt; - caso mude de ideia sobre alguma alteração na fila
+de envios, utilize este comando para descartar as alterações, removendo assim o
+arquivo da fila de envio.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git commit -m &amp;quot;[mensagem]&amp;quot;&lt;/code&gt; - aplica as alterações que estavam na fila até então
+no seu servidor local.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git push&lt;/code&gt; - envia para o servidor remoto o pacote de atualizações produzido
+localmente na sua máquina, desde a última sincronização.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;analisando-alterações&#34;&gt;Analisando alterações&lt;/h2&gt;
+&lt;p&gt;Para consultar o histórico de alterações, utilize o comando:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log&lt;/code&gt; - abre uma lista descritiva sobre os &lt;em&gt;commits&lt;/em&gt; realizados até então.
+É possível aplicar diversas opções de filtro, como por exemplo:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log --max-count=5&lt;/code&gt; - para exibir os últimos cinco&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log --author=John Doe&lt;/code&gt; - para exibir somente &lt;em&gt;commits&lt;/em&gt; enviados pelo usuário &amp;ldquo;John Doe&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log --stat&lt;/code&gt; - para ver estatísticas de alteração em cada &lt;em&gt;commit&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log --since=2.weeks&lt;/code&gt; - &lt;em&gt;commits&lt;/em&gt; das últimas duas semanas&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gitignore&#34;&gt;.gitignore&lt;/h2&gt;
+&lt;p&gt;Para ignorar alterações em arquivos e pastas de maneira automática no repositório,
+é preciso criar o arquivo &lt;code&gt;.gitignore&lt;/code&gt;, que nada mais é que um arquivo de texto,
+sem extensão, onde você irá definir em cada linha o que deverá ser ignorado pelo versionamento.&lt;/p&gt;
+&lt;p&gt;As definições escritas podem ser arquivos, pastas, subpastas, arquivos de uma determinada
+extensão, etc&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;referência-completa&#34;&gt;Referência completa:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/docs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;git&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/docs/gitignore&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;.gitignore&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>kiss on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/kiss/</link>
+        <description>Recent content in kiss on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Sun, 08 Jan 2017 12:08:33 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/kiss/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>O princípio KISS</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/01/08/o-princ%C3%ADpio-kiss/</link>
+        <pubDate>Sun, 08 Jan 2017 12:08:33 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/01/08/o-princ%C3%ADpio-kiss/</guid>
+        <description>&lt;p&gt;A sigla &lt;strong&gt;KISS&lt;/strong&gt; é o acrônimo para &lt;strong&gt;“keep it simple, stupid“&lt;/strong&gt; ou &lt;strong&gt;“keep it stupid simple“&lt;/strong&gt;. Este princípio visa reduzir casos de &lt;strong&gt;Over Engineering&lt;/strong&gt;, ou excesso de engenharia, tendo foco principal na simplicidade, evitando ao máximo toda complexidade desnecessária.&lt;/p&gt;
+&lt;p&gt;Código simples é menos passível de &lt;em&gt;bugs&lt;/em&gt;, mais fácil de se ler, compreender e aplicar manutenções futuras (até mesmo para você que escreveu a primeira versão).&lt;/p&gt;
+&lt;p&gt;Embora seja amplamente discutida a sua aplicação na área de desenvolvimento de &lt;em&gt;software&lt;/em&gt;, a criação do &lt;strong&gt;KISS&lt;/strong&gt; não possui relação direta com a programação, sendo simplesmente a sintetização de um conceito muito mais antigo sobre minimalismo.&lt;/p&gt;
+&lt;p&gt;Citações que representam o princípio:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Simplicity is the ultimate sophistication.”  — Leonardo da Vinci
+(Simplicidade é a sofisticação suprema)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Less is more.” — Mies Van Der Rohe&amp;rsquo;s
+(Menos é mais)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;It seems that perfection is reached not when there is nothing left to add, but when there is nothing left to take away&amp;rdquo; — Antoine de Saint Exupéry&amp;rsquo;s
+(A perfeição é alcançada não quando não há mais nada a acrescentar, mas quando não há mais nada a se tirar)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Porém, manter as coisas simples, ironicamente, não é simples!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para aplicar o &lt;strong&gt;KISS&lt;/strong&gt; é preciso pensar de forma abstrata, requer conhecimento e domínio sobre o que você trabalha (linguagem, framework, biblioteca, etc&amp;hellip;), autocrítica, paciência, empatia, entre outros.&lt;/p&gt;
+&lt;h2 id=&#34;autocrítica&#34;&gt;Autocrítica&lt;/h2&gt;
+&lt;p&gt;Se você já possui experiência de mercado na área, lidando diariamente com bases de código, é bem provável que você irá perceber que, infelizmente, uma pequena fração desse montante pode ser considerada código simples. Alguns fragmentos podem ser considerados até “anti-padrões”. Eis a questão, o mesmo serve para o seu código, que pode ser perfeitamente compreensível agora, porém experimente visitá-lo após alguns meses&amp;hellip;&lt;/p&gt;
+&lt;p&gt;A causa para tanta escrita de código complexo pode não ser somente a falta de habilidades técnicas, mas também pode ser ocasionada por desenvolvedores que gostam de se “exibir”, escrevendo códigos muito complexos para parecem mais inteligentes.&lt;/p&gt;
+&lt;p&gt;Outra citação importante:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Any fool can write code that a computer can understand. Good programmers write code that humans can understand.&amp;rdquo; — Martin Fowler
+(Qualquer tolo consegue escrever código que um computador entenda. Bons programadores escrevem código que humanos possam entender)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Se você acha que já escreve códigos simples, aí vai uma dica: sempre há espaço para melhorar.&lt;/p&gt;
+&lt;h2 id=&#34;mas-por-que-eu-deveria-aplicar-o-kiss&#34;&gt;Mas por que eu deveria aplicar o KISS?&lt;/h2&gt;
+&lt;p&gt;Sua aplicação irá te beneficiar das seguintes maneiras:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Você irá resolver mais problemas, mais rapidamente;&lt;/li&gt;
+&lt;li&gt;Você irá produzir código para resolver problemas complexos com menos linhas de código;&lt;/li&gt;
+&lt;li&gt;Você irá aumentar a qualidade do código que produz;&lt;/li&gt;
+&lt;li&gt;Será mais fácil construir sistemas grandes, com manutenção facilitada;&lt;/li&gt;
+&lt;li&gt;Sua base de código será mais flexível, mais fácil de estender, modificar ou refatorar quando novos requisitos chegarem;&lt;/li&gt;
+&lt;li&gt;Você poderá trabalhar em grandes grupos de desenvolvimento e grandes projetos, pois todo o código é estupidamente simples.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;como-aplicar&#34;&gt;Como aplicar&lt;/h2&gt;
+&lt;p&gt;Uma tática simples para aplicação do princípio é sempre quebrar grandes problemas em problemas menores, mais simples e mais compreensíveis. Ao não aplicar este conceito, a tendência é que sejam escritos códigos espaguete, onde existirão muitas condicionais, desvios de fluxo, má estruturação, grande número de variáveis, etc.&lt;/p&gt;
+&lt;p&gt;Esse conjunto poderá acabar gerando classes de quinhentas a mil linhas (&lt;em&gt;ou mais&lt;/em&gt;) e vários métodos com dezenas e mais dezenas de linhas de código. Claramente violando o princípio &lt;strong&gt;KISS&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Outras maneiras práticas de aplicação podem ser:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Seja humilde e não se considere um gênio&lt;/strong&gt;, este é seu primeiro erro. Pense que você não precisará ser pois irá escrever códigos tão simples que ninguém precisará ser um gênio para entender;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quebre grandes problemas em pequenos:&lt;/strong&gt; cada problema deve ser facilmente resolvido com uma ou duas classes;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mantenha métodos pequenos:&lt;/strong&gt; limitando apenas uma responsabilidade por método facilitará a escrita de métodos pequenos, até vinte linhas é o cenário ideal. Isto não só irá aprimorar a leitura como também será &lt;strong&gt;muito&lt;/strong&gt; mais fácil encontrar &lt;em&gt;bugs&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mantenha poucas condicionais:&lt;/strong&gt; quantidades grandes de condicionais em um método podem ser um sintoma de que seu problema ainda não foi quebrado o suficiente;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resolva o problema, então codifique:&lt;/strong&gt; organizar mentalmente, ou em um rascunho, como resolver um problema irá facilitar o processo de escrita, pois será apenas uma tarefa mecânica de traduzir em código o que você já planejou anteriormente;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Não tenha medo de jogar código fora:&lt;/strong&gt; refatoração é uma prática importante no processo de crescimento e amadurecimento do código. Durante sessões de refatoração você pode aparecer com soluções melhores que as anteriores.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://simpleprogrammer.com/kiss-one-best-practice-to-rule-them-all/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Simple Programmer - Why KISS isn&amp;rsquo;t easy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://people.apache.org/~fhanik/kiss.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The KISS Principle - Apache&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>dry on @joaolucasgtr</title>
+        <link>https://joaolucasgtr.github.io/tags/dry/</link>
+        <description>Recent content in dry on @joaolucasgtr</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Fri, 06 Jan 2017 18:28:05 +0000</lastBuildDate><atom:link href="https://joaolucasgtr.github.io/tags/dry/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>O princípio DRY</title>
+        <link>https://joaolucasgtr.github.io/posts/2017/01/06/o-princ%C3%ADpio-dry/</link>
+        <pubDate>Fri, 06 Jan 2017 18:28:05 +0000</pubDate>
+        
+        <guid>https://joaolucasgtr.github.io/posts/2017/01/06/o-princ%C3%ADpio-dry/</guid>
+        <description>&lt;p&gt;&lt;em&gt;Don’t repeat yourself&lt;/em&gt; (&lt;strong&gt;DRY&lt;/strong&gt;), ou &lt;em&gt;“Não Se Repita”&lt;/em&gt;, é um princípio da área de desenvolvimento que visa reduzir repetição de código, utilizando abstrações e/ou normalização de dados.&lt;/p&gt;
+&lt;p&gt;O termo foi difundido no livro &lt;strong&gt;The Pragmatic Programmer&lt;/strong&gt;, por Andy Hunt e Dave Thomas em 1999, e diz que:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Cada bloco de informações deve ter uma representação oficial exclusiva e sem ambiguidades dentro de um sistema.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Quando o DRY é aplicado com sucesso, modificações em elementos do software são necessárias somente em um lugar e não requerem alterações em outros não relacionados. Além disso, elementos logicamente relacionados tendem a sofrer mudanças de maneira previsível e uniforme.&lt;/p&gt;
+&lt;p&gt;Outro ponto importante é que a aplicação do &lt;strong&gt;DRY&lt;/strong&gt; não se limita apenas ao código produzido para sistemas. Ele pode ser aplicado em nível arquitetural, na modelagem de banco de dados, na documentação, em testes unitários&amp;hellip;, ou seja, o conceito é abrangente o suficiente para ser aplicado em todos os estágios do desenvolvimento de software.&lt;/p&gt;
+&lt;h2 id=&#34;como-surge-a-duplicação&#34;&gt;Como surge a duplicação?&lt;/h2&gt;
+&lt;p&gt;No livro, são indicados alguns casos onde a inserção de código duplicado é mais recorrente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Duplicação imposta:&lt;/strong&gt; os desenvolvedores acham que não têm escolha – o ambiente parece pedir a duplicação.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duplicação inadvertida:&lt;/strong&gt; Os desenvolvedores não percebem que estão duplicando informações.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duplicação impaciente:&lt;/strong&gt; Os desenvolvedores ficam com preguiça e duplicam porque parece mais fácil.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duplicação entre desenvolvedores:&lt;/strong&gt; Várias pessoas de uma equipe (ou de equipes diferentes) duplicam um bloco de informações.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As práticas de duplicação descritas aqui, opostas ao princípio &lt;strong&gt;DRY&lt;/strong&gt;, são categorizadas como &lt;strong&gt;WET&lt;/strong&gt;, podendo ser &lt;em&gt;We Enjoy Typing&lt;/em&gt;, &lt;em&gt;We Edit Too much&lt;/em&gt;, &lt;em&gt;Write Everything Twice&lt;/em&gt;, entre outros.&lt;/p&gt;
+&lt;p&gt;É interessante como esses acrônimos conseguem representar no mundo real exatamente o que propõem, sendo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DRY&lt;/strong&gt; (seco): &lt;em&gt;Don’t repeat yourself&lt;/em&gt; (Não se repita)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WET&lt;/strong&gt; (molhado): &lt;em&gt;We enjoy typing&lt;/em&gt; (Nós gostamos de escrever)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;como-identificar-uma-violação-do-dry&#34;&gt;Como identificar uma violação do DRY?&lt;/h2&gt;
+&lt;p&gt;A forma mais clara de identificar uma possível violação do princípio é no momento em que você aplica um &lt;code&gt;ctrl+c&lt;/code&gt; + &lt;code&gt;ctrl+v&lt;/code&gt;. Este simples ato pode representar a necessidade de aprimoramento estrutural em seu código.&lt;/p&gt;
+&lt;p&gt;Outro caso é quando uma alteração na regra de negócio faz com que seja necessário alterar o código em mais de um lugar. A violação fica evidente uma vez que a representação em código da regra não é única e livre de ambiguidades. E deveria ser.&lt;/p&gt;
+&lt;p&gt;Há violação do DRY também relacionada à escrita de comentários no código, já que cada vez que seu código precisa ser alterado, seu comentário também precisará, gerando assim trabalho redobrado sempre.&lt;/p&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Vimos como o &lt;strong&gt;DRY&lt;/strong&gt; pode ser utilizado para evitar situações onde blocos de código executam conceitualmente a mesma função. Nelas, sempre que uma alteração é solicitada, diversos lugares do código devem ser alterados, aumentando a probabilidade de inserção de &lt;em&gt;bugs&lt;/em&gt; e tempo gasto com desenvolvimento.&lt;/p&gt;
+&lt;p&gt;Esse conceito pode ser aplicado em qualquer escala, do nível mais baixo (código) até os níveis mais altos, evitando a construção de aplicações inteiras duplicadas.&lt;/p&gt;
+&lt;p&gt;A busca por soluções genéricas que evitam a duplicação de trabalho, desencadeou a criação de ferramentas mais inteligentes, como linguagens de programação mais avançadas, Padrões de projeto, recursos avançados de manipulação de código, arquiteturas mais sofisticadas, etc.&lt;/p&gt;
+&lt;p&gt;Por isso, após muito tempo de reflexão, acredito ser, na minha opinião, o conceito mais importante na programação.&lt;/p&gt;
+&lt;h2 id=&#34;referências&#34;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Don&amp;rsquo;t repeat yourself on Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://wiki.c2.com/?DontRepeatYourself&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Don&amp;rsquo;t repeat yourself on WikiWikiWeb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
